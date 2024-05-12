@@ -6,10 +6,9 @@ import styles from './page.module.css'
 //components
 import BoxIcon from '@/app/Small-Components/BoxIcon/BoxIcon';
 import Arrow from '../CarusoComponents/Arrow/Arrow';
+import ProgressBar from '../CarusoComponents/ProgressBar/ProgressBar';
 
 //icons
-import { IoIosArrowBack } from "react-icons/io";
-import { IoIosArrowForward } from "react-icons/io";
 import { FaDownload } from "react-icons/fa";
 import { IoShieldCheckmarkSharp } from "react-icons/io5";
 
@@ -43,18 +42,7 @@ export default function Caruso() {
                         </div>
                     </div>
                 </div>
-                <div className={styles.progress}>
-                    <div className={styles.box}></div>
-                    <div className={styles.box}></div>
-                    <div className={styles.box}></div>
-                    <div className={styles.box}></div>
-                    <div className={styles.box}></div>
-                    <div className={styles.box}></div>
-                    <div className={styles.box}></div>
-                    <div className={styles.box}></div>
-                    <div className={styles.box}></div>
-                    <div className={styles.box}></div>
-                </div>
+               <ProgressBar count={10} />
             </div>
 
             <Arrow left={false} />
