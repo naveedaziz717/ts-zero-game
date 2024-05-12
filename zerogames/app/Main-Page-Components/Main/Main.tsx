@@ -5,6 +5,7 @@ import styles from './page.module.css'
 import Caruso from './Caruso/Caruso'
 import Banner from '@/app/Small-Components/Banner/Banner'
 import SpecialCaruso from './SpecialCaruso/SpecialCaruso'
+import CategoryCaruso from './CategoryCaruso/CategoryCaruso'
 
 export default function MainShow() {
     return (
@@ -25,6 +26,10 @@ export default function MainShow() {
 
             <div className={styles.caruso}>
                 <SpecialCaruso />
+            </div>
+
+            <div className={styles.caruso}>
+                <CategoryCaruso />
             </div>
         </div>
     )
