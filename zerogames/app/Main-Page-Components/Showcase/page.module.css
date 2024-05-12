@@ -1,7 +1,6 @@
 .showcase {
     position: relative;
     width: 100%;
-    height: 500px;
 }
 
 .showvideo {
@@ -11,15 +10,52 @@
     z-index: -1;
 }
 
-.showvideo video{
+.showvideo video {
     width: 100%;
     height: 100%;
     object-fit: cover;
     filter: brightness(0.7);
 }
 
-.main{
+.main {
     display: flex;
     flex-direction: column;
     align-items: center;
+}
+
+.random {
+    display: flex;
+    align-items: center;
+    margin: 4em;
+    width: 1350px;
+}
+
+.first {
+    display: flex;
+    flex-direction: column;
+    margin-right: auto;
+    gap: 0.5em;
+}
+
+.first1 {
+    display: flex;
+    gap: 1em;
+}
+
+.middle {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.last{
+    display: flex;
+    flex-direction: column;
+    margin-left: auto;
+    gap: 0.5em;
+}
+
+.last1{
+    display: flex;
+    gap: 1em;
 }
