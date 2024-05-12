@@ -17,3 +17,6 @@
     background-color: white;
 }
 
+.default:hover{
+    transform: scale(1.06);
+}
