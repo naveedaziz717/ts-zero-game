@@ -31,7 +31,7 @@ export default function Caruso() {
                                 backgroundColor='green'
                                 width='120px'
                                 height='30px'
-                                title='Download'
+                                title='View'
                                 color='white'
                                 borderRadius='0.3em'
                                 transition='all 0.3s'
