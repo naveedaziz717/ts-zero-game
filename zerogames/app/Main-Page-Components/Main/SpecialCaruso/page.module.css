@@ -1,0 +1,59 @@
+.caruso{
+    display: flex;
+    align-items: center;
+    gap: 1em;
+    margin-top: 5em;
+}
+
+.box{
+    width: 330px;
+    height: 450px;
+    background-color: rgb(26, 32, 39);
+    cursor: pointer;
+}
+
+.box img{
+    width: 100%;
+    height: 210px;
+}
+
+.info{
+    color: white;
+    margin-left: 1em;
+}
+
+.info h2{
+    font-weight: 500;
+}
+
+.info p{
+    font-size: 0.9rem;
+    padding-right: 1em;
+    color: rgb(255, 246, 246);
+}
+
+.boxes{
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+}
+
+
+.box2{
+    width: 320px;
+    height: 217px;
+    background-color: rgb(14, 16, 19);
+    cursor: pointer;
+}
+
+.box2 img{
+    width: 100%;
+    height: 160px;
+}
+
+.box2 h2{
+    color: white;
+    font-weight: 500;
+    margin-top: 0.4em;
+    text-align: center;
+}
