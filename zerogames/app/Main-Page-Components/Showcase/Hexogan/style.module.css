@@ -1,24 +1,29 @@
-.hexagon {
-    width: var(--hexagon-width, 100px);
-    height: var(--hexagon-height, 57.735px);
-    background-color: #ccc;
-    position: relative;
+.random{
+    overflow: hidden;
+    cursor: pointer;
+    border: 2px solid transparent;
+    border-radius: 10px;
+    animation: glow 1s infinite alternate;
+    transition: all 0.3s; 
 }
 
-.hexagon:before, .hexagon:after {
-    content: "";
-    position: absolute;
-    width: 0;
-    border-left: calc(var(--hexagon-width) / 2) solid transparent;
-    border-right: calc(var(--hexagon-width) / 2) solid transparent;
+.random:hover{
+    transform: scale(1.06);
 }
 
-.hexagon:before {
-    top: calc(-1 * var(--hexagon-height) / 2);
-    border-bottom: calc(var(--hexagon-height) / 2) solid #ccc;
+.random img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
-.hexagon:after {
-    bottom: calc(-1 * var(--hexagon-height) / 2);
-    border-top: calc(var(--hexagon-height) / 2) solid #ccc;
+@keyframes glow {
+    0% {
+        border-color: transparent;
+        box-shadow: 0 0 10px rgba(255, 0, 0, 0.5);
+    }
+    100% {
+        border-color: red;
+        box-shadow: 0 0 20px rgba(255, 0, 0, 0.8);
+    }
 }
