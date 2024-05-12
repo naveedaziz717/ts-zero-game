@@ -5,6 +5,7 @@ import styles from './page.module.css'
 
 //components
 import BoxIcon from '@/app/Small-Components/BoxIcon/BoxIcon';
+import Arrow from '../CarusoComponents/Arrow/Arrow';
 
 //icons
 import { IoIosArrowBack } from "react-icons/io";
@@ -15,9 +16,7 @@ import { IoShieldCheckmarkSharp } from "react-icons/io5";
 export default function Caruso() {
     return (
         <div className={styles.caruso}>
-            <div className={styles.left}>
-                <IoIosArrowBack className={styles.arrow} />
-            </div>
+              <Arrow left={true} />
 
             <div className={styles.middle}>
                 <div className={styles.title}><p>FEATURED & RECOMMENDED</p></div>
@@ -58,9 +57,7 @@ export default function Caruso() {
                 </div>
             </div>
 
-            <div className={styles.right}>
-                <IoIosArrowForward className={styles.arrow} />
-            </div>
+            <Arrow left={false} />
         </div >
     )
 }
