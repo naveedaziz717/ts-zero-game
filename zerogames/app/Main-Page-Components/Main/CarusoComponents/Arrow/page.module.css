@@ -1,0 +1,36 @@
+
+.left {
+    margin-right: auto;
+    background: linear-gradient(to left, rgba(48, 69, 92, 0.1) 0%, rgba(48, 69, 92, 0.6) 100%);
+}
+
+.right {
+    margin-left: auto;
+    background: linear-gradient(to right, rgba(48, 69, 92, 0.1) 0%, rgba(48, 69, 92, 0.6) 100%);
+}
+
+
+.left,
+.right {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 100px;
+    transition: all 0.3s;
+    cursor: pointer;
+}
+
+.left:hover {
+    background-color: #30455c46;
+}
+
+.right:hover {
+    background-color: #30455c46;
+}
+
+
+.arrow {
+    color: white;
+    font-size: 3rem;
+}
