@@ -9,21 +9,28 @@ interface BoxIconProps {
     title: string;
     children: ReactNode;
     border?: string;
-    titleColor?: string;
-    titleFontSize?: string;
+    fontSize?: string;
+    color?: string;
     titleFontWeight?: string;
+    paddingLeft?: string;
+    paddingRight?: string;
+    textTransform?: any;
+    transition?: string;
+    nav?: boolean;
 }
 
 export default function BoxIcon({ width, height, borderRadius, backgroundColor,
-    title, children, border, titleColor, titleFontSize, titleFontWeight }: BoxIconProps) {
+    title, children, border, titleFontWeight, 
+    paddingLeft, paddingRight, textTransform, nav, transition, color, fontSize }: BoxIconProps) {
     return (
-        <div className={styles.box}>
-            <p style=
-                {{
-                    color: titleColor,
-                    fontSize: titleFontSize,
-                    fontWeight: titleFontWeight
-                }}
+        <div style={{ width, height, borderRadius, backgroundColor, 
+            border, paddingLeft, paddingRight, transition, color, fontSize }} 
+        className={`${nav ? `${styles.box} ${styles.navhover}` : styles.box}`}>
+            <span className={styles.icon}>{children}</span>
+            <p style={{
+                fontWeight: titleFontWeight,
+                textTransform
+            }}
             >{title}</p>
         </div>
     )

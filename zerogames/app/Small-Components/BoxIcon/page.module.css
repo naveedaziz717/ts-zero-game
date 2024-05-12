@@ -1,0 +1,19 @@
+.box{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.3em;
+    cursor: pointer;
+}
+
+.icon{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.navhover:hover{
+    color: black !important;
+    background-color: white;
+}
+
