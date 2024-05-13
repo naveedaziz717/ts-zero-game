@@ -1,4 +1,6 @@
-import React from 'react'
+'use client'
+
+import React, { useEffect, useState } from 'react'
 import styles from './page.module.css'
 
 //components
@@ -6,48 +8,164 @@ import Arrow from '../CarusoComponents/Arrow/Arrow';
 import ProgressBar from '../CarusoComponents/ProgressBar/ProgressBar';
 
 
+interface GameProps {
+    imgSrc: string;
+    title: string;
+    description: string;
+    link?: string;
+}
+
+
 export default function SpecialCaruso() {
+
+    const [page, setPage] = useState<number>(0)
+    const [currentGames, setCurrentGames] = useState<Array<GameProps>>()
+
+    const [part1Games, setPart1Games] = useState<Array<GameProps>>()
+    const [part2Games, setPart2Games] = useState<Array<GameProps>>()
+    const [part3Games, setPart3Games] = useState<Array<GameProps>>()
+    const [part4Games, setPart4Games] = useState<Array<GameProps>>()
+    const [part5Games, setPart5Games] = useState<Array<GameProps>>()
+
+    const [animation, setAnimation] = useState<boolean>(false)
+
+    useEffect(() => {
+
+
+        setPart1Games([
+            { title: 'Minecraft', description: 'Minecraft is cool', imgSrc: 'https://wallpapercave.com/wp/wp13340609.jpg' },
+            { title: 'Call of Duty', description: 'Call of Duty is cool', imgSrc: 'https://wallpapercave.com/wp/wp1810408.jpg' },
+            { title: 'Regular Show', description: 'Regural show is cool', imgSrc: 'https://wallpapercave.com/wp/wp12413294.jpg' },
+            { title: 'CS:GO', description: 'CS:GO is cool', imgSrc: 'https://wallpapercave.com/wp/wp8745613.jpg' },
+        ])
+
+        setPart2Games([
+            { title: 'Minecraft', description: 'Minecraft is cool', imgSrc: 'https://wallpapercave.com/wp/wp13340609.jpg' },
+            { title: 'Minecraft', description: 'Minecraft is cool', imgSrc: 'https://wallpapercave.com/wp/wp13340609.jpg' },
+            { title: 'Minecraft', description: 'Minecraft is cool', imgSrc: 'https://wallpapercave.com/wp/wp13340609.jpg' },
+            { title: 'Minecraft', description: 'Minecraft is cool', imgSrc: 'https://wallpapercave.com/wp/wp13340609.jpg' },
+        ])
+
+        setPart3Games([
+            { title: 'Minecraft', description: 'Minecraft is cool', imgSrc: 'https://wallpapercave.com/wp/wp13340609.jpg' },
+            { title: 'Minecraft', description: 'Minecraft is cool', imgSrc: 'https://wallpapercave.com/wp/wp13340609.jpg' },
+            { title: 'Minecraft', description: 'Minecraft is cool', imgSrc: 'https://wallpapercave.com/wp/wp13340609.jpg' },
+            { title: 'Minecraft', description: 'Minecraft is cool', imgSrc: 'https://wallpapercave.com/wp/wp13340609.jpg' },
+        ])
+
+        setPart4Games([
+            { title: 'Minecraft', description: 'Minecraft is cool', imgSrc: 'https://wallpapercave.com/wp/wp13340609.jpg' },
+            { title: 'Minecraft', description: 'Minecraft is cool', imgSrc: 'https://wallpapercave.com/wp/wp13340609.jpg' },
+            { title: 'Minecraft', description: 'Minecraft is cool', imgSrc: 'https://wallpapercave.com/wp/wp13340609.jpg' },
+            { title: 'Minecraft', description: 'Minecraft is cool', imgSrc: 'https://wallpapercave.com/wp/wp13340609.jpg' },
+        ])
+        setPart5Games([
+            { title: 'Minecraft', description: 'Minecraft is cool', imgSrc: 'https://wallpapercave.com/wp/wp13340609.jpg' },
+            { title: 'Minecraft', description: 'Minecraft is cool', imgSrc: 'https://wallpapercave.com/wp/wp13340609.jpg' },
+            { title: 'Minecraft2', description: 'Minecraft is cool2', imgSrc: 'https://wallpapercave.com/wp/wp13340609.jpg' },
+            { title: 'MinecraftF', description: 'Minecraft is coolF', imgSrc: 'https://wallpapercave.com/wp/wp13340609.jpg' },
+        ])
+
+
+    }, [])
+
+    const switchPage = (page: number) => {
+        setPage(page)
+    }
+    
+
+    const nextPage = () => {
+        if (page === 4) {
+            setPage(0)
+        } else {
+            setPage(p => p + 1)
+        }
+    }
+
+    const backPage = () => {
+        if (page === 0) {
+            setPage(4)
+        } else {
+            setPage(p => p - 1)
+        }
+    }
+
+    useEffect(() => {
+        switch (page) {
+            case 0:
+                setCurrentGames(part1Games);
+                break;
+            case 1:
+                setCurrentGames(part2Games);
+                break;
+            case 2:
+                setCurrentGames(part3Games);
+                break;
+            case 3:
+                setCurrentGames(part4Games);
+                break;
+            case 4:
+                setCurrentGames(part5Games);
+                break;
+            default:
+                setCurrentGames(part1Games);
+                break;
+        }
+        console.log(currentGames)
+        setAnimation(true);
+    }, [page]);
+
+    const onAnimationEnd = () => {
+        setAnimation(false)
+    };
+
     return (
         <div className={styles.thecaruso}>
             <div className={styles.caruso}>
-                <Arrow left={true} />
-                <div className={styles.box}>
-                    <img src='https://wallpapercave.com/wp/wp9533384.jpg'></img>
-                    <div className={styles.info}>
-                        <h2>Lego Pirates</h2>
-                        <p>Lego Pirates of the Caribbean:
-                            The Video Game is a Lego-themed
-                            action-adventure video game developed by
-                            Traveller's Tales and published by Disney Interactive</p>
-                    </div>
-                </div>
-                <div className={styles.box}>
-                    <img src='https://wallpapercave.com/wp/wp6049945.jpg'></img>
-                    <div className={styles.info}>
-                        <h2>Lego Star Wars</h2>
-                        <p>Lego Star Wars is based on the Star Wars saga and franchise.
-                            The product line directly focuses on the Star Wars characters
-                            from the films and TV Series, with the exception of a few special characters.</p>
-                    </div>
-                </div>
-                <div className={styles.boxes}>
-                    <div className={styles.box2}>
-                        <img src='https://wallpapercave.com/wp/wp12152112.jpg'></img>
-                        <div className={styles.info2}>
-                            <h2>Sonst Of The Forest</h2>
-                        </div>
-                    </div>
-                    <div className={styles.box2}>
-                        <img src='https://wallpapercave.com/wp/wp12803694.png'></img>
-                        <div className={styles.info2}>
-                            <h2>Counter Strike 2</h2>
-                        </div>
-                    </div>
-                </div>
+                <Arrow onClick={() => { backPage() }} left={true} />
 
-                <Arrow left={false} />
+                {currentGames?.map((game, index) => (
+                    <React.Fragment key={index}>
+                        {index < 2 &&
+                            <div className={`${styles.box} ${animation ? styles.opac : ''}`} onAnimationEnd={onAnimationEnd}>
+                                <img loading='lazy' src={game.imgSrc}></img>
+                                <div className={styles.info}>
+                                    <h2>{game.title}</h2>
+                                    <p>{game.description}</p>
+                                </div>
+                            </div>
+                        }
+
+
+                    </React.Fragment>
+                ))}
+
+                <div className={styles.boxes}>
+                    {currentGames?.map((game, index) => (
+                        <React.Fragment key={index}>
+                            {index === 2 &&
+                                <div className={`${styles.box2} ${animation ? styles.opac : ''}`} onAnimationEnd={onAnimationEnd}>
+                                    <img loading='lazy' src={game.imgSrc}></img>
+                                    <div className={styles.info2}>
+                                        <h2>{game.title}</h2>
+                                    </div>
+                                </div>
+                            }
+
+                            {index === 3 &&
+                                <div className={`${styles.box2} ${animation ? styles.opac : ''}`} onAnimationEnd={onAnimationEnd}>
+                                    <img loading='lazy' src={game.imgSrc}></img>
+                                    <div className={styles.info2}>
+                                        <h2>{game.title}</h2>
+                                    </div>
+                                </div>
+                            }
+                        </React.Fragment>
+                    ))}
+                </div>
+                <Arrow onClick={() => { nextPage() }} left={false} />
             </div>
-            <ProgressBar count={10} />
+            <ProgressBar page={page} setPage={switchPage} count={5} />
         </div>
     )
 }
