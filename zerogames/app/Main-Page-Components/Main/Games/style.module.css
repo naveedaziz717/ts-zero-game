@@ -1,0 +1,25 @@
+.games{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1.5em;
+    margin-top: 5em;
+}
+
+.pages{
+    margin-top: 3em;
+    display: flex;
+    justify-content: center;
+    gap: 0.5em;
+}
+
+.page{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 35px;
+    height: 35px;
+    background-color: black;
+    color: white;
+    cursor: pointer;
+}
