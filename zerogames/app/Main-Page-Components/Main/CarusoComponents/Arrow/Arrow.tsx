@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { MouseEventHandler } from 'react'
 import styles from './page.module.css'
 
 //icons
@@ -7,12 +7,12 @@ import { IoIosArrowForward } from "react-icons/io";
 
 interface ArrowProps {
     left: boolean;
-
+    onClick?: MouseEventHandler<HTMLDivElement>;
 }
 
-export default function Arrow({ left }: ArrowProps) {
+export default function Arrow({ left, onClick }: ArrowProps) {
     return (
-        <div className={`${left ? styles.left : styles.right}`}>
+        <div onClick={onClick} className={`${left ? styles.left : styles.right}`}>
             {left ? <IoIosArrowBack className={styles.arrow} /> :
                 <IoIosArrowForward className={styles.arrow} />
             }

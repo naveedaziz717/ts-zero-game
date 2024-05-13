@@ -27,6 +27,8 @@ export default function Caruso() {
     const [currentGame, setCurrentGame] = useState<GameProps>()
     const [games, setGames] = useState<Array<GameProps>>()
 
+    const [animation, setAnimation] = useState<boolean>(false)
+
     const intervalRef = useRef<NodeJS.Timeout>();
 
     useEffect(() => {
@@ -46,8 +48,40 @@ export default function Caruso() {
 
     const switchPage = (page: number) => {
         setPage(page)
-        if(games) {
+        if (games) {
             setCurrentGame(games[page]);
+        }
+    }
+
+    const nextPage = () => {
+        if (page === 9) {
+            setPage(0)
+        } else {
+            setPage(p => p + 1)
+        }
+        if (intervalRef.current) {
+            clearInterval(intervalRef.current);
+            intervalRef.current = setInterval(() => {
+                if (games) {
+                    setPage((prevPage) => (prevPage + 1) % games.length);
+                }
+            }, 5000);
+        }
+    }
+
+    const backPage = () => {
+        if (page === 0) {
+            setPage(9)
+        } else {
+            setPage(p => p - 1)
+        }
+        if (intervalRef.current) {
+            clearInterval(intervalRef.current);
+            intervalRef.current = setInterval(() => {
+                if (games) {
+                    setPage((prevPage) => (prevPage + 1) % games.length);
+                }
+            }, 5000);
         }
     }
 
@@ -55,16 +89,16 @@ export default function Caruso() {
         if (games && page >= 0 && page < games.length) {
             setCurrentGame(games[page]);
         }
-        console.log(currentGame)
+        setAnimation(true);
     }, [page, games]);
 
     useEffect(() => {
         intervalRef.current = setInterval(() => {
-            if(games) {
+            if (games) {
                 setPage((prevPage) => (prevPage + 1) % games.length);
             }
-         
-        }, 5000); 
+
+        }, 5000);
 
         return () => {
             if (intervalRef.current) {
@@ -78,21 +112,25 @@ export default function Caruso() {
         if (intervalRef.current) {
             clearInterval(intervalRef.current);
             intervalRef.current = setInterval(() => {
-                if(games) {
+                if (games) {
                     setPage((prevPage) => (prevPage + 1) % games.length);
                 }
             }, 5000);
         }
     };
 
+    const onAnimationEnd = () => {
+        setAnimation(false)
+    };
+
 
     return (
         <div className={styles.caruso}>
-            <Arrow left={true} />
+            <Arrow onClick={() => { backPage() }} left={true} />
 
             <div className={styles.middle}>
                 <div className={styles.title}><p>FEATURED & RECOMMENDED</p></div>
-                <div className={styles.image}>
+                <div className={`${animation ? `${styles.image} ${styles.opac}` : styles.image}`} onAnimationEnd={onAnimationEnd}>
                     <img src={currentGame?.imgSrc}></img>
                     <div className={styles.info}>
                         <div className={styles.theinfo}>
@@ -118,7 +156,7 @@ export default function Caruso() {
                 <ProgressBar page={page} setPage={handleProgressBarClick} count={10} />
             </div>
 
-            <Arrow left={false} />
+            <Arrow onClick={() => { nextPage() }} left={false} />
         </div >
     )
 }

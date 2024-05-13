@@ -43,46 +43,60 @@
     flex-direction: column;
 }
 
-.title{
+.title {
     color: white;
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.25);
     font-size: 0.9rem;
 }
 
-.image{
+.image {
     display: flex;
 }
 
-.image img{
+.image img {
     width: 600px;
     height: 380px;
     cursor: pointer;
 }
 
-.info{
+.opac{
+    animation: opac 0.5s forwards;
+}
+
+@keyframes opac {
+    0% {
+        transform: scale(0.9);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+.info {
     position: relative;
     width: 300px;
     background-color: rgb(26, 32, 39);
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
 
-.theinfo{
+.theinfo {
     margin-left: 1em;
 }
 
-.infotitle{
+.infotitle {
     font-weight: 500;
     color: white;
 }
 
-.infodesc{
+.infodesc {
     padding-right: 1em;
     color: rgb(255, 246, 246);
 }
 
 
 
-.infoicon{
+.infoicon {
     position: absolute;
     right: 1em;
     display: flex;
