@@ -7,7 +7,6 @@ import Banner from '@/app/Small-Components/Banner/Banner'
 import SpecialCaruso from './SpecialCaruso/SpecialCaruso'
 import CategoryCaruso from './CategoryCaruso/CategoryCaruso'
 import Games from './Games/Games'
-import Socialsbox from './SocialsBox/Socialsbox'
 
 export default function MainShow() {
     return (
@@ -38,9 +37,6 @@ export default function MainShow() {
                 <Games />
             </div>
 
-            <div className={styles.socialbox}>
-                <Socialsbox />
-            </div>
         </div>
     )
 }

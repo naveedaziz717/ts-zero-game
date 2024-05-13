@@ -8,7 +8,6 @@ import MainShow from "./Main-Page-Components/Main/Main";
 export default function Home() {
   return (
     <>
-      <Showcase />
       <MainShow />
     </>
   );

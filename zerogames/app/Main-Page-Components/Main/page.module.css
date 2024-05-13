@@ -1,6 +1,7 @@
 .main{
     width: 100%;
     background-color: #1a293a;
+    padding-bottom: 3em;
 }
 
 .caruso{
@@ -21,7 +22,3 @@
     width: 1700px;
 }
 
-.socialbox{
-    display: flex;
-    justify-content: center;
-}
