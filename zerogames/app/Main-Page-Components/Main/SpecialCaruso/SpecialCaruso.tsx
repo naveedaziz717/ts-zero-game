@@ -32,7 +32,7 @@ export default function SpecialCaruso() {
         { title: 'Regular Show', description: 'Regural show is cool', imgSrc: 'https://wallpapercave.com/wp/wp12413294.jpg' },
         { title: 'CS:GO', description: 'CS:GO is cool', imgSrc: 'https://wallpapercave.com/wp/wp8745613.jpg' },
     ])
-    
+
     const [part2Games, setPart2Games] = useState<Array<GameProps>>([
         { title: 'Minecraft', description: 'Minecraft is cool', imgSrc: 'https://wallpapercave.com/wp/wp13340609.jpg' },
         { title: 'Minecraft', description: 'Minecraft is cool', imgSrc: 'https://wallpapercave.com/wp/wp13340609.jpg' },
@@ -107,7 +107,6 @@ export default function SpecialCaruso() {
                 setCurrentGames(part1Games);
                 break;
         }
-        console.log(currentGames)
         setAnimation(true);
     }, [page]);
 
