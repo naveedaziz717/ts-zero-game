@@ -6,6 +6,7 @@ import Caruso from './Caruso/Caruso'
 import Banner from '@/app/Small-Components/Banner/Banner'
 import SpecialCaruso from './SpecialCaruso/SpecialCaruso'
 import CategoryCaruso from './CategoryCaruso/CategoryCaruso'
+import Games from './Games/Games'
 
 export default function MainShow() {
     return (
@@ -30,6 +31,10 @@ export default function MainShow() {
 
             <div className={styles.caruso}>
                 <CategoryCaruso />
+            </div>
+
+            <div className={styles.games}>
+                <Games />
             </div>
         </div>
     )
