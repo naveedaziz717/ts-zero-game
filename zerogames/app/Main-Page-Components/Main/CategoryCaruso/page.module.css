@@ -42,3 +42,17 @@
     text-transform: uppercase;
     font-size: 1.2rem;
 }
+
+.opac{
+    animation: opac 0.4s forwards;
+}
+
+@keyframes opac {
+    0% {
+        transform: scale(0.7);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
