@@ -3,6 +3,7 @@ import styles from './page.module.css'
 import Link from 'next/link'
 
 //components
+import GamePage from '@/app/Global-Components/GamePage/GamePage';
 import CategorieGames from './GetCategorieGames/CategorieGames';
 
 interface params {
@@ -13,16 +14,8 @@ interface params {
 
 export default function page({ params }: params) {
   return (
-    <div className={styles.main}>
-      <p className={styles.categorie}>
-        <Link href={'/'}><span className={styles.nav}>{'Home'}</span></Link> {' > '}
-        <Link href={'/categories'}><span className={styles.nav}>{'Categories'}</span></Link> {' > '}
-        <Link href={'/categories/' + params.categorie}><span className={styles.nav}>{params.categorie}</span></Link>
-      </p>
-
-      <div className={styles.games}>
+      <GamePage category={params.categorie} singles={false} >
         <CategorieGames />
-      </div>
-    </div>
+      </GamePage>
   )
 }
