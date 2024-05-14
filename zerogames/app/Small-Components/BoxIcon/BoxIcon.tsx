@@ -20,14 +20,15 @@ interface BoxIconProps {
     nav?: boolean;
     onClick?: MouseEventHandler<HTMLDivElement>;
     onHover?:  MouseEventHandler<HTMLDivElement>;
+    onUnHover?:  MouseEventHandler<HTMLDivElement>;
 }
 
 export default function BoxIcon({ width, height, borderRadius, backgroundColor,
     title, children, border, titleFontWeight, 
     paddingLeft, paddingRight, textTransform, nav, transition, color, fontSize, iconFontSize,
-    onClick, onHover }: BoxIconProps) {
+    onClick, onHover, onUnHover }: BoxIconProps) {
     return (
-        <div onClick={onClick} onMouseOver={onHover} style={{ width, height, borderRadius, backgroundColor, 
+        <div onClick={onClick} onMouseOver={onHover} onMouseLeave={onUnHover} style={{ width, height, borderRadius, backgroundColor, 
             border, paddingLeft, paddingRight, transition, color, fontSize }} 
         className=
         {`${nav ? `${styles.box} ${styles.navhover}` : `${styles.box} ${styles.default}` }`}>
