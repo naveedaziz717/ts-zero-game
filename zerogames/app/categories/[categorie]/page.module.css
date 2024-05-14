@@ -4,14 +4,6 @@
     background-color: #1a293a;
 }
 
-.categorie{
-    padding-top: 1.5em;
-    text-align: center;
-    font-size: 0.9rem;
-    margin: 0; 
-    color: white;
-}
-
 .nav{
     cursor: pointer;
     text-decoration: underline;
