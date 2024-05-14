@@ -1,5 +1,9 @@
+'use client'
+
 import React from 'react'
 import styles from './page.module.css'
+
+import { useRouter } from 'next/navigation'
 
 //components
 import BoxIcon from '@/app/Small-Components/BoxIcon/BoxIcon'
@@ -12,6 +16,8 @@ import { FaListUl } from "react-icons/fa6";
 import { FaDiscord } from "react-icons/fa6";
 
 export default function Navbar() {
+
+    const router = useRouter()
 
     const logo = '/images/logo/logo.png'
 
@@ -34,6 +40,7 @@ export default function Navbar() {
                     title='Home'
                     transition='all 0.3s'
                     color='white'
+                    onClick={() => {router.push('/')}}
                     nav={true}
                 >
                     <FaHome />
@@ -68,6 +75,7 @@ export default function Navbar() {
                     title='Multiplayer'
                     transition='all 0.3s'
                     color='white'
+                    onClick={() => {router.push('/multiplayer')}}
                     nav={true}
                 >
                     <FaGamepad />
@@ -85,6 +93,7 @@ export default function Navbar() {
                     title='Recent'
                     transition='all 0.3s'
                     color='white'
+                    onClick={() => {router.push('/recent')}}
                     nav={true}
                 >
                     <FaUpload />
