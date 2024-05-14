@@ -30,3 +30,31 @@
     align-items: center;
     margin-left: 10em;
 }
+
+.dropcategorie{
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    top: 90px;
+    left: 681px;
+    z-index: 1;
+    width: 150px;
+    padding: 0.5em;
+    background-color: white;
+}
+
+.dropcategorie p{
+    cursor: pointer;
+    text-align: center;
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
+    width: 100%;
+    transition: all 0.4s;
+    margin: 0;
+}
+
+.dropcategorie p:hover{
+    background-color: rgb(228, 231, 235);
+}
