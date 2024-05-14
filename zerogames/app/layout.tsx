@@ -3,6 +3,9 @@ import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"] });
 
+//providers
+import { CarusosProvider } from "./States/Carusos";
+
 //components
 import Navbar from "./Global-Components/Navbar/navbar";
 import Footer from "./Global-Components/Footer/Footer";
@@ -16,10 +19,16 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <Navbar />
-        <Showcase />
-        {children}
-        <Footer />
+
+        <CarusosProvider>
+
+          <Navbar />
+          <Showcase />
+          {children}
+          <Footer />
+
+        </CarusosProvider>
+        
       </body>
     </html>
   );
