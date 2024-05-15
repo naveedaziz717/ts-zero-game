@@ -40,7 +40,7 @@ export default function CategoryCaruso() {
         },
         fourth: {
             imgSrc: 'https://wallpapercave.com/wp/wp7678946.jpg',
-            title: 'Survival'
+            title: 'Indie'
         }
     })
     const [secondCategory, setSecondCategory] = useState<Category>({
