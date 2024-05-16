@@ -28,6 +28,10 @@ export default function SpecialCaruso() {
 
     const [animation, setAnimation] = useState<boolean>(false)
 
+    useEffect(() => {
+      setCurrentGames(part1Games)
+    },[part1Games])
+
 
 
     const switchPage = (page: number) => {
