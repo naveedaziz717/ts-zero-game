@@ -12,6 +12,10 @@ import ProgressBar from '../CarusoComponents/ProgressBar/ProgressBar';
 import { FaDownload } from "react-icons/fa";
 import { IoShieldCheckmarkSharp } from "react-icons/io5";
 
+//providers
+import { useCarusos } from '@/app/States/Carusos';
+
+
 interface GameProps {
     imgSrc: string;
     title: string;
@@ -20,31 +24,18 @@ interface GameProps {
 }
 
 
-
 export default function Caruso() {
 
     const [page, setPage] = useState<number>(0)
     const [currentGame, setCurrentGame] = useState<GameProps>()
-    const [games, setGames] = useState<Array<GameProps>>()
+
+    const {games, setGames} = useCarusos()
 
     const [animation, setAnimation] = useState<boolean>(false)
 
     const intervalRef = useRef<NodeJS.Timeout>();
 
-    useEffect(() => {
-        setGames([
-            { title: 'Forza Horizon 6', description: 'Forza Horizon 6 is cool', imgSrc: 'https://wallpapercave.com/wp/wp11907420.jpg' },
-            { title: 'Lego Pirates', description: 'Lego Pirates is cool', imgSrc: 'https://wallpapercave.com/wp/wp9533384.jpg' },
-            { title: 'Lego Star Wars', description: 'Lego Star Wars is cool', imgSrc: 'https://wallpapercave.com/wp/wp6049945.jpg' },
-            { title: 'Sonst of the Forest', description: 'Sonst of the Forest is cool', imgSrc: 'https://wallpapercave.com/wp/wp12152112.jpg' },
-            { title: 'Forza Horizon 5', description: 'Forza is cool', imgSrc: 'https://wallpapercave.com/wp/wp11907420.jpg' },
-            { title: 'Forza Horizon 6', description: 'Forza is cool', imgSrc: 'https://wallpapercave.com/wp/wp11907420.jpg' },
-            { title: 'Forza Horizon 6', description: 'Forza is cool', imgSrc: 'https://wallpapercave.com/wp/wp11907420.jpg' },
-            { title: 'Forza Horizon 6', description: 'Forza is cool', imgSrc: 'https://wallpapercave.com/wp/wp11907420.jpg' },
-            { title: 'Forza Horizon 6', description: 'Forza is cool', imgSrc: 'https://wallpapercave.com/wp/wp11907420.jpg' },
-            { title: 'Forza Horizon 6', description: 'Forza is cool', imgSrc: 'https://wallpapercave.com/wp/wp11907420.jpg' },
-        ])
-    }, [])
+
 
     const switchPage = (page: number) => {
         setPage(page)

@@ -54,9 +54,11 @@
 }
 
 .image img {
-    width: 600px;
-    height: 380px;
+    width: 540px;
+    height: 420px;
+    object-fit: fill;
     cursor: pointer;
+    filter: brightness(0.7);
 }
 
 .opac{

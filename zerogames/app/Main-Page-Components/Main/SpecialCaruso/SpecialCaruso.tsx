@@ -7,6 +7,9 @@ import styles from './page.module.css'
 import Arrow from '../CarusoComponents/Arrow/Arrow';
 import ProgressBar from '../CarusoComponents/ProgressBar/ProgressBar';
 
+//Providers
+import { useCarusos } from '@/app/States/Carusos';
+
 
 interface GameProps {
     imgSrc: string;
@@ -19,47 +22,9 @@ interface GameProps {
 export default function SpecialCaruso() {
 
     const [page, setPage] = useState<number>(0)
-    const [currentGames, setCurrentGames] = useState<Array<GameProps>>([
-        { title: 'Minecraft', description: 'Minecraft is cool', imgSrc: 'https://wallpapercave.com/wp/wp13340609.jpg' },
-        { title: 'Call of Duty', description: 'Call of Duty is cool', imgSrc: 'https://wallpapercave.com/wp/wp1810408.jpg' },
-        { title: 'Regular Show', description: 'Regural show is cool', imgSrc: 'https://wallpapercave.com/wp/wp12413294.jpg' },
-        { title: 'CS:GO', description: 'CS:GO is cool', imgSrc: 'https://wallpapercave.com/wp/wp8745613.jpg' },
-    ])
+    const [currentGames, setCurrentGames] = useState<Array<GameProps>>()
 
-    const [part1Games, setPart1Games] = useState<Array<GameProps>>([
-        { title: 'Minecraft', description: 'Minecraft is cool', imgSrc: 'https://wallpapercave.com/wp/wp13340609.jpg' },
-        { title: 'Call of Duty', description: 'Call of Duty is cool', imgSrc: 'https://wallpapercave.com/wp/wp1810408.jpg' },
-        { title: 'Regular Show', description: 'Regural show is cool', imgSrc: 'https://wallpapercave.com/wp/wp12413294.jpg' },
-        { title: 'CS:GO', description: 'CS:GO is cool', imgSrc: 'https://wallpapercave.com/wp/wp8745613.jpg' },
-    ])
-
-    const [part2Games, setPart2Games] = useState<Array<GameProps>>([
-        { title: 'Minecraft', description: 'Minecraft is cool', imgSrc: 'https://wallpapercave.com/wp/wp13340609.jpg' },
-        { title: 'Minecraft', description: 'Minecraft is cool', imgSrc: 'https://wallpapercave.com/wp/wp13340609.jpg' },
-        { title: 'Minecraft', description: 'Minecraft is cool', imgSrc: 'https://wallpapercave.com/wp/wp13340609.jpg' },
-        { title: 'Minecraft', description: 'Minecraft is cool', imgSrc: 'https://wallpapercave.com/wp/wp13340609.jpg' },
-    ])
-
-    const [part3Games, setPart3Games] = useState<Array<GameProps>>([
-        { title: 'Minecraft', description: 'Minecraft is cool', imgSrc: 'https://wallpapercave.com/wp/wp13340609.jpg' },
-        { title: 'Minecraft', description: 'Minecraft is cool', imgSrc: 'https://wallpapercave.com/wp/wp13340609.jpg' },
-        { title: 'Minecraft', description: 'Minecraft is cool', imgSrc: 'https://wallpapercave.com/wp/wp13340609.jpg' },
-        { title: 'Minecraft', description: 'Minecraft is cool', imgSrc: 'https://wallpapercave.com/wp/wp13340609.jpg' },
-    ])
-
-    const [part4Games, setPart4Games] = useState<Array<GameProps>>([
-        { title: 'Minecraft', description: 'Minecraft is cool', imgSrc: 'https://wallpapercave.com/wp/wp13340609.jpg' },
-        { title: 'Minecraft', description: 'Minecraft is cool', imgSrc: 'https://wallpapercave.com/wp/wp13340609.jpg' },
-        { title: 'Minecraft', description: 'Minecraft is cool', imgSrc: 'https://wallpapercave.com/wp/wp13340609.jpg' },
-        { title: 'Minecraft', description: 'Minecraft is cool', imgSrc: 'https://wallpapercave.com/wp/wp13340609.jpg' },
-    ])
-
-    const [part5Games, setPart5Games] = useState<Array<GameProps>>([
-        { title: 'Minecraft', description: 'Minecraft is cool', imgSrc: 'https://wallpapercave.com/wp/wp13340609.jpg' },
-        { title: 'Minecraft', description: 'Minecraft is cool', imgSrc: 'https://wallpapercave.com/wp/wp13340609.jpg' },
-        { title: 'Minecraft2', description: 'Minecraft is cool2', imgSrc: 'https://wallpapercave.com/wp/wp13340609.jpg' },
-        { title: 'MinecraftF', description: 'Minecraft is coolF', imgSrc: 'https://wallpapercave.com/wp/wp13340609.jpg' },
-    ])
+    const { part1Games, part2Games, part3Games, part4Games, part5Games } = useCarusos()
 
     const [animation, setAnimation] = useState<boolean>(false)
 

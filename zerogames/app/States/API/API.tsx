@@ -4,7 +4,7 @@ import React, { createContext, useContext, useState, ReactNode, Dispatch, SetSta
 
 
 interface ApiType {
-
+   api: string;
 }
 
 
@@ -25,7 +25,7 @@ export const ApiProvider: React.FC<{ children: ReactNode }> = ({ children }) => 
 
 
     const value = {
-       
+       api
      
     };
 
