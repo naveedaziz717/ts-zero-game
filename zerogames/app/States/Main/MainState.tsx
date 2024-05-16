@@ -51,7 +51,7 @@ export const MainProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
             }
 
             const data = await response.json();
-            console.log(data)
+          //  console.log(data)
             setGames(data)
 
         } catch (error) {
@@ -67,7 +67,6 @@ export const MainProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
     const value = {
         games,
         setGames
-
     };
 
     return <MainContext.Provider value={value}>{children}</MainContext.Provider>;
