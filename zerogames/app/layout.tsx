@@ -7,6 +7,7 @@ const inter = Inter({ subsets: ["latin"] });
 import { CarusosProvider } from "./States/Carusos/Carusos";
 import { ApiProvider } from "./States/API/API";
 import { MainProvider } from "./States/Main/MainState";
+import { MainGamesProvider } from "./States/Games/MainGames";
 
 //components
 import Navbar from "./Global-Components/Navbar/navbar";
@@ -27,11 +28,15 @@ export default function RootLayout({
           <MainProvider>
             <CarusosProvider>
 
-              <Navbar />
-              <Showcase />
-              {children}
-              <Footer />
+              <MainGamesProvider>
 
+                <Navbar />
+                <Showcase />
+                {children}
+                <Footer />
+
+              </MainGamesProvider>
+            
             </CarusosProvider>
           </MainProvider>
 
