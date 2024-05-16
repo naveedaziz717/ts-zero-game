@@ -8,7 +8,7 @@ import Arrow from '../CarusoComponents/Arrow/Arrow';
 import ProgressBar from '../CarusoComponents/ProgressBar/ProgressBar';
 
 //Providers
-import { useCarusos } from '@/app/States/Carusos';
+import { useCarusos } from '@/app/States/Carusos/Carusos';
 
 
 interface GameProps {

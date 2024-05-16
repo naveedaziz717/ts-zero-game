@@ -1,11 +1,29 @@
-import React from 'react'
+'use client'
+
+
+
+import React, { useState } from 'react'
 import styles from './page.module.css'
 
 //components
 import ShowcaseNav from './ShowcaseNav/ShowcaseNav'
 import RandomImg from './Hexogan/RandomImg'
 
+//providers
+import { useMain } from '@/app/States/Main/MainState'
+
+interface GameProps {
+    link?: string;
+    imgSrc: string;
+}
+
+
+
 export default function Showcase() {
+
+    const {games, setGames} = useMain()
+
+
     return (
         <div className={styles.showcase}>
             <div className={styles.showvideo}>
@@ -17,77 +35,83 @@ export default function Showcase() {
                 <div className={styles.random}>
                     <div className={styles.first}>
                         <div className={styles.first1}>
-                            <RandomImg
-                                borderRadius='1em'
-                                width='180px'
-                                height='150px'
-                                imgSrc='https://wallpapercave.com/uwp/uwp4255255.jpeg'
-                            />
 
-                            <RandomImg
-                                borderRadius='1em'
-                                width='180px'
-                                height='150px'
-                                imgSrc='https://wallpapercave.com/wp/wp1810408.jpg'
-                            />
+                            {games?.map((game, index) => (
+                                <React.Fragment key={index}>
+                                    {index <= 1 &&
+                                        <RandomImg
+                                            borderRadius='1em'
+                                            width='180px'
+                                            height='150px'
+                                            imgSrc={game.imgSrc}
+                                        />
+                                    }
+                                </React.Fragment>
+                            ))}
+
+
+
                         </div>
 
                         <div className={styles.first1}>
-                            <RandomImg
-                                borderRadius='1em'
-                                width='180px'
-                                height='150px'
-                                imgSrc='https://wallpapercave.com/wp/wp13119966.jpg'
-                            />
-
-                            <RandomImg
-                                borderRadius='1em'
-                                width='180px'
-                                height='150px'
-                                imgSrc='https://wallpapercave.com/wp/wp7340931.jpg'
-                            />
+                            {games?.map((game, index) => (
+                                <React.Fragment key={index}>
+                                    {index > 1 && index <= 3 &&
+                                        <RandomImg
+                                            borderRadius='1em'
+                                            width='180px'
+                                            height='150px'
+                                            imgSrc={game.imgSrc}
+                                        />
+                                    }
+                                </React.Fragment>
+                            ))}
                         </div>
                     </div>
 
                     <div className={styles.middle}>
-                        <RandomImg
-                            borderRadius='1em'
-                            width='480px'
-                            height='350px'
-                            imgSrc='https://wallpapercave.com/uwp/uwp4228497.jpeg'
-                        />
+                        {games?.map((game, index) => (
+                            <React.Fragment key={index}>
+                                {index === 4 &&
+                                    <RandomImg
+                                        borderRadius='1em'
+                                        width='480px'
+                                        height='350px'
+                                        imgSrc={game.imgSrc}
+                                    />
+                                }
+                            </React.Fragment>
+                        ))}
                     </div>
 
                     <div className={styles.last}>
                         <div className={styles.last1}>
-                            <RandomImg
-                                borderRadius='1em'
-                                width='180px'
-                                height='150px'
-                                imgSrc='https://wallpapercave.com/wp/wp5912983.png'
-                            />
-
-                            <RandomImg
-                                borderRadius='1em'
-                                width='180px'
-                                height='150px'
-                                imgSrc='https://wallpapercave.com/wp/wp13384112.jpg'
-                            />
+                        {games?.map((game, index) => (
+                                <React.Fragment key={index}>
+                                    {index > 4 && index <= 6 &&
+                                        <RandomImg
+                                            borderRadius='1em'
+                                            width='180px'
+                                            height='150px'
+                                            imgSrc={game.imgSrc}
+                                        />
+                                    }
+                                </React.Fragment>
+                            ))}
                         </div>
                         <div className={styles.last1}>
-                            <RandomImg
-                                borderRadius='1em'
-                                width='180px'
-                                height='150px'
-                                imgSrc='https://wallpapercave.com/wp/wp13152896.jpg'
-                            />
-
-                            <RandomImg
-                                borderRadius='1em'
-                                width='180px'
-                                height='150px'
-                                imgSrc='https://wallpapercave.com/wp/wp3628771.jpg'
-                            />
+                        {games?.map((game, index) => (
+                                <React.Fragment key={index}>
+                                    {index > 6 && index <= 8 &&
+                                        <RandomImg
+                                            borderRadius='1em'
+                                            width='180px'
+                                            height='150px'
+                                            imgSrc={game.imgSrc}
+                                        />
+                                    }
+                                </React.Fragment>
+                            ))}
                         </div>
                     </div>
 

@@ -4,8 +4,9 @@ import "./globals.css";
 const inter = Inter({ subsets: ["latin"] });
 
 //providers
-import { CarusosProvider } from "./States/Carusos";
+import { CarusosProvider } from "./States/Carusos/Carusos";
 import { ApiProvider } from "./States/API/API";
+import { MainProvider } from "./States/Main/MainState";
 
 //components
 import Navbar from "./Global-Components/Navbar/navbar";
@@ -23,14 +24,16 @@ export default function RootLayout({
 
         <ApiProvider>
 
-          <CarusosProvider>
+          <MainProvider>
+            <CarusosProvider>
 
-            <Navbar />
-            <Showcase />
-            {children}
-            <Footer />
+              <Navbar />
+              <Showcase />
+              {children}
+              <Footer />
 
-          </CarusosProvider>
+            </CarusosProvider>
+          </MainProvider>
 
         </ApiProvider>
 

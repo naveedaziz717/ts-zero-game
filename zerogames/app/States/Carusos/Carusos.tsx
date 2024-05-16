@@ -2,7 +2,7 @@
 
 import React, { createContext, useContext, useState, ReactNode, Dispatch, SetStateAction, useEffect } from 'react';
 
-import { useApi } from './API/API';
+import { useApi } from '../API/API';
 
 interface GameProps {
     imgSrc: string;
@@ -92,7 +92,7 @@ export const CarusosProvider: React.FC<{ children: ReactNode }> = ({ children })
             }
 
             const data = await response.json();
-            console.log('Data:', data);
+           // console.log('Data:', data);
             setPart1Games(data[0])
             setPart2Games(data[1])
             setPart3Games(data[2])

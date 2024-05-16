@@ -13,7 +13,7 @@ import { FaDownload } from "react-icons/fa";
 import { IoShieldCheckmarkSharp } from "react-icons/io5";
 
 //providers
-import { useCarusos } from '@/app/States/Carusos';
+import { useCarusos } from '@/app/States/Carusos/Carusos';
 
 
 interface GameProps {
