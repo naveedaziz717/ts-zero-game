@@ -12,7 +12,7 @@ import { useMainGames } from '@/app/States/Games/MainGames'
 export default function Games() {
 
 
-    const {games} = useMainGames()
+    const {games, page, setPage} = useMainGames()
 
 
     return (
@@ -23,7 +23,7 @@ export default function Games() {
                 ))}
             </div>
 
-            <GamePages count={1000}/>
+            <GamePages defaultPage='/' pushPage='/all/' onPageChange={setPage}  page={page} count={1000}/>
         </>
     )
 }

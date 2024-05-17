@@ -16,8 +16,10 @@ interface GameProps {
 interface Type {
     games: GameProps[] | undefined,
     setGames: React.Dispatch<React.SetStateAction<GameProps[] | undefined>>;
-
     getGames: (page: number) => void;
+
+    page: number
+    setPage: Dispatch<SetStateAction<number>>
 }
 
 
@@ -36,6 +38,7 @@ export const MainGamesProvider: React.FC<{ children: ReactNode }> = ({ children 
     const { api } = useApi()
 
     const [games, setGames] = useState<Array<GameProps>>()
+    const [page, setPage] = useState<number>(1)
 
     const getGames = async (page: number) => {
         try {
@@ -67,7 +70,10 @@ export const MainGamesProvider: React.FC<{ children: ReactNode }> = ({ children 
     const value = {
        games,
        setGames,
-       getGames
+       getGames,
+       
+       page,
+       setPage
     };
 
     return <MainGameContext.Provider value={value}>{children}</MainGameContext.Provider>;

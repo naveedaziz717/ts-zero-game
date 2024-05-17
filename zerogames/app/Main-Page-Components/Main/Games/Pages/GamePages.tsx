@@ -1,18 +1,27 @@
+'use client'
+
 import React from 'react';
 import styles from './page.module.css';
+import { useRouter } from 'next/navigation'
 
 interface GamePagesProps {
-  count: number; // total number of pages
-  page: number;  // current page
-  onPageChange: (page: number) => void; // callback function to handle page change
+  count: number; 
+  page: number;
+  pushPage: string;  
+  defaultPage: string;
+  onPageChange: (page: number) => void;
+
 }
 
-export default function GamePages({ count, page, onPageChange }: GamePagesProps) {
-  const range = 3; // Number of page numbers to show around the current page
+export default function GamePages({ count, page, onPageChange, pushPage, defaultPage }: GamePagesProps) {
+
+  const router = useRouter()
+
+  const range = 3; 
 
   const getPages = () => {
     const pages = [];
-    // Calculate start and end of the sliding window
+ 
     const start = Math.max(1, page - range);
     const end = Math.min(count, page + range);
     
@@ -26,7 +35,7 @@ export default function GamePages({ count, page, onPageChange }: GamePagesProps)
     <div className={styles.pages}>
 
       <button
-        onClick={() => onPageChange(1)}
+        onClick={() => {onPageChange(1); router.push(defaultPage)}}
         disabled={page === 1}
         className={styles.page}
       >
@@ -35,7 +44,7 @@ export default function GamePages({ count, page, onPageChange }: GamePagesProps)
 
  
       <button
-        onClick={() => onPageChange(page - 1)}
+        onClick={() => {onPageChange(page - 1); router.push(pushPage + (page - 1))}}
         disabled={page === 1}
         className={styles.page}
       >
@@ -46,7 +55,7 @@ export default function GamePages({ count, page, onPageChange }: GamePagesProps)
       {getPages().map((pg) => (
         <div
           key={pg}
-          onClick={() => onPageChange(pg)}
+          onClick={() => {onPageChange(pg); router.push(pushPage + pg)}}
           className={styles.page}
           style={{ backgroundColor: page === pg ? 'white' : '', color: page === pg ? 'black' : '' }}
         >
@@ -56,7 +65,7 @@ export default function GamePages({ count, page, onPageChange }: GamePagesProps)
 
 
       <button
-        onClick={() => onPageChange(page + 1)}
+        onClick={() => {onPageChange(page + 1); router.push(pushPage + (page + 1))}}
         disabled={page === count}
         className={styles.page}
       >
@@ -65,7 +74,7 @@ export default function GamePages({ count, page, onPageChange }: GamePagesProps)
 
 
       <button
-        onClick={() => onPageChange(count)}
+        onClick={() => {onPageChange(count); router.push(pushPage + count)}}
         disabled={page === count}
         className={styles.page}
       >
