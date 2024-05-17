@@ -58,7 +58,6 @@
     height: 420px;
     object-fit: fill;
     cursor: pointer;
-    filter: brightness(0.7);
 }
 
 .opac{
