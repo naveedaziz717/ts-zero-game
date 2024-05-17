@@ -18,7 +18,7 @@ interface PageProps{
 export default function AllGames({params} : PageProps) {
 
 
-    const { page, setPage, getGames, games } = useMainGames()
+    const { page, setPage, getGames, games, totalPages } = useMainGames()
 
     useEffect(() => {
         getGames(params.page)
@@ -30,10 +30,10 @@ export default function AllGames({params} : PageProps) {
         <>
             <div className={styles.games}>
                {games?.map((game, index) => (
-                <GameBox imgSrc={game.imgSrc} title={game.title} />
+                <GameBox key={index} imgSrc={game.imgSrc} title={game.title} />
                ))}
             </div>
-            <GamePages defaultPage='/' pushPage='/all/' page={page} onPageChange={setPage} count={10} />
+            <GamePages defaultPage='/' pushPage='/all/' page={page} onPageChange={setPage} count={totalPages} />
         </>
     )
 }

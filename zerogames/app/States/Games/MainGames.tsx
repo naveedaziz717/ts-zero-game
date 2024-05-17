@@ -20,6 +20,8 @@ interface Type {
 
     page: number
     setPage: Dispatch<SetStateAction<number>>
+    
+    totalPages: number;
 }
 
 
@@ -38,6 +40,7 @@ export const MainGamesProvider: React.FC<{ children: ReactNode }> = ({ children 
     const { api } = useApi()
 
     const [games, setGames] = useState<Array<GameProps>>()
+    const [totalPages, setTotalPages] = useState<number>(1)
     const [page, setPage] = useState<number>(1)
 
     const getGames = async (page: number) => {
@@ -56,7 +59,8 @@ export const MainGamesProvider: React.FC<{ children: ReactNode }> = ({ children 
 
             const data = await response.json();
             console.log(data)
-            setGames(data)
+            setGames(data.games)
+            setTotalPages(data.totalPages)
 
         } catch (error) {
             //console.error('Error fetching data:', error.message);
@@ -73,7 +77,9 @@ export const MainGamesProvider: React.FC<{ children: ReactNode }> = ({ children 
        getGames,
        
        page,
-       setPage
+       setPage,
+
+       totalPages
     };
 
     return <MainGameContext.Provider value={value}>{children}</MainGameContext.Provider>;
