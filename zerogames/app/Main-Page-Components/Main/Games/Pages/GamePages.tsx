@@ -39,7 +39,7 @@ export default function GamePages({ count, page, onPageChange, pushPage, default
         disabled={page === 1}
         className={styles.page}
       >
-        First
+        Home
       </button>
 
  
@@ -55,7 +55,7 @@ export default function GamePages({ count, page, onPageChange, pushPage, default
       {getPages().map((pg) => (
         <div
           key={pg}
-          onClick={() => {onPageChange(pg); router.push(pushPage + pg)}}
+          onClick={() => {onPageChange(pg); router.push(pushPage + pg);}}
           className={styles.page}
           style={{ backgroundColor: page === pg ? 'white' : '', color: page === pg ? 'black' : '' }}
         >
