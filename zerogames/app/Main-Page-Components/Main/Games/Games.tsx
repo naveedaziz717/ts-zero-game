@@ -12,7 +12,7 @@ import { useMainGames } from '@/app/States/Games/MainGames'
 export default function Games() {
 
 
-    const { games, page, setPage, getGames } = useMainGames()
+    const { games, page, setPage, getGames, totalPages } = useMainGames()
 
     useEffect(() => {
         getGames(1)
@@ -27,7 +27,7 @@ export default function Games() {
                 ))}
             </div>
 
-            <GamePages defaultPage='/' pushPage='/all/' onPageChange={setPage} page={page} count={1000} />
+            <GamePages defaultPage='/' pushPage='/all/' onPageChange={setPage} page={page} count={totalPages} />
         </>
     )
 }
