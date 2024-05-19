@@ -184,7 +184,12 @@ export default function Caruso() {
                     <div className={styles.info}>
                         <div className={styles.theinfo}>
                             <h2 className={styles.infotitle}>{currentGame?.General.Title}</h2>
-                            <p className={styles.infodesc}>{currentGame?.About.Description ? currentGame.About.Description : currentGame?.Extra.Description}</p>
+                            <p className={styles.infodesc}>
+                                {currentGame?.About.Description ? currentGame.About.Description : 
+                                currentGame?.Extra.Description ? currentGame.Extra.Description : 
+                                "The developers unfortunately didn't provide any description for this game, leaving potential players without information about its features, gameplay, or storyline."
+                                }
+                                </p>
                             <BoxIcon
                                 backgroundColor='green'
                                 width='120px'
