@@ -7,6 +7,7 @@ import styles from './page.module.css'
 import BoxIcon from '@/app/Small-Components/BoxIcon/BoxIcon';
 import Arrow from '../CarusoComponents/Arrow/Arrow';
 import ProgressBar from '../CarusoComponents/ProgressBar/ProgressBar';
+import DiscountPriceBox from '@/app/Small-Components/DiscountPriceBox/DiscountPriceBox';
 
 //icons
 import { FaDownload } from "react-icons/fa";
@@ -39,11 +40,7 @@ interface GameProps {
 
     Extra: {
         Description: string;
-        Images: [
-            {
-                image: string | null;
-            }
-        ]
+        Images: gameImages[]
         Videos: [
             {
                 video: string | null;
@@ -80,6 +77,10 @@ interface GameProps {
     }
 }
 
+interface gameImages {
+    image : string;
+}
+
 export default function Caruso() {
 
     const [page, setPage] = useState<number>(0)
@@ -112,7 +113,7 @@ export default function Caruso() {
                 if (games) {
                     setPage((prevPage) => (prevPage + 1) % games.length);
                 }
-            }, 5000);
+            }, 15000);
         }
     }
 
@@ -128,7 +129,7 @@ export default function Caruso() {
                 if (games) {
                     setPage((prevPage) => (prevPage + 1) % games.length);
                 }
-            }, 5000);
+            }, 15000);
         }
     }
 
@@ -145,7 +146,7 @@ export default function Caruso() {
                 setPage((prevPage) => (prevPage + 1) % games.length);
             }
 
-        }, 5000);
+        }, 15000);
 
         return () => {
             if (intervalRef.current) {
@@ -162,7 +163,7 @@ export default function Caruso() {
                 if (games) {
                     setPage((prevPage) => (prevPage + 1) % games.length);
                 }
-            }, 5000);
+            }, 15000);
         }
     };
 
@@ -184,12 +185,26 @@ export default function Caruso() {
                     <div className={styles.info}>
                         <div className={styles.theinfo}>
                             <h2 className={styles.infotitle}>{currentGame?.General.Title}</h2>
+
+                            <div className={styles.extraimages}>
+                                {currentGame?.Extra?.Images?.[1]?.image && (
+                                    <>
+                                    <img src={currentGame.Extra.Images[1].image} alt="Game Extra Image" />
+                                    <img src={currentGame.Extra.Images[2].image} alt="Game Extra Image" />
+                                    <img src={currentGame.Extra.Images[3].image} alt="Game Extra Image" />
+                                    <img src={currentGame.Extra.Images[4].image} alt="Game Extra Image" />
+                                    </>
+                                    
+                                )}
+
+                            </div>
+
                             <p className={styles.infodesc}>
-                                {currentGame?.About.Description ? currentGame.About.Description : 
-                                currentGame?.Extra.Description ? currentGame.Extra.Description : 
-                                "The developers unfortunately didn't provide any description for this game, leaving potential players without information about its features, gameplay, or storyline."
+                                {currentGame?.About.Description ? currentGame.About.Description :
+                                    currentGame?.Extra.Description ? currentGame.Extra.Description :
+                                        "The developers unfortunately didn't provide any description for this game, leaving potential players without information about its features, gameplay, or storyline."
                                 }
-                                </p>
+                            </p>
                             <BoxIcon
                                 backgroundColor='green'
                                 width='120px'
@@ -201,6 +216,21 @@ export default function Caruso() {
                             >
                                 <FaDownload />
                             </BoxIcon>
+
+                            <div className={styles.price}>
+                                {currentGame?.General.gameDiscount &&
+                                    <DiscountPriceBox
+                                        height='20px'
+                                        originalPrice={parseFloat(currentGame.General.DiscountOriginalPrice ?? "0")}
+                                        discountPrice={parseFloat(currentGame.General.FinalPrice ?? "0")}
+                                        discountPriceFS='0.8rem'
+                                        originalPriceFS='0.8rem'
+                                        percentageFontSize='1rem'
+                                    />
+                                }
+                                {!currentGame?.General.gameDiscount && <p className={styles.theprice}>{currentGame?.General.GamePrice}</p>}
+                            </div>
+
                             <div className={styles.infoicon}>
                                 <IoShieldCheckmarkSharp />
                             </div>

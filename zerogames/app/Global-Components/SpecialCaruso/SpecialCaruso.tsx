@@ -153,10 +153,12 @@ export default function SpecialCaruso() {
                                 )}
                                 <div className={styles.info}>
                                     <h2>{game.General.Title}</h2>
-                                    {game?.About.Description ? game.About.Description :
-                                        game?.Extra.Description ? game.Extra.Description :
-                                            "The developers unfortunately didn't provide any description for this game, leaving potential players without information about its features, gameplay, or storyline."
-                                    }
+                                    <p>
+                                        {game?.About.Description ? game.About.Description :
+                                            game?.Extra.Description ? game.Extra.Description :
+                                                "The developers unfortunately didn't provide any description for this game, leaving potential players without information about its features, gameplay, or storyline."
+                                        }
+                                    </p>
                                 </div>
                             </div>
                         }

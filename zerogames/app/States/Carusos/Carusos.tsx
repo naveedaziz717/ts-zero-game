@@ -27,11 +27,8 @@ interface GameProps {
 
     Extra: {
         Description: string;
-        Images: [
-            {
-                image: string  |null;
-            }
-        ]
+        Images: gameImages[],
+        
         Videos: [
             {
                 video: string | null;
@@ -68,6 +65,11 @@ interface GameProps {
     }
 }
 
+
+
+interface gameImages {
+    image : string;
+}
 
 interface CarusosType {
     games: GameProps[] | undefined,

@@ -24,7 +24,8 @@ export default function Games() {
         <>
             <div className={styles.games}>
                 {games?.map((game, index) => (
-                    <GameBox key={index} imgSrc={game.General.imgSrc} title={game.General.Title} />
+                    <GameBox description={game.About.Description ? game.About.Description : game.Extra.Description ? game.Extra.Description :
+                        "The developers unfortunately didn't provide any description for this game, leaving potential players without information about its features, gameplay, or storyline."}  key={index} imgSrc={game.General.imgSrc} title={game.General.Title} />
                 ))}
             </div>
 

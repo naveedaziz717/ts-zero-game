@@ -5,6 +5,7 @@
     transition: all 0.3s;
     cursor: pointer;
     animation: show 0.4s forwards;
+    padding-bottom: 0.5em;
 }
 
 .box:hover {
@@ -22,6 +23,21 @@
     padding-left: 0.5em;
     padding-right: 0.5em;
     font-size: 1.1rem;
+    margin-bottom: 0.2em;
+}
+
+.box p {
+    display: -webkit-box;
+    margin-top: 0.2em;
+    font-size: 0.8rem;
+    text-align: center;
+    color: rgb(255, 246, 246);
+    padding-left: 1em;
+    padding-right: 1em;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 @keyframes show {

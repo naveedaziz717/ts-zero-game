@@ -1,0 +1,38 @@
+.box{
+    display: flex;
+    align-items: center;
+    height: 30px;
+    cursor: pointer;
+}
+
+.percentage{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #4c6b22;
+    height: 100%;
+    color: #BEEE11;
+}
+
+.percentage p{
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+}
+
+.prices{
+    display: flex;
+    align-items: center;
+    background-color: #344654;
+    height: 100%;
+    gap: 0.5em;
+}
+
+.originalprice{
+    text-decoration: line-through;
+    padding-left: 0.5em;
+}
+
+.discountprice{
+    color: #BEEE11;
+    padding-right: 0.5em;
+}
