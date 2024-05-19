@@ -10,12 +10,68 @@ import ProgressBar from '../CarusoComponents/ProgressBar/ProgressBar';
 //Providers
 import { useCarusos } from '@/app/States/Carusos/Carusos';
 
-
 interface GameProps {
-    imgSrc: string;
-    title: string;
-    description: string;
-    link?: string;
+
+    General: {
+        Title: string;
+        Link: string;
+        imgSrc: string;
+        GamePrice: string | null;
+        DiscountOriginalPrice: string | null;
+        FinalPrice: string | null;
+        gameDiscount: boolean | null;
+        Keywords: [{
+            keyword: string;
+        }]
+
+    }
+
+    About: {
+        Description: string;
+        Wikipedia: string;
+    }
+
+    Extra: {
+        Description: string;
+        Images: [
+            {
+                image: string | null;
+            }
+        ]
+        Videos: [
+            {
+                video: string | null;
+            }
+        ]
+        DLCS: [
+            {
+                name: string;
+                discount: boolean;
+                discountPrice: string[];
+                originalDiscountPrices: string[];
+                price: string;
+            }
+        ]
+    }
+
+    Requirements: {
+        Maximum: [
+            {
+                Req: string;
+            }
+        ]
+
+        Minimum: [
+            {
+                Req: string;
+            }
+        ]
+        Requirements: [
+            {
+                Req: string;
+            }
+        ]
+    }
 }
 
 
@@ -29,8 +85,8 @@ export default function SpecialCaruso() {
     const [animation, setAnimation] = useState<boolean>(false)
 
     useEffect(() => {
-      setCurrentGames(part1Games)
-    },[part1Games])
+        setCurrentGames(part1Games)
+    }, [part1Games])
 
 
 
@@ -92,10 +148,12 @@ export default function SpecialCaruso() {
                     <React.Fragment key={index}>
                         {index < 2 &&
                             <div className={`${styles.box} ${animation ? styles.opac : ''}`} onAnimationEnd={onAnimationEnd}>
-                                <img loading='lazy' src={game.imgSrc}></img>
+                                {game?.Extra?.Images?.[0]?.image && (
+                                    <img src={game.Extra.Images[0].image} alt="Game Extra Image" />
+                                )}
                                 <div className={styles.info}>
-                                    <h2>{game.title}</h2>
-                                    <p>{game.description}</p>
+                                    <h2>{game.General.Title}</h2>
+                                    <p>{game.About.Description ? game.About.Description : game.Extra.Description}</p>
                                 </div>
                             </div>
                         }
@@ -109,18 +167,22 @@ export default function SpecialCaruso() {
                         <React.Fragment key={index}>
                             {index === 2 &&
                                 <div className={`${styles.box2} ${animation ? styles.opac : ''}`} onAnimationEnd={onAnimationEnd}>
-                                    <img loading='lazy' src={game.imgSrc}></img>
+                                    {game?.Extra?.Images?.[0]?.image && (
+                                        <img src={game.Extra.Images[0].image} alt="Game Extra Image" />
+                                    )}
                                     <div className={styles.info2}>
-                                        <h2>{game.title}</h2>
+                                        <h2>{game.General.Title}</h2>
                                     </div>
                                 </div>
                             }
 
                             {index === 3 &&
                                 <div className={`${styles.box2} ${animation ? styles.opac : ''}`} onAnimationEnd={onAnimationEnd}>
-                                    <img loading='lazy' src={game.imgSrc}></img>
+                                    {game?.Extra?.Images?.[0]?.image && (
+                                        <img src={game.Extra.Images[0].image} alt="Game Extra Image" />
+                                    )}
                                     <div className={styles.info2}>
-                                        <h2>{game.title}</h2>
+                                        <h2>{game.General.Title}</h2>
                                     </div>
                                 </div>
                             }

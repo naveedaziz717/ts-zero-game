@@ -4,8 +4,8 @@ import React, { useEffect } from 'react'
 import styles from './style.module.css'
 
 //components
-import GameBox from './GameBox/GameBox'
-import GamePages from './Pages/GamePages'
+import GameBox from '../../../Small-Components/GameBox/GameBox'
+import GamePages from '../../../Small-Components/Pages/GamePages'
 
 import { useMainGames } from '@/app/States/Games/MainGames'
 
@@ -16,6 +16,7 @@ export default function Games() {
 
     useEffect(() => {
         getGames(1)
+        setPage(1)
     }, [])
 
 
@@ -23,7 +24,7 @@ export default function Games() {
         <>
             <div className={styles.games}>
                 {games?.map((game, index) => (
-                    <GameBox key={index} imgSrc={game.imgSrc} title={game.title} />
+                    <GameBox key={index} imgSrc={game.General.imgSrc} title={game.General.Title} />
                 ))}
             </div>
 

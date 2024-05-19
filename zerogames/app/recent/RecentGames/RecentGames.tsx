@@ -4,8 +4,8 @@ import React from 'react'
 import styles from './page.module.css'
 
 //components
-import GameBox from '@/app/Main-Page-Components/Main/Games/GameBox/GameBox'
-import GamePages from '@/app/Main-Page-Components/Main/Games/Pages/GamePages'
+import GameBox from '@/app/Small-Components/GameBox/GameBox'
+import GamePages from '@/app/Small-Components/Pages/GamePages'
 
 export default function RecentGames() {
   return (

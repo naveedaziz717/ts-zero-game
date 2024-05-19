@@ -5,12 +5,68 @@ import React, { createContext, useContext, useState, ReactNode, Dispatch, SetSta
 import { useApi } from '../API/API';
 
 interface GameProps {
-    imgSrc: string;
-    title: string;
-    description: string;
-    link?: string;
-}
 
+    General: {
+        Title: string;
+        Link: string;
+        imgSrc: string;
+        GamePrice: string | null;
+        DiscountOriginalPrice: string | null;
+        FinalPrice: string | null;
+        gameDiscount: boolean | null;
+        Keywords: [{
+            keyword: string;
+        }]
+
+    }
+
+    About: {
+        Description: string;
+        Wikipedia: string;
+    }
+
+    Extra: {
+        Description: string;
+        Images: [
+            {
+                image: string  |null;
+            }
+        ]
+        Videos: [
+            {
+                video: string | null;
+            }
+        ]
+        DLCS: [
+            {
+                name: string;
+                discount: boolean;
+                discountPrice: string[];
+                originalDiscountPrices: string[];
+                price: string;
+            }
+        ]
+    }
+
+    Requirements: {
+        Maximum: [
+            {
+                Req: string;
+            }
+        ]
+
+        Minimum: [
+            {
+                Req: string;
+            }
+        ]
+        Requirements: [
+            {
+                Req: string;
+            }
+        ]
+    }
+}
 
 
 interface CarusosType {
@@ -71,6 +127,7 @@ export const CarusosProvider: React.FC<{ children: ReactNode }> = ({ children })
             }
 
             const data = await response.json();
+           // console.log(data)
             setGames(data)
 
         } catch (error) {

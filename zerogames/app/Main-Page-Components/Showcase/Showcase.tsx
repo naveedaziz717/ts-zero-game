@@ -7,15 +7,11 @@ import styles from './page.module.css'
 
 //components
 import ShowcaseNav from './ShowcaseNav/ShowcaseNav'
-import RandomImg from './Hexogan/RandomImg'
+import RandomImg from '../../Small-Components/Hexogan/RandomImg'
 
 //providers
 import { useMain } from '@/app/States/Main/MainState'
 
-interface GameProps {
-    link?: string;
-    imgSrc: string;
-}
 
 
 
@@ -41,9 +37,9 @@ export default function Showcase() {
                                     {index <= 1 &&
                                         <RandomImg
                                             borderRadius='1em'
-                                            width='180px'
+                                            width='210px'
                                             height='150px'
-                                            imgSrc={game.imgSrc}
+                                            imgSrc={game.General.imgSrc}
                                         />
                                     }
                                 </React.Fragment>
@@ -59,9 +55,9 @@ export default function Showcase() {
                                     {index > 1 && index <= 3 &&
                                         <RandomImg
                                             borderRadius='1em'
-                                            width='180px'
+                                            width='210px'
                                             height='150px'
-                                            imgSrc={game.imgSrc}
+                                            imgSrc={game.General.imgSrc}
                                         />
                                     }
                                 </React.Fragment>
@@ -75,9 +71,9 @@ export default function Showcase() {
                                 {index === 4 &&
                                     <RandomImg
                                         borderRadius='1em'
-                                        width='480px'
+                                        width='530px'
                                         height='350px'
-                                        imgSrc={game.imgSrc}
+                                        imgSrc={game.General.imgSrc}
                                     />
                                 }
                             </React.Fragment>
@@ -91,9 +87,9 @@ export default function Showcase() {
                                     {index > 4 && index <= 6 &&
                                         <RandomImg
                                             borderRadius='1em'
-                                            width='180px'
+                                            width='210px'
                                             height='150px'
-                                            imgSrc={game.imgSrc}
+                                            imgSrc={game.General.imgSrc}
                                         />
                                     }
                                 </React.Fragment>
@@ -105,9 +101,9 @@ export default function Showcase() {
                                     {index > 6 && index <= 8 &&
                                         <RandomImg
                                             borderRadius='1em'
-                                            width='180px'
+                                            width='210px'
                                             height='150px'
-                                            imgSrc={game.imgSrc}
+                                            imgSrc={game.General.imgSrc}
                                         />
                                     }
                                 </React.Fragment>

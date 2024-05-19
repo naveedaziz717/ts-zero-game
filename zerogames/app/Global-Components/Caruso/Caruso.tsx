@@ -17,19 +17,75 @@ import { useCarusos } from '@/app/States/Carusos/Carusos';
 
 
 interface GameProps {
-    imgSrc: string;
-    title: string;
-    description: string;
-    link?: string;
-}
 
+    General: {
+        Title: string;
+        Link: string;
+        imgSrc: string;
+        GamePrice: string | null;
+        DiscountOriginalPrice: string | null;
+        FinalPrice: string | null;
+        gameDiscount: boolean | null;
+        Keywords: [{
+            keyword: string;
+        }]
+
+    }
+
+    About: {
+        Description: string;
+        Wikipedia: string;
+    }
+
+    Extra: {
+        Description: string;
+        Images: [
+            {
+                image: string | null;
+            }
+        ]
+        Videos: [
+            {
+                video: string | null;
+            }
+        ]
+        DLCS: [
+            {
+                name: string;
+                discount: boolean;
+                discountPrice: string[];
+                originalDiscountPrices: string[];
+                price: string;
+            }
+        ]
+    }
+
+    Requirements: {
+        Maximum: [
+            {
+                Req: string;
+            }
+        ]
+
+        Minimum: [
+            {
+                Req: string;
+            }
+        ]
+        Requirements: [
+            {
+                Req: string;
+            }
+        ]
+    }
+}
 
 export default function Caruso() {
 
     const [page, setPage] = useState<number>(0)
     const [currentGame, setCurrentGame] = useState<GameProps>()
 
-    const {games, setGames} = useCarusos()
+    const { games, setGames } = useCarusos()
 
     const [animation, setAnimation] = useState<boolean>(false)
 
@@ -122,11 +178,13 @@ export default function Caruso() {
             <div className={styles.middle}>
                 <div className={styles.title}><p>FEATURED & RECOMMENDED</p></div>
                 <div className={`${animation ? `${styles.image} ${styles.opac}` : styles.image}`} onAnimationEnd={onAnimationEnd}>
-                    <img src={currentGame?.imgSrc}></img>
+                    {currentGame?.Extra?.Images?.[0]?.image && (
+                        <img src={currentGame.Extra.Images[0].image} alt="Game Extra Image" />
+                    )}
                     <div className={styles.info}>
                         <div className={styles.theinfo}>
-                            <h2 className={styles.infotitle}>{currentGame?.title}</h2>
-                            <p className={styles.infodesc}>{currentGame?.description}</p>
+                            <h2 className={styles.infotitle}>{currentGame?.General.Title}</h2>
+                            <p className={styles.infodesc}>{currentGame?.About.Description ? currentGame.About.Description : currentGame?.Extra.Description}</p>
                             <BoxIcon
                                 backgroundColor='green'
                                 width='120px'

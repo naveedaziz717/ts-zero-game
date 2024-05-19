@@ -2,10 +2,10 @@ import React from 'react'
 import styles from './page.module.css'
 
 //components
-import Caruso from './Caruso/Caruso'
+import Caruso from '../../Global-Components/Caruso/Caruso'
 import Banner from '@/app/Small-Components/Banner/Banner'
-import SpecialCaruso from './SpecialCaruso/SpecialCaruso'
-import CategoryCaruso from './CategoryCaruso/CategoryCaruso'
+import SpecialCaruso from '../../Global-Components/SpecialCaruso/SpecialCaruso'
+import CategoryCaruso from '../../Global-Components/CategoryCaruso/CategoryCaruso'
 import Games from './Games/Games'
 
 export default function MainShow() {
