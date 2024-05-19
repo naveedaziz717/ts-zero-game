@@ -1,6 +1,6 @@
 .box {
-    width: 270px;
-    height: 290px;
+    width: 330px;
+    height: 360px;
     background-color: rgb(26, 32, 39);
     transition: all 0.3s;
     cursor: pointer;
@@ -17,7 +17,7 @@
     height: 180px;
 }
 
-.box h2 {
+.title {
     color: white;
     text-align: center;
     padding-left: 0.5em;
@@ -26,7 +26,7 @@
     margin-bottom: 0.2em;
 }
 
-.box p {
+.description {
     display: -webkit-box;
     margin-top: 0.2em;
     font-size: 0.8rem;
@@ -39,6 +39,34 @@
     overflow: hidden;
     text-overflow: ellipsis;
 }
+
+.tags{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5em;
+}
+
+.bottomcontent2{
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    bottom: 1.5em;
+    width: 100%;
+}
+
+
+.price{
+    position: absolute;
+}
+
+.theprice {
+    margin: 0;
+    font-size: 0.8rem;
+    color: white;
+}
+
 
 @keyframes show {
     0% {

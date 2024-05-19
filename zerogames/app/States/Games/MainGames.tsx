@@ -14,9 +14,7 @@ interface GameProps {
         DiscountOriginalPrice: string | null;
         FinalPrice: string | null;
         gameDiscount: boolean | null;
-        Keywords: [{
-            keyword: string;
-        }]
+        Keywords: gamesKeywords[]
 
     }
 
@@ -66,6 +64,10 @@ interface GameProps {
             }
         ]
     }
+}
+
+interface gamesKeywords {
+    keyword: string;
 }
 
 interface Type {
