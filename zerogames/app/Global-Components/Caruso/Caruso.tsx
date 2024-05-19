@@ -4,10 +4,10 @@ import React, { useEffect, useRef, useState } from 'react'
 import styles from './page.module.css'
 
 //components
-import BoxIcon from '@/app/Small-Components/BoxIcon/BoxIcon';
 import Arrow from '../CarusoComponents/Arrow/Arrow';
 import ProgressBar from '../CarusoComponents/ProgressBar/ProgressBar';
 import DiscountPriceBox from '@/app/Small-Components/DiscountPriceBox/DiscountPriceBox';
+import Tag from '@/app/Small-Components/Tag/Tag';
 
 //icons
 import { FaDownload } from "react-icons/fa";
@@ -27,10 +27,7 @@ interface GameProps {
         DiscountOriginalPrice: string | null;
         FinalPrice: string | null;
         gameDiscount: boolean | null;
-        Keywords: [{
-            keyword: string;
-        }]
-
+        Keywords: gameKeywords[]
     }
 
     About: {
@@ -78,7 +75,11 @@ interface GameProps {
 }
 
 interface gameImages {
-    image : string;
+    image: string;
+}
+
+interface gameKeywords {
+    keyword: string;
 }
 
 export default function Caruso() {
@@ -189,12 +190,12 @@ export default function Caruso() {
                             <div className={styles.extraimages}>
                                 {currentGame?.Extra?.Images?.[1]?.image && (
                                     <>
-                                    <img src={currentGame.Extra.Images[1].image} alt="Game Extra Image" />
-                                    <img src={currentGame.Extra.Images[2].image} alt="Game Extra Image" />
-                                    <img src={currentGame.Extra.Images[3].image} alt="Game Extra Image" />
-                                    <img src={currentGame.Extra.Images[4].image} alt="Game Extra Image" />
+                                        <img src={currentGame.Extra.Images[1].image} alt="Game Extra Image" />
+                                        <img src={currentGame.Extra.Images[2].image} alt="Game Extra Image" />
+                                        <img src={currentGame.Extra.Images[3].image} alt="Game Extra Image" />
+                                        <img src={currentGame.Extra.Images[4].image} alt="Game Extra Image" />
                                     </>
-                                    
+
                                 )}
 
                             </div>
@@ -205,34 +206,32 @@ export default function Caruso() {
                                         "The developers unfortunately didn't provide any description for this game, leaving potential players without information about its features, gameplay, or storyline."
                                 }
                             </p>
-                            <BoxIcon
-                                backgroundColor='green'
-                                width='120px'
-                                height='30px'
-                                title='View'
-                                color='white'
-                                borderRadius='0.3em'
-                                transition='all 0.3s'
-                            >
-                                <FaDownload />
-                            </BoxIcon>
 
-                            <div className={styles.price}>
-                                {currentGame?.General.gameDiscount &&
-                                    <DiscountPriceBox
-                                        height='20px'
-                                        originalPrice={parseFloat(currentGame.General.DiscountOriginalPrice ?? "0")}
-                                        discountPrice={parseFloat(currentGame.General.FinalPrice ?? "0")}
-                                        discountPriceFS='0.8rem'
-                                        originalPriceFS='0.8rem'
-                                        percentageFontSize='1rem'
-                                    />
-                                }
-                                {!currentGame?.General.gameDiscount && <p className={styles.theprice}>{currentGame?.General.GamePrice}</p>}
+                            <div className={styles.tags}>
+                                <Tag tag={currentGame?.General.Keywords[0].keyword} />
+                                <Tag tag={currentGame?.General.Keywords[1].keyword} />
+                                <Tag tag={currentGame?.General.Keywords[2].keyword} />
+                                <Tag tag={currentGame?.General.Keywords[3].keyword} />
                             </div>
 
-                            <div className={styles.infoicon}>
-                                <IoShieldCheckmarkSharp />
+                            <div className={styles.bottomcontent}>
+                                <div className={styles.price}>
+                                    {currentGame?.General.gameDiscount &&
+                                        <DiscountPriceBox
+                                            height='20px'
+                                            originalPrice={parseFloat(currentGame.General.DiscountOriginalPrice ?? "0")}
+                                            discountPrice={parseFloat(currentGame.General.FinalPrice ?? "0")}
+                                            discountPriceFS='0.8rem'
+                                            originalPriceFS='0.8rem'
+                                            percentageFontSize='1rem'
+                                        />
+                                    }
+                                    {!currentGame?.General.gameDiscount && <p className={styles.theprice}>{currentGame?.General.GamePrice}</p>}
+                                </div>
+
+                                <div className={styles.infoicon}>
+                                    <IoShieldCheckmarkSharp />
+                                </div>
                             </div>
                         </div>
                     </div>
