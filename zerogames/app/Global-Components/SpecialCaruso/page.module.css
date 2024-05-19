@@ -5,16 +5,21 @@
     margin-top: 5em;
 }
 
+.box,.box2{
+    position: relative;
+}
+
 .box{
     width: 330px;
-    height: 450px;
+    height: 550px;
     background-color: rgb(26, 32, 39);
     cursor: pointer;
 }
 
+
 .box img{
     width: 100%;
-    height: 210px;
+    height: 240px;
     object-fit: cover;
 }
 
@@ -27,7 +32,12 @@
     font-weight: 500;
 }
 
-.info p{
+.desc{
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
     font-size: 0.9rem;
     padding-right: 1em;
     color: rgb(255, 246, 246);
@@ -35,7 +45,17 @@
 
 .info2 h2{
     font-size: 1.2rem;
+    padding-left: 1em;
+    padding-right:1em;
 }
+
+.tags{
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.5em;
+}
+
 
 .boxes{
     display: flex;
@@ -46,7 +66,7 @@
 
 .box2{
     width: 320px;
-    height: 217px;
+    height: 266px;
     background-color: rgb(14, 16, 19);
     cursor: pointer;
 }
@@ -66,6 +86,34 @@
 
 .opac{
     animation: opac 0.4s forwards;
+}
+
+.bottomcontent{
+    position: absolute;
+    display: flex;
+    align-items: center;
+    bottom: 1.5em;
+    width: 100%;
+}
+
+.bottomcontent2{
+    position: absolute;
+    display: flex;
+    align-items: center;
+    bottom: 1.5em;
+    margin-left: 1em;
+    width: 100%;
+}
+
+
+.price{
+    position: absolute;
+}
+
+.theprice {
+    margin: 0;
+    font-size: 0.8rem;
+    color: white;
 }
 
 @keyframes opac {

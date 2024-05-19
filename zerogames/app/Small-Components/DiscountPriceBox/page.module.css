@@ -8,15 +8,17 @@
 .percentage{
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: center !important;
+    text-align: center;
     background-color: #4c6b22;
     height: 100%;
     color: #BEEE11;
 }
 
 .percentage p{
-    padding-left: 0.5em;
-    padding-right: 0.5em;
+    text-align: center !important;
+    padding-left: 0.5em !important;
+    padding-right: 0.5em !important;
 }
 
 .prices{
@@ -30,9 +32,10 @@
 .originalprice{
     text-decoration: line-through;
     padding-left: 0.5em;
+    color: gray !important;
 }
 
 .discountprice{
-    color: #BEEE11;
+    color: #BEEE11 !important;
     padding-right: 0.5em;
 }

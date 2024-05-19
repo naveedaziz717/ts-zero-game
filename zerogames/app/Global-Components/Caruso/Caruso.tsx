@@ -181,7 +181,7 @@ export default function Caruso() {
                 <div className={styles.title}><p>FEATURED & RECOMMENDED</p></div>
                 <div className={`${animation ? `${styles.image} ${styles.opac}` : styles.image}`} onAnimationEnd={onAnimationEnd}>
                     {currentGame?.Extra?.Images?.[0]?.image && (
-                        <img src={currentGame.Extra.Images[5].image} alt="Game Extra Image" />
+                        <img src={currentGame.Extra.Images[0].image} alt="Game Extra Image" />
                     )}
                     <div className={styles.info}>
                         <div className={styles.theinfo}>
@@ -208,10 +208,10 @@ export default function Caruso() {
                             </p>
 
                             <div className={styles.tags}>
-                                <Tag tag={currentGame?.General.Keywords[0].keyword} />
-                                <Tag tag={currentGame?.General.Keywords[1].keyword} />
-                                <Tag tag={currentGame?.General.Keywords[2].keyword} />
-                                <Tag tag={currentGame?.General.Keywords[3].keyword} />
+                                <Tag tag={currentGame?.General.Keywords[0]?.keyword} />
+                                <Tag tag={currentGame?.General.Keywords[1]?.keyword} />
+                                <Tag tag={currentGame?.General.Keywords[2]?.keyword} />
+                                <Tag tag={currentGame?.General.Keywords[3]?.keyword} />
                             </div>
 
                             <div className={styles.bottomcontent}>

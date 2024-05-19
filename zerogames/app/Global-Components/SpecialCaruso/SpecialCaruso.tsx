@@ -6,6 +6,8 @@ import styles from './page.module.css'
 //components
 import Arrow from '../CarusoComponents/Arrow/Arrow';
 import ProgressBar from '../CarusoComponents/ProgressBar/ProgressBar';
+import Tag from '@/app/Small-Components/Tag/Tag';
+import DiscountPriceBox from '@/app/Small-Components/DiscountPriceBox/DiscountPriceBox';
 
 //Providers
 import { useCarusos } from '@/app/States/Carusos/Carusos';
@@ -20,9 +22,7 @@ interface GameProps {
         DiscountOriginalPrice: string | null;
         FinalPrice: string | null;
         gameDiscount: boolean | null;
-        Keywords: [{
-            keyword: string;
-        }]
+        Keywords: gameKeywords[]
 
     }
 
@@ -33,11 +33,7 @@ interface GameProps {
 
     Extra: {
         Description: string;
-        Images: [
-            {
-                image: string | null;
-            }
-        ]
+        Images: gameImages[],
         Videos: [
             {
                 video: string | null;
@@ -74,6 +70,13 @@ interface GameProps {
     }
 }
 
+interface gameImages {
+    image: string;
+}
+
+interface gameKeywords {
+    keyword: string;
+}
 
 export default function SpecialCaruso() {
 
@@ -153,12 +156,39 @@ export default function SpecialCaruso() {
                                 )}
                                 <div className={styles.info}>
                                     <h2>{game.General.Title}</h2>
-                                    <p>
+                                    <p className={styles.desc}>
                                         {game?.About.Description ? game.About.Description :
                                             game?.Extra.Description ? game.Extra.Description :
                                                 "The developers unfortunately didn't provide any description for this game, leaving potential players without information about its features, gameplay, or storyline."
                                         }
                                     </p>
+                                    <div className={styles.tags}>
+                                        <Tag tag={game?.General.Keywords[0].keyword ?? 'Steam'} />
+                                        <Tag tag={game?.General.Keywords[1].keyword ?? 'Steam'} />
+                                        <Tag tag={game?.General.Keywords[2].keyword ?? 'Steam'} />
+                                        <Tag tag={game?.General.Keywords[3].keyword ?? 'Steam'} />
+                                        <Tag tag={game?.General.Keywords[4].keyword ?? 'Steam'} />
+                                    </div>
+
+                                    <div className={styles.bottomcontent}>
+
+                                        <div className={styles.price}>
+                                            {game?.General.gameDiscount &&
+                                                <DiscountPriceBox
+                                                    height='20px'
+                                                    originalPrice={parseFloat(game.General.DiscountOriginalPrice ?? "0")}
+                                                    discountPrice={parseFloat(game.General.FinalPrice ?? "0")}
+                                                    discountPriceFS='0.8rem'
+                                                    originalPriceFS='0.8rem'
+                                                    percentageFontSize='1rem'
+                                                />
+                                            }
+                                            {!game?.General.gameDiscount && <p className={styles.theprice}>{game?.General.GamePrice}</p>}
+                                            {!game?.General.gameDiscount && !game?.General.GamePrice && <p className={styles.theprice}>15,00$</p>}
+                                        </div>
+
+                                    </div>
+
                                 </div>
                             </div>
                         }
@@ -178,6 +208,26 @@ export default function SpecialCaruso() {
                                     <div className={styles.info2}>
                                         <h2>{game.General.Title}</h2>
                                     </div>
+
+                                    <div className={styles.bottomcontent2}>
+
+                                        <div className={styles.price}>
+                                            {game?.General.gameDiscount &&
+                                                <DiscountPriceBox
+                                                    height='20px'
+                                                    originalPrice={parseFloat(game.General.DiscountOriginalPrice ?? "0")}
+                                                    discountPrice={parseFloat(game.General.FinalPrice ?? "0")}
+                                                    discountPriceFS='0.8rem'
+                                                    originalPriceFS='0.8rem'
+                                                    percentageFontSize='1rem'
+                                                />
+                                            }
+                                            {!game?.General.gameDiscount && <p className={styles.theprice}>{game?.General.GamePrice}</p>}
+                                            {!game?.General.gameDiscount && !game?.General.GamePrice && <p className={styles.theprice}>15,00$</p>}
+                                        </div>
+
+                                    </div>
+
                                 </div>
                             }
 
@@ -188,6 +238,25 @@ export default function SpecialCaruso() {
                                     )}
                                     <div className={styles.info2}>
                                         <h2>{game.General.Title}</h2>
+                                    </div>
+
+                                    <div className={styles.bottomcontent2}>
+
+                                        <div className={styles.price}>
+                                            {game?.General.gameDiscount &&
+                                                <DiscountPriceBox
+                                                    height='20px'
+                                                    originalPrice={parseFloat(game.General.DiscountOriginalPrice ?? "0")}
+                                                    discountPrice={parseFloat(game.General.FinalPrice ?? "0")}
+                                                    discountPriceFS='0.8rem'
+                                                    originalPriceFS='0.8rem'
+                                                    percentageFontSize='1rem'
+                                                />
+                                            }
+                                            {!game?.General.gameDiscount && <p className={styles.theprice}>{game?.General.GamePrice}</p>}
+                                            {!game?.General.gameDiscount && !game?.General.GamePrice && <p className={styles.theprice}>15,00$</p>}
+                                        </div>
+
                                     </div>
                                 </div>
                             }

@@ -34,8 +34,8 @@ export default function DiscountPriceBox({
             </div>
 
             <div className={styles.prices}>
-                <p className={styles.originalprice} style={{ fontSize: originalPriceFS }}>{originalPrice.toFixed(2)}$</p>
-                <p className={styles.discountprice} style={{ fontSize: discountPriceFS }}>{discountPrice.toFixed(2)}$</p>
+                <p className={styles.originalprice} style={{ fontSize: originalPriceFS  }}>{originalPrice.toFixed(2)}$</p>
+                <p className={styles.discountprice} style={{ fontSize: discountPriceFS  }}>{discountPrice.toFixed(2)}$</p>
             </div>
         </div>
     )
