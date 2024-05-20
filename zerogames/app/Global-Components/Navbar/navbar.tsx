@@ -24,19 +24,31 @@ export default function Navbar() {
 
     const [isKeywords, setKeywords] = useState(false)
     const [isCategories, setCategories] = useState(false)
-    const timeoutRef = useRef<NodeJS.Timeout | null>(null);
 
-    const removeCategorie = () => {
+    const timeoutRef = useRef<NodeJS.Timeout | null>(null);
+    const categoryRef = useRef<NodeJS.Timeout | null>(null);
+
+    const removeKeywords = () => {
         timeoutRef.current = setTimeout(() => {
             setKeywords(false)
-            const body = document.querySelector('body'); body!.style.overflowY = ''
         }, 100);
     }
 
-    const keepCategorie = () => {
+    const keepKeywords = () => {
         if (timeoutRef.current) {
             clearTimeout(timeoutRef.current)
-            const body = document.querySelector('body'); body!.style.overflowY = 'hidden'
+        }
+    }
+
+    const removeCategory = () => {
+        categoryRef.current = setTimeout(() => {
+            setCategories(false)
+        }, 100);
+    }
+
+    const keepCategory = () => {
+        if (categoryRef.current) {
+            clearTimeout(categoryRef.current)
         }
     }
 
@@ -70,24 +82,34 @@ export default function Navbar() {
                 <img src={logo}></img>
             </div>
 
+            {isCategories &&
+                <div className={styles.allcat}  onMouseLeave={() => { setCategories(false) }} onMouseOver={() => [keepCategory()]} >
+                    <p onClick={(e) => {router.push('/categories/' + e.currentTarget.innerText); setCategories(false)}}>Action</p>
+                    <p onClick={(e) => {router.push('/categories/' + e.currentTarget.innerText); setCategories(false)}}>Survival</p>
+                    <p onClick={(e) => {router.push('/categories/' + e.currentTarget.innerText); setCategories(false)}}>Open World</p>
+                    <p onClick={(e) => {router.push('/categories/' + e.currentTarget.innerText); setCategories(false)}}>Horror</p>
+                    <p onClick={(e) => {router.push('/categories/' + e.currentTarget.innerText); setCategories(false)}}>Adventure</p>
+                    <p onClick={(e) => {router.push('/categories/' + e.currentTarget.innerText); setCategories(false)}}>Indie</p>
+                    <p onClick={(e) => {router.push('/categories/' + e.currentTarget.innerText); setCategories(false)}}>Simulation</p>
+                    <p onClick={(e) => {router.push('/categories/' + e.currentTarget.innerText); setCategories(false)}}>Racing</p>
+                </div>
+            }
 
             {isKeywords &&
-                <div className={styles.thedrop}>
-                    <div onMouseLeave={() => { setKeywords(false) }} onMouseOver={() => [keepCategorie()]} className={styles.dropcategorie}>
-                        <div className={styles.cats}>
+                <div onMouseLeave={() => { setKeywords(false) }} onMouseOver={() => [keepKeywords()]} className={styles.dropcategorie}>
+                    <div className={styles.cats}>
 
-                            {categories?.map((cat, index) => (
-                                <div key={index} className={styles.cat}>
-                                    {categoryGroups[index]?.map((category, groupIndex) => (
-                                        <React.Fragment key={groupIndex}>
-                                            <p onClick={() => {router.push('/categories/' + category); setKeywords(false)}}>{category}</p>
-                                        </React.Fragment>
-                                    ))}
-                                </div>
-                            ))}
+                        {categories?.map((cat, index) => (
+                            <div key={index} className={styles.cat}>
+                                {categoryGroups[index]?.map((category, groupIndex) => (
+                                    <React.Fragment key={groupIndex}>
+                                        <p onClick={() => { router.push('/categories/' + category); setKeywords(false) }}>{category}</p>
+                                    </React.Fragment>
+                                ))}
+                            </div>
+                        ))}
 
 
-                        </div>
                     </div>
                 </div>
             }
@@ -123,8 +145,8 @@ export default function Navbar() {
                     title='Keywords'
                     transition='all 0.3s'
                     color='white'
-                    onHover={() => { setKeywords(true); }}
-                    onUnHover={() => { removeCategorie(); }}
+                    onHover={() => { setKeywords(true); setCategories(false) }}
+                    onUnHover={() => { removeKeywords(); }}
                     nav={true}
                 >
                     <FaListUl />
@@ -142,7 +164,9 @@ export default function Navbar() {
                     title='Categories'
                     transition='all 0.3s'
                     color='white'
-                    onClick={() => {  }}
+                    onClick={() => { }}
+                    onHover={() => { setCategories(true); setKeywords(false) }}
+                    onUnHover={() => { removeCategory() }}
                     nav={true}
                 >
                     <FaListUl />
@@ -166,7 +190,7 @@ export default function Navbar() {
                     <FaGamepad />
                 </BoxIcon>
 
-               
+
             </div>
 
             <div className={styles.navbtn}>

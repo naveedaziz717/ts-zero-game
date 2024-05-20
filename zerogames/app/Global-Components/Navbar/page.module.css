@@ -31,19 +31,44 @@
     margin-left: 10em;
 }
 
-.thedrop{
+
+.allcat{
     position: absolute;
-    margin-top: 6em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
+    top: 90px;
+    left: 836px;
+    z-index: 1;
+    width: 160px;
+    background-color: white;
+    border-radius: 0.3em;
+}
+
+.allcat p{
     width: 100%;
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
+    text-align: center;
+    margin: 0;
+}
+
+.allcat p:hover{
+    background-color: rgba(128, 128, 128, 0.123);
+    cursor: pointer;
 }
 
 
 .dropcategorie {
-    position: relative;
+    position: absolute;
+    top: 119px;
     display: flex;
     z-index: 1;
     padding: 2em;
-    background-color: #1a293ad2;
+    background-color: #1a293ae8;
     color: white;
 }
 
