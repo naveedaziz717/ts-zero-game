@@ -5,13 +5,13 @@ import styles from './page.module.css'
 import CategoryGames from './CategoryGames/CategoryGames'
 
 interface CategoryProps {
-    params: {categorie: string}
+    params: { categorie: string }
 }
 
-export default function page({params} : CategoryProps) {
-  return (
-    <div>
-     <CategoryGames params={params} />
-    </div> 
-  )
+export default function page({ params }: CategoryProps) {
+    return (
+        <div className={styles.main}>
+            <CategoryGames params={params} />
+        </div>
+    )
 }
