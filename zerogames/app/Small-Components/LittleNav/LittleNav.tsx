@@ -9,7 +9,7 @@ import { useRouter } from 'next/navigation'
 interface LittleNavProps {
     singles: boolean;
     theSingles?: string;
-    category?: string;
+    category?: any;
 }
 
 export default function LittleNav({ singles, theSingles, category }: LittleNavProps) {
@@ -30,7 +30,7 @@ export default function LittleNav({ singles, theSingles, category }: LittleNavPr
                 <>
                     <span onClick={() => { router.push('/') }} className={styles.nav}>Home</span>{' > '}
                     <span onClick={() => { router.push('/categories')}} className={styles.nav}>Categories</span>{' > '}
-                    <span onClick={() => { router.push('/categories/' + category)}} className={styles.nav}>{category}</span>
+                    <span onClick={() => { router.push('/categories/' + category)}} className={styles.nav}>{decodeURIComponent(category)}</span>
                 </>
             }
         </p>
