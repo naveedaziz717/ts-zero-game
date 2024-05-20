@@ -37,8 +37,8 @@ export default function Showcase() {
                                     {index <= 1 &&
                                         <RandomImg
                                             borderRadius='1em'
-                                            width='210px'
-                                            height='150px'
+                                            width='280px'
+                                            height='180px'
                                             imgSrc={game.General.imgSrc}
                                         />
                                     }
@@ -55,8 +55,8 @@ export default function Showcase() {
                                     {index > 1 && index <= 3 &&
                                         <RandomImg
                                             borderRadius='1em'
-                                            width='210px'
-                                            height='150px'
+                                            width='280px'
+                                            height='180px'
                                             imgSrc={game.General.imgSrc}
                                         />
                                     }
@@ -71,8 +71,8 @@ export default function Showcase() {
                                 {index === 4 &&
                                     <RandomImg
                                         borderRadius='1em'
-                                        width='530px'
-                                        height='350px'
+                                        width='550px'
+                                        height='320px'
                                         imgSrc={game.General.imgSrc}
                                     />
                                 }
@@ -87,8 +87,8 @@ export default function Showcase() {
                                     {index > 4 && index <= 6 &&
                                         <RandomImg
                                             borderRadius='1em'
-                                            width='210px'
-                                            height='150px'
+                                            width='280px'
+                                            height='180px'
                                             imgSrc={game.General.imgSrc}
                                         />
                                     }
@@ -101,8 +101,8 @@ export default function Showcase() {
                                     {index > 6 && index <= 8 &&
                                         <RandomImg
                                             borderRadius='1em'
-                                            width='210px'
-                                            height='150px'
+                                            width='280px'
+                                            height='180px'
                                             imgSrc={game.General.imgSrc}
                                         />
                                     }
