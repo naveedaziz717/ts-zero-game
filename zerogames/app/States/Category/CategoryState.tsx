@@ -5,6 +5,8 @@ import React, { createContext, useContext, useState, ReactNode, Dispatch, SetSta
 import { useApi } from '../API/API';
 
 interface CategoryType {
+    categories: string[] | undefined;
+
     getCategoryGames: (page: number | undefined, category: string) => void;
     categoryGames: GameProps[] | undefined;
     page: number;
@@ -80,6 +82,8 @@ interface gamesKeywords {
 }
 
 
+
+
 const CategoryContext = createContext<CategoryType | undefined>(undefined);
 
 export const useCategory = (): CategoryType => {
@@ -94,9 +98,33 @@ export const CategoryProvider: React.FC<{ children: ReactNode }> = ({ children }
 
     const { api } = useApi()
 
+    const [categories, setCategories] = useState<Array<string>>()
+
     const [categoryGames, setCategoryGames] = useState<Array<GameProps>>()
     const [page, setPage] = useState<number>(1)
     const [totalPages, setTotalPages] = useState<number>(10)
+
+    const getCategories = async () => {
+        try {
+            const response = await fetch(api + '/getCategories', {
+                method: 'GET',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+            });
+
+            if (!response.ok) {
+                throw new Error('Failed to fetch data');
+            }
+
+            const data = await response.json();
+            console.log(data)
+            setCategories(data.categories)
+
+        } catch (error) {
+            //console.error('Error fetching data:', error.message);
+        }
+    }
 
     const getCategoryGames = async (page: number | undefined, category: string) => {
 
@@ -127,14 +155,19 @@ export const CategoryProvider: React.FC<{ children: ReactNode }> = ({ children }
         }
     }
 
+    useEffect(() => {
+        getCategories()
+    }, [])
+
 
 
     const value = {
+        categories,
         getCategoryGames,
         categoryGames,
         page,
         setPage,
-        totalPages
+        totalPages,
     };
 
     return <CategoryContext.Provider value={value}>{children}</CategoryContext.Provider>;

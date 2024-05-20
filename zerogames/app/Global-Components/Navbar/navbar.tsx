@@ -1,9 +1,11 @@
 'use client'
 
-import React, { useRef, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import styles from './page.module.css'
 
+//providers
 import { useRouter } from 'next/navigation'
+import { useCategory } from '@/app/States/Category/CategoryState'
 
 //components
 import BoxIcon from '@/app/Small-Components/BoxIcon/BoxIcon'
@@ -17,24 +19,50 @@ import { FaDiscord } from "react-icons/fa6";
 
 export default function Navbar() {
 
+    const { categories } = useCategory()
+
+
+    const [isKeywords, setKeywords] = useState(false)
     const [isCategories, setCategories] = useState(false)
     const timeoutRef = useRef<NodeJS.Timeout | null>(null);
 
     const removeCategorie = () => {
         timeoutRef.current = setTimeout(() => {
-            setCategories(false)
-        }, 500);
+            setKeywords(false)
+            const body = document.querySelector('body'); body!.style.overflowY = ''
+        }, 100);
     }
 
     const keepCategorie = () => {
         if (timeoutRef.current) {
             clearTimeout(timeoutRef.current)
+            const body = document.querySelector('body'); body!.style.overflowY = 'hidden'
         }
     }
+
+    useEffect(() => {
+
+        const body = document.querySelector('body');
+
+        if (isKeywords) {
+            body!.style.overflowY = 'hidden'
+        } else {
+            body!.style.overflowY = ''
+        }
+    }, [isKeywords])
 
     const router = useRouter()
 
     const logo = '/images/logo/logo.png'
+
+    const categoriesPerPage = 15;
+    const categoryGroups: string[][] = [];
+
+    if (categories) {
+        for (let i = 0; i < categories?.length; i += categoriesPerPage) {
+            categoryGroups.push(categories.slice(i, i + categoriesPerPage));
+        }
+    }
 
     return (
         <div className={styles.navbar}>
@@ -42,16 +70,25 @@ export default function Navbar() {
                 <img src={logo}></img>
             </div>
 
-            {isCategories &&
-                <div onMouseLeave={() => { setCategories(false) }} onMouseOver={() => [keepCategorie()]} className={styles.dropcategorie}>
-                    <p onClick={(e) => { router.push('/categories/' + e.currentTarget.innerText) }}>Open World</p>
-                    <p onClick={(e) => { router.push('/categories/' + e.currentTarget.innerText) }}>Horror</p>
-                    <p onClick={(e) => { router.push('/categories/' + e.currentTarget.innerText) }}>Adventure</p>
-                    <p onClick={(e) => { router.push('/categories/' + e.currentTarget.innerText) }}>Indie</p>
-                    <p onClick={(e) => { router.push('/categories/' + e.currentTarget.innerText) }}>Simulation</p>
-                    <p onClick={(e) => { router.push('/categories/' + e.currentTarget.innerText) }}>Survival</p>
-                    <p onClick={(e) => { router.push('/categories/' + e.currentTarget.innerText) }}>Racing</p>
-                    <p onClick={(e) => { router.push('/categories/' + e.currentTarget.innerText) }}>Action</p>
+
+            {isKeywords &&
+                <div className={styles.thedrop}>
+                    <div onMouseLeave={() => { setKeywords(false) }} onMouseOver={() => [keepCategorie()]} className={styles.dropcategorie}>
+                        <div className={styles.cats}>
+
+                            {categories?.map((cat, index) => (
+                                <div key={index} className={styles.cat}>
+                                    {categoryGroups[index]?.map((category, groupIndex) => (
+                                        <React.Fragment key={groupIndex}>
+                                            <p onClick={() => {router.push('/categories/' + category); setKeywords(false)}}>{category}</p>
+                                        </React.Fragment>
+                                    ))}
+                                </div>
+                            ))}
+
+
+                        </div>
+                    </div>
                 </div>
             }
 
@@ -83,11 +120,29 @@ export default function Navbar() {
                     paddingRight='1.2em'
                     titleFontWeight='500'
                     textTransform='uppercase'
+                    title='Keywords'
+                    transition='all 0.3s'
+                    color='white'
+                    onHover={() => { setKeywords(true); }}
+                    onUnHover={() => { removeCategorie(); }}
+                    nav={true}
+                >
+                    <FaListUl />
+                </BoxIcon>
+
+                <BoxIcon
+                    width='auto'
+                    height='35px'
+                    backgroundColor='transperent'
+                    borderRadius='0.3em'
+                    paddingLeft='1.2em'
+                    paddingRight='1.2em'
+                    titleFontWeight='500'
+                    textTransform='uppercase'
                     title='Categories'
                     transition='all 0.3s'
                     color='white'
-                    onHover={() => { setCategories(true) }}
-                    onUnHover={() => { removeCategorie() }}
+                    onClick={() => {  }}
                     nav={true}
                 >
                     <FaListUl />
@@ -111,23 +166,7 @@ export default function Navbar() {
                     <FaGamepad />
                 </BoxIcon>
 
-                <BoxIcon
-                    width='auto'
-                    height='35px'
-                    backgroundColor='transperent'
-                    borderRadius='0.3em'
-                    paddingLeft='1.2em'
-                    paddingRight='1.2em'
-                    titleFontWeight='500'
-                    textTransform='uppercase'
-                    title='Recent'
-                    transition='all 0.3s'
-                    color='white'
-                    onClick={() => { router.push('/recent') }}
-                    nav={true}
-                >
-                    <FaUpload />
-                </BoxIcon>
+               
             </div>
 
             <div className={styles.navbtn}>

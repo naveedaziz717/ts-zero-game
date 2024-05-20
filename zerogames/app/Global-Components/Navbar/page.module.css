@@ -19,42 +19,59 @@
     width: 140px;
 }
 
-.hrefs{
+.hrefs {
     display: flex;
     align-items: center;
     gap: 0.2em;
 }
 
-.navbtn{
+.navbtn {
     display: flex;
     align-items: center;
     margin-left: 10em;
 }
 
-.dropcategorie{
+.thedrop{
     position: absolute;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    top: 90px;
-    left: 681px;
-    z-index: 1;
-    width: 150px;
-    padding: 0.5em;
-    background-color: white;
-}
-
-.dropcategorie p{
-    cursor: pointer;
-    text-align: center;
-    padding-top: 0.5em;
-    padding-bottom: 0.5em;
+    margin-top: 6em;
     width: 100%;
-    transition: all 0.4s;
-    margin: 0;
 }
 
-.dropcategorie p:hover{
-    background-color: rgb(228, 231, 235);
+
+.dropcategorie {
+    position: relative;
+    display: flex;
+    z-index: 1;
+    padding: 2em;
+    background-color: #1a293ad2;
+    color: white;
+}
+
+.cats {
+    display: flex;
+    justify-content: center;
+    gap: 3em;
+    flex-wrap: wrap;
+}
+
+.cat {
+    display: flex;
+    width: 100px;
+    flex-direction: column;
+    gap: 0.2em;
+    padding-left: 1em;
+    padding-right: 1em;
+}
+
+.cat p {
+    font-size: 0.8rem;
+    margin: 0;
+    transition: all 0.3s;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.25);
+}
+
+
+.dropcategorie p:hover {
+    color: orange;
+    cursor: pointer;
 }
