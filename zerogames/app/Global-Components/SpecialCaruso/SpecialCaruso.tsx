@@ -163,11 +163,11 @@ export default function SpecialCaruso() {
                                         }
                                     </p>
                                     <div className={styles.tags}>
-                                        <Tag tag={game?.General.Keywords[0]?.keyword ?? 'Steam'} />
-                                        <Tag tag={game?.General.Keywords[1]?.keyword ?? 'Steam'} />
-                                        <Tag tag={game?.General.Keywords[2]?.keyword ?? 'Steam'} />
-                                        <Tag tag={game?.General.Keywords[3]?.keyword ?? 'Steam'} />
-                                        <Tag tag={game?.General.Keywords[4]?.keyword ?? 'Steam'} />
+                                        {game?.General.Keywords[0]?.keyword &&   <Tag tag={game?.General.Keywords[0]?.keyword } />}
+                                        {game?.General.Keywords[1]?.keyword &&   <Tag tag={game?.General.Keywords[1]?.keyword } />}
+                                        {game?.General.Keywords[2]?.keyword &&   <Tag tag={game?.General.Keywords[2]?.keyword } />}
+                                        {game?.General.Keywords[3]?.keyword &&   <Tag tag={game?.General.Keywords[3]?.keyword } />}
+                                        {game?.General.Keywords[4]?.keyword &&   <Tag tag={game?.General.Keywords[4]?.keyword } />}
                                     </div>
 
                                     <div className={styles.bottomcontent}>
