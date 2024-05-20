@@ -1,5 +1,8 @@
+'use client'
+
 import React from 'react'
 import styles from './page.module.css'
+import { useRouter } from 'next/navigation'
 
 //components
 import InputIcon from '@/app/Small-Components/InputIcon/InputIcon'
@@ -8,6 +11,9 @@ import InputIcon from '@/app/Small-Components/InputIcon/InputIcon'
 import { FaSearch } from "react-icons/fa";
 
 export default function ShowcaseNav() {
+
+  const router = useRouter()
+
   return (
     <div className={styles.nav}>
       <div className={styles.hrefs}>
@@ -27,6 +33,11 @@ export default function ShowcaseNav() {
         color='white'
         titleColor='white'
         backColor='rgba(38, 60, 119, 0.884)'
+        onKeyDown={(e: React.KeyboardEvent<HTMLInputElement>) => {
+          if(e.keyCode === 13) {
+             router.push('/search/' + e.currentTarget.value)
+          }
+        }}
         >
           <FaSearch />
         </InputIcon>

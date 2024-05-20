@@ -9,6 +9,7 @@ import { ApiProvider } from "./States/API/API";
 import { MainProvider } from "./States/Main/MainState";
 import { MainGamesProvider } from "./States/Games/MainGames";
 import { CategoryProvider } from "./States/Category/CategoryState";
+import { SearchProvider } from "./States/Search/SearchState";
 
 //components
 import Navbar from "./Global-Components/Navbar/navbar";
@@ -33,11 +34,15 @@ export default function RootLayout({
 
                 <CategoryProvider>
 
-                  <Navbar />
-                  <Showcase />
-                  {children}
-                  <Footer />
-                  
+                  <SearchProvider>
+
+                    <Navbar />
+                    <Showcase />
+                    {children}
+                    <Footer />
+
+                  </SearchProvider>
+
                 </CategoryProvider>
 
               </MainGamesProvider>

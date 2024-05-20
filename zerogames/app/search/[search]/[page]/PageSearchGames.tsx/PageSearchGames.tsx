@@ -1,43 +1,38 @@
 'use client'
 
+
 import React, { useEffect } from 'react'
-import styles from './page.module.css'
+import styles from './styles.module.css'
 
 //providers
-import { useCategory } from '@/app/States/Category/CategoryState'
+import { useSearch } from '@/app/States/Search/SearchState'
 
 //components
 import GameBox from '@/app/Small-Components/GameBox/GameBox'
-import LittleNav from '@/app/Small-Components/LittleNav/LittleNav'
 import GamePages from '@/app/Small-Components/Pages/GamePages'
 
-
-interface CategoryProps {
+interface PageProps {
     params: {
-        page: number,
-        categorie: string
+        search: string;
+        page: number;
     }
 }
 
-//components
+export default function PageSearchGames({ params }: PageProps) {
 
-export default function PageCategoryGames({ params }: CategoryProps) {
-
-    const { getCategoryGames, categoryGames, page, setPage, totalPages } = useCategory()
+    const { getSearchGames, totalPages, games, page, setPage } = useSearch()
 
     useEffect(() => {
-        getCategoryGames(params.page, params.categorie)
+        getSearchGames(params.search, params.page)
         setPage(Number(params.page))
     }, [])
 
     const noDesc = "The developers unfortunately didn't provide any description for this game, leaving potential players without information about its features, gameplay, or storyline."
 
-
     return (
         <>
-
             <div className={styles.games}>
-                {categoryGames?.map((game, index) => (
+                {games?.map((game, index) => (
                     <GameBox
                         description={game.About.Description ? game.About.Description : game.Extra.Description ? game.Extra.Description : noDesc}
                         key={index}
@@ -53,7 +48,7 @@ export default function PageCategoryGames({ params }: CategoryProps) {
                 ))}
             </div>
 
-            <GamePages defaultPage='/' pushPage={'/categories/' + params.categorie + '/'} onPageChange={setPage} page={page} count={totalPages} />
+            <GamePages defaultPage='/' pushPage={'/search/' + params.search +  '/'} onPageChange={setPage} page={page} count={totalPages} />
         </>
     )
 }

@@ -1,12 +1,18 @@
 import React from 'react'
 import styles from './page.module.css'
 
+//components
+import SearchGames from './SearchGames/SearchGames'
+import GamePage from '@/app/Global-Components/GamePage/GamePage'
+
 interface PageProps {
-    params: {search: string}
+  params: { search: string }
 }
 
-export default function page({params} : PageProps) {
+export default function page({ params }: PageProps) {
   return (
-    <div>{params.search}</div>
+    <GamePage singles={true} theSingles={'search/' + params.search}>
+      <SearchGames params={params} />
+    </GamePage>
   )
 }
