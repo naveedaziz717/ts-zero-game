@@ -6,8 +6,9 @@ import { useApi } from '../API/API';
 
 interface CategoryType {
    getCategoryGames: (page : number | undefined, category: string) => void;
-
-   categoryGames: GameProps | undefined;
+   categoryGames: GameProps[] | undefined;
+   page: number;
+   setPage: Dispatch<SetStateAction<number>>;
 }
 
 interface GameProps {
@@ -91,7 +92,8 @@ export const CategoryProvider: React.FC<{ children: ReactNode }> = ({ children }
 
     const { api } = useApi()
 
-    const [categoryGames, setCategoryGames] = useState<GameProps>()
+    const [categoryGames, setCategoryGames] = useState<Array<GameProps>>()
+    const [page, setPage] = useState<number>(1)
 
     const getCategoryGames = async (page: number | undefined, category: string) => {
 
@@ -114,7 +116,7 @@ export const CategoryProvider: React.FC<{ children: ReactNode }> = ({ children }
 
             const data = await response.json();
             console.log(data)
-            setCategoryGames(data)
+            setCategoryGames(data.data)
 
         } catch (error) {
             //console.error('Error fetching data:', error.message);
@@ -125,7 +127,9 @@ export const CategoryProvider: React.FC<{ children: ReactNode }> = ({ children }
 
     const value = {
        getCategoryGames,
-       categoryGames
+       categoryGames,
+       page,
+       setPage
     };
 
     return <CategoryContext.Provider value={value}>{children}</CategoryContext.Provider>;
