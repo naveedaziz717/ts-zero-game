@@ -18,6 +18,9 @@ interface InputIconProps {
     classN?: string;
     onInput?: FormEventHandler<HTMLInputElement>
     onKeyDown?:  FormEventHandler<HTMLInputElement>
+    onBlur?: FormEventHandler<HTMLInputElement>;
+    onFocus?: FormEventHandler<HTMLInputElement>;
+    onChange?: FormEventHandler<HTMLInputElement>;
     
     value?: string
     marginBottom?: string;
@@ -25,7 +28,9 @@ interface InputIconProps {
 
 const InputIcon = forwardRef<HTMLInputElement, InputIconProps>(({
     backColor, width, height, borderRadius, children, color,
-    fontSize, iconBackColor, iconBorderRadius, title, titleColor, titleFontSize, type, classN, onInput, value, marginBottom, onKeyDown,
+    fontSize, iconBackColor, iconBorderRadius, 
+    title, titleColor, titleFontSize, type, classN, onInput,
+     value, marginBottom, onKeyDown, onBlur, onFocus, onChange
 }: InputIconProps, ref: Ref<HTMLInputElement>) => {
     return (
         <div className={styles.inputicon}
@@ -49,6 +54,9 @@ const InputIcon = forwardRef<HTMLInputElement, InputIconProps>(({
                 type={type}
                 onInput={onInput}
                 onKeyDown={onKeyDown}
+                onBlur={onBlur}
+                onFocus={onFocus}
+                onChange={onChange}
                 placeholder={title}
                 value={value}
                 style={{
