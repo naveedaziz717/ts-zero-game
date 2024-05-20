@@ -1,7 +1,0 @@
-.games{
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 1.5em;
-    margin-top: 3em;
-}
