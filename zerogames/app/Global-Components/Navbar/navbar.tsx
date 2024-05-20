@@ -49,7 +49,7 @@ export default function Navbar() {
                     <p onClick={(e) => { router.push('/categories/' + e.currentTarget.innerText) }}>Adventure</p>
                     <p onClick={(e) => { router.push('/categories/' + e.currentTarget.innerText) }}>Indie</p>
                     <p onClick={(e) => { router.push('/categories/' + e.currentTarget.innerText) }}>Simulation</p>
-                    <p onClick={(e) => { router.push('/categories/' + e.currentTarget.innerText) }}>Sport</p>
+                    <p onClick={(e) => { router.push('/categories/' + e.currentTarget.innerText) }}>Survival</p>
                     <p onClick={(e) => { router.push('/categories/' + e.currentTarget.innerText) }}>Racing</p>
                     <p onClick={(e) => { router.push('/categories/' + e.currentTarget.innerText) }}>Action</p>
                 </div>
