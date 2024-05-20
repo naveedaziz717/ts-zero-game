@@ -190,10 +190,10 @@ export default function Caruso() {
                             <div className={styles.extraimages}>
                                 {currentGame?.Extra?.Images?.[1]?.image && (
                                     <>
-                                        <img src={currentGame.Extra.Images[1].image} alt="Game Extra Image" />
-                                        <img src={currentGame.Extra.Images[2].image} alt="Game Extra Image" />
-                                        <img src={currentGame.Extra.Images[3].image} alt="Game Extra Image" />
-                                        <img src={currentGame.Extra.Images[4].image} alt="Game Extra Image" />
+                                        <img src={currentGame.Extra?.Images[1]?.image} alt="Game Extra Image" />
+                                        <img src={currentGame.Extra?.Images[2]?.image} alt="Game Extra Image" />
+                                        <img src={currentGame.Extra?.Images[3]?.image} alt="Game Extra Image" />
+                                        <img src={currentGame.Extra?.Images[4]?.image} alt="Game Extra Image" />
                                     </>
 
                                 )}
