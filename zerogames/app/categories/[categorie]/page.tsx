@@ -1,21 +1,17 @@
 import React from 'react'
 import styles from './page.module.css'
-import Link from 'next/link'
 
 //components
-import GamePage from '@/app/Global-Components/GamePage/GamePage';
-import CategorieGames from './GetCategorieGames/CategorieGames';
+import CategoryGames from './CategoryGames/CategoryGames'
 
-interface params {
-  params: {
-    categorie: string;
-  }
+interface CategoryProps {
+    params: {categorie: string}
 }
 
-export default function page({ params }: params) {
+export default function page({params} : CategoryProps) {
   return (
-      <GamePage category={params.categorie} singles={false} >
-        <CategorieGames />
-      </GamePage>
+    <div>
+     <CategoryGames params={params} />
+    </div> 
   )
 }
