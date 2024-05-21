@@ -9,7 +9,6 @@ import { useNav } from '@/app/States/NavBar/NavState'
 
 //components
 import GameBox from '@/app/Small-Components/GameBox/GameBox'
-import LittleNav from '@/app/Small-Components/LittleNav/LittleNav'
 import GamePages from '@/app/Small-Components/Pages/GamePages'
 
 
