@@ -17,7 +17,7 @@ export default function Games() {
 
     const { games, page, setPage, getGames, totalPages } = useMainGames()
 
-    const {setNav, setCategory} = useNav()
+    const {setNav, setCategory, setKeyword} = useNav()
 
     useEffect(() => {
         getGames(1)
@@ -25,6 +25,7 @@ export default function Games() {
 
         setNav('Home')
         setCategory('')
+        setKeyword('')
     }, [])
 
     const noDesc = "The developers unfortunately didn't provide any description for this game, leaving potential players without information about its features, gameplay, or storyline."

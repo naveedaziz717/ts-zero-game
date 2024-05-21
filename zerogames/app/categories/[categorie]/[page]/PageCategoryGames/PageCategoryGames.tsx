@@ -26,13 +26,14 @@ export default function PageCategoryGames({ params }: CategoryProps) {
 
     const { getCategoryGames, categoryGames, page, setPage, totalPages } = useCategory()
 
-    const { setNav, setCategory } = useNav()
+    const { setNav, setCategory, setKeyword } = useNav()
 
     useEffect(() => {
         getCategoryGames(params.page, params.categorie)
         setPage(Number(params.page))
         setNav('Categories')
         setCategory(params.categorie)
+        setKeyword('')
     }, [])
 
     const noDesc = "The developers unfortunately didn't provide any description for this game, leaving potential players without information about its features, gameplay, or storyline."

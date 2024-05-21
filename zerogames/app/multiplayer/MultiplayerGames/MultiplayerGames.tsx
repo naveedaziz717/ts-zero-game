@@ -15,7 +15,7 @@ export default function MultiplayerGames() {
 
     const { getCategoryGames, categoryGames, page, setPage, totalPages } = useCategory()
     
-    const {setNav, setCategory} = useNav()
+    const {setNav, setCategory, setKeyword} = useNav()
 
     useEffect(() => {
         setPage(1)
@@ -23,6 +23,7 @@ export default function MultiplayerGames() {
       
        setNav('Multiplayer')
        setCategory('')
+       setKeyword('')
       }, [])
 
       const noDesc = "The developers unfortunately didn't provide any description for this game, leaving potential players without information about its features, gameplay, or storyline."
