@@ -85,6 +85,9 @@ interface SearchType {
     searchValue: string;
     setSearchValue:  Dispatch<SetStateAction<string>>;
 
+    isFocused: boolean;
+    setFocused: Dispatch<SetStateAction<boolean>>;
+
     isSearching: boolean;
     setSearching: Dispatch<SetStateAction<boolean>>;
 }
@@ -109,6 +112,7 @@ export const SearchProvider: React.FC<{ children: ReactNode }> = ({ children }) 
     const [totalPages, setTotalPages] = useState<number>(10)
 
     const [searchValue, setSearchValue] = useState<string>('')
+    const [isFocused, setFocused] = useState<boolean>(false)
     const [isSearching, setSearching] = useState<boolean>(false)
 
     const getSearchGames = async (keyword: string, page: number | undefined) => {
@@ -153,6 +157,9 @@ export const SearchProvider: React.FC<{ children: ReactNode }> = ({ children }) 
 
         searchValue,
         setSearchValue,
+
+        isFocused,
+        setFocused,
 
         isSearching,
         setSearching,
