@@ -6,6 +6,7 @@ import styles from './page.module.css'
 //providers
 import { useRouter } from 'next/navigation'
 import { useCategory } from '@/app/States/Category/CategoryState'
+import { useSearch } from '@/app/States/Search/SearchState'
 
 //components
 import BoxIcon from '@/app/Small-Components/BoxIcon/BoxIcon'
@@ -20,6 +21,7 @@ import { FaDiscord } from "react-icons/fa6";
 export default function Navbar() {
 
     const { categories } = useCategory()
+    const { setSearching } = useSearch()
 
 
     const [isKeywords, setKeywords] = useState(false)
@@ -83,15 +85,15 @@ export default function Navbar() {
             </div>
 
             {isCategories &&
-                <div className={styles.allcat}  onMouseLeave={() => { setCategories(false) }} onMouseOver={() => [keepCategory()]} >
-                    <p onClick={(e) => {router.push('/categories/' + e.currentTarget.innerText); setCategories(false)}}>Action</p>
-                    <p onClick={(e) => {router.push('/categories/' + e.currentTarget.innerText); setCategories(false)}}>Survival</p>
-                    <p onClick={(e) => {router.push('/categories/' + e.currentTarget.innerText); setCategories(false)}}>Open World</p>
-                    <p onClick={(e) => {router.push('/categories/' + e.currentTarget.innerText); setCategories(false)}}>Horror</p>
-                    <p onClick={(e) => {router.push('/categories/' + e.currentTarget.innerText); setCategories(false)}}>Adventure</p>
-                    <p onClick={(e) => {router.push('/categories/' + e.currentTarget.innerText); setCategories(false)}}>Indie</p>
-                    <p onClick={(e) => {router.push('/categories/' + e.currentTarget.innerText); setCategories(false)}}>Simulation</p>
-                    <p onClick={(e) => {router.push('/categories/' + e.currentTarget.innerText); setCategories(false)}}>Racing</p>
+                <div className={styles.allcat} onMouseLeave={() => { setCategories(false) }} onMouseOver={() => [keepCategory()]} >
+                    <p onClick={(e) => { router.push('/categories/' + e.currentTarget.innerText); setCategories(false) }}>Action</p>
+                    <p onClick={(e) => { router.push('/categories/' + e.currentTarget.innerText); setCategories(false) }}>Survival</p>
+                    <p onClick={(e) => { router.push('/categories/' + e.currentTarget.innerText); setCategories(false) }}>Open World</p>
+                    <p onClick={(e) => { router.push('/categories/' + e.currentTarget.innerText); setCategories(false) }}>Horror</p>
+                    <p onClick={(e) => { router.push('/categories/' + e.currentTarget.innerText); setCategories(false) }}>Adventure</p>
+                    <p onClick={(e) => { router.push('/categories/' + e.currentTarget.innerText); setCategories(false) }}>Indie</p>
+                    <p onClick={(e) => { router.push('/categories/' + e.currentTarget.innerText); setCategories(false) }}>Simulation</p>
+                    <p onClick={(e) => { router.push('/categories/' + e.currentTarget.innerText); setCategories(false) }}>Racing</p>
                 </div>
             }
 
@@ -145,7 +147,7 @@ export default function Navbar() {
                     title='Keywords'
                     transition='all 0.3s'
                     color='white'
-                    onHover={() => { setKeywords(true); setCategories(false) }}
+                    onHover={() => { setKeywords(true); setCategories(false); setSearching(false) }}
                     onUnHover={() => { removeKeywords(); }}
                     nav={true}
                 >
@@ -165,8 +167,8 @@ export default function Navbar() {
                     transition='all 0.3s'
                     color='white'
                     onClick={() => { }}
-                    onHover={() => { setCategories(true); setKeywords(false) }}
-                    onUnHover={() => { removeCategory() }}
+                    onHover={() => { setCategories(true); setKeywords(false); setSearching(false) }}
+                    onUnHover={() => { removeCategory(); }}
                     nav={true}
                 >
                     <FaListUl />
