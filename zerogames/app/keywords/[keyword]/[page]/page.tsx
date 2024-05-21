@@ -16,7 +16,7 @@ interface PageProps {
 
 export default function page({params} : PageProps) {
   return (
-    <GamePage singles={true} theSingles={'keywords/' + params.keyword}>
+    <GamePage singles={true} theSingles={'keywords/' + decodeURIComponent(params.keyword)}>
       <PageKeywordsGame params={params} />
     </GamePage>
   )
