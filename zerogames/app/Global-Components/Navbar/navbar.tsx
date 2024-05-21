@@ -23,6 +23,8 @@ export default function Navbar() {
     const { categories } = useCategory()
     const { setSearching, searchValue, isFocused } = useSearch()
 
+    const [nav, setNav] = useState<string>('Home')
+
 
     const [isKeywords, setKeywords] = useState(false)
     const [isCategories, setCategories] = useState(false)
