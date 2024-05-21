@@ -39,7 +39,7 @@ export default function CategoryCaruso() {
             title: 'Adventure'
         },
         fourth: {
-            imgSrc: 'https://wallpapercave.com/wp/wp7678946.jpg',
+            imgSrc: 'https://wallpapercave.com/wp/wp2966142.jpg',
             title: 'Indie'
         }
     })
@@ -49,8 +49,8 @@ export default function CategoryCaruso() {
             title: 'Simulation'
         },
         second: {
-            imgSrc: 'https://wallpapercave.com/wp/wp13665147.jpg',
-            title: 'Sport'
+            imgSrc: 'https://wallpapercave.com/wp/wp7678946.jpg',
+            title: 'Survival'
         },
         third: {
             imgSrc: 'https://wallpapercave.com/wp/wp5313405.jpg',
