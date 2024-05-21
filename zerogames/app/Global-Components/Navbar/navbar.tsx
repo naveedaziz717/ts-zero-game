@@ -24,7 +24,7 @@ export default function Navbar() {
     const { categories } = useCategory()
     const { setSearching, searchValue, isFocused } = useSearch()
 
-    const { nav, setNav } = useNav()
+    const { nav, setNav, category, setCategory } = useNav()
 
 
     const [isKeywords, setKeywords] = useState(false)
@@ -97,14 +97,30 @@ export default function Navbar() {
                     }
 
                 }} onMouseOver={() => [keepCategory()]} >
-                    <p onClick={(e) => { router.push('/categories/' + e.currentTarget.innerText); setCategories(false) }}>Action</p>
-                    <p onClick={(e) => { router.push('/categories/' + e.currentTarget.innerText); setCategories(false) }}>Survival</p>
-                    <p onClick={(e) => { router.push('/categories/' + e.currentTarget.innerText); setCategories(false) }}>Open World</p>
-                    <p onClick={(e) => { router.push('/categories/' + e.currentTarget.innerText); setCategories(false) }}>Horror</p>
-                    <p onClick={(e) => { router.push('/categories/' + e.currentTarget.innerText); setCategories(false) }}>Adventure</p>
-                    <p onClick={(e) => { router.push('/categories/' + e.currentTarget.innerText); setCategories(false) }}>Indie</p>
-                    <p onClick={(e) => { router.push('/categories/' + e.currentTarget.innerText); setCategories(false) }}>Simulation</p>
-                    <p onClick={(e) => { router.push('/categories/' + e.currentTarget.innerText); setCategories(false) }}>Racing</p>
+                    <p onClick={(e) => { router.push('/categories/' + e.currentTarget.innerText); setCategories(false); setCategory(e.currentTarget.innerText) }}
+                        style={{ color: category === 'Action' ? '#1a9fff' : '', fontWeight: category === 'Action' ? '500' : '' }}
+                    >Action</p>
+                    <p onClick={(e) => { router.push('/categories/' + e.currentTarget.innerText); setCategories(false); setCategory(e.currentTarget.innerText) }}
+                        style={{ color: category === 'Survival' ? '#1a9fff' : '', fontWeight: category === 'Survival' ? '500' : '' }}
+                    >Survival</p>
+                    <p onClick={(e) => { router.push('/categories/' + e.currentTarget.innerText); setCategories(false); setCategory(e.currentTarget.innerText) }}
+                        style={{ color: category === 'Open World' ? '#1a9fff' : '', fontWeight: category === 'Open World' ? '500' : '' }}
+                    >Open World</p>
+                    <p onClick={(e) => { router.push('/categories/' + e.currentTarget.innerText); setCategories(false); setCategory(e.currentTarget.innerText) }}
+                        style={{ color: category === 'Horror' ? '#1a9fff' : '', fontWeight: category === 'Horror' ? '500' : '' }}
+                    >Horror</p>
+                    <p onClick={(e) => { router.push('/categories/' + e.currentTarget.innerText); setCategories(false); setCategory(e.currentTarget.innerText) }}
+                        style={{ color: category === 'Adventure' ? '#1a9fff' : '', fontWeight: category === 'Adventure' ? '500' : '' }}
+                    >Adventure</p>
+                    <p onClick={(e) => { router.push('/categories/' + e.currentTarget.innerText); setCategories(false); setCategory(e.currentTarget.innerText) }}
+                        style={{ color: category === 'Indie' ? '#1a9fff' : '', fontWeight: category === 'Indie' ? '500' : '' }}
+                    >Indie</p>
+                    <p onClick={(e) => { router.push('/categories/' + e.currentTarget.innerText); setCategories(false); setCategory(e.currentTarget.innerText) }}
+                        style={{ color: category === 'Simulation' ? '#1a9fff' : '', fontWeight: category === 'Simulation' ? '500' : '' }}
+                    >Simulation</p>
+                    <p onClick={(e) => { router.push('/categories/' + e.currentTarget.innerText); setCategories(false); setCategory(e.currentTarget.innerText) }}
+                        style={{ color: category === 'Racing' ? '#1a9fff' : '', fontWeight: category === 'Racing' ? '500' : '' }}
+                    >Racing</p>
                 </div>
             }
 
