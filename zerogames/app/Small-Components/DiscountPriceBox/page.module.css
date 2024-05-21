@@ -19,6 +19,7 @@
     text-align: center !important;
     padding-left: 0.5em !important;
     padding-right: 0.5em !important;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.25);
 }
 
 .prices{
@@ -27,15 +28,18 @@
     background-color: #344654;
     height: 100%;
     gap: 0.5em;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.25);
 }
 
 .originalprice{
     text-decoration: line-through;
     padding-left: 0.5em;
     color: gray !important;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.25);
 }
 
 .discountprice{
     color: #BEEE11 !important;
     padding-right: 0.5em;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.25);
 }
