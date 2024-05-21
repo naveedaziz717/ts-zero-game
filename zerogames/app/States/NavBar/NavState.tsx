@@ -6,6 +6,9 @@ import React, { createContext, useContext, useState, ReactNode, Dispatch, SetSta
 interface NavType {
     nav: string;
     setNav: Dispatch<SetStateAction<string>>;
+
+    category: string;
+    setCategory: Dispatch<SetStateAction<string>>;
 }
 
 
@@ -23,11 +26,15 @@ export const NavProvider: React.FC<{ children: ReactNode }> = ({ children }) => 
 
 
     const [nav, setNav] = useState<string>('Home')
+    const [category, setCategory] = useState<string>('')
 
 
     const value = {
         nav,
         setNav,
+
+        category,
+        setCategory
     };
 
     return <NavContext.Provider value={value}>{children}</NavContext.Provider>;
