@@ -9,6 +9,9 @@ interface NavType {
 
     category: string;
     setCategory: Dispatch<SetStateAction<string>>;
+
+    keyword: string;
+    setKeyword: Dispatch<SetStateAction<string>>;
 }
 
 
@@ -24,9 +27,9 @@ export const useNav = (): NavType => {
 
 export const NavProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
 
-
     const [nav, setNav] = useState<string>('Home')
     const [category, setCategory] = useState<string>('')
+    const [keyword, setKeyword] = useState<string>('')
 
     useEffect(() => {
         if (nav !== 'Categories') {
@@ -34,12 +37,21 @@ export const NavProvider: React.FC<{ children: ReactNode }> = ({ children }) => 
         }
     }, [nav])
 
+    useEffect(() => {
+        if (nav !== 'Keywords') {
+            setKeyword('')
+        }
+    }, [])
+
     const value = {
         nav,
         setNav,
 
         category,
-        setCategory
+        setCategory,
+
+        keyword,
+        setKeyword
     };
 
     return <NavContext.Provider value={value}>{children}</NavContext.Provider>;
