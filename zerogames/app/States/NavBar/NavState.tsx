@@ -4,7 +4,8 @@ import React, { createContext, useContext, useState, ReactNode, Dispatch, SetSta
 
 
 interface NavType {
-
+    nav: string;
+    setNav: Dispatch<SetStateAction<string>>;
 }
 
 
@@ -21,12 +22,12 @@ export const useNav = (): NavType => {
 export const NavProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
 
 
-
+    const [nav, setNav] = useState<string>('Home')
 
 
     const value = {
-   
-     
+        nav,
+        setNav,
     };
 
     return <NavContext.Provider value={value}>{children}</NavContext.Provider>;
