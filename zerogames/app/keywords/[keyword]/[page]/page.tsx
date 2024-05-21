@@ -2,18 +2,22 @@ import React from 'react'
 import styles from './page.module.css'
 
 //components
-import KeywordsGame from './KeywordsGames/KeywordsGame'
+import PageKeywordsGame from './PageKeywordsGames/PageKeywordsGames'
 import GamePage from '@/app/Global-Components/GamePage/GamePage'
 
 interface PageProps {
-  params: { keyword: string }
+  params: { 
+    keyword: string 
+    page: number;
+
+   }
 }
 
 
 export default function page({params} : PageProps) {
   return (
     <GamePage singles={true} theSingles={'keywords/' + params.keyword}>
-      <KeywordsGame params={params} />
+      <PageKeywordsGame params={params} />
     </GamePage>
   )
 }
