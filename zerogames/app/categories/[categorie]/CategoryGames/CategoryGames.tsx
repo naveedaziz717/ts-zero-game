@@ -23,11 +23,12 @@ export default function CategoryGames({ params }: CategoryProps) {
 
   const { getCategoryGames, categoryGames, page, setPage, totalPages } = useCategory()
 
-  const {setNav} = useNav()
+  const { setNav, category, setCategory } = useNav()
 
   useEffect(() => {
     setPage(1)
     getCategoryGames(1, params.categorie)
+    setCategory(params.categorie)
     setNav('Categories')
   }, [])
 

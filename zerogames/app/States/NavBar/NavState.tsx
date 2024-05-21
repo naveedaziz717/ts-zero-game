@@ -13,8 +13,6 @@ interface NavType {
     keyword: string;
     setKeyword: Dispatch<SetStateAction<string>>;
 
-    isKeywordRoute: boolean;
-    setKeywordRoute: Dispatch<SetStateAction<boolean>>;
 }
 
 
@@ -32,7 +30,6 @@ export const NavProvider: React.FC<{ children: ReactNode }> = ({ children }) => 
 
     const [nav, setNav] = useState<string>('Home')
     const [category, setCategory] = useState<string>('')
-    const [isKeywordRoute, setKeywordRoute] = useState<boolean>(false)
     const [keyword, setKeyword] = useState<string>('')
 
     useEffect(() => {
@@ -42,12 +39,7 @@ export const NavProvider: React.FC<{ children: ReactNode }> = ({ children }) => 
     }, [nav])
 
 
-    useEffect(() => {
-        if (isKeywordRoute) {
-             setCategory('')
-             setNav('')
-        }
-    }, [isKeywordRoute])
+
 
     const value = {
         nav,
@@ -59,8 +51,6 @@ export const NavProvider: React.FC<{ children: ReactNode }> = ({ children }) => 
         keyword,
         setKeyword,
 
-        isKeywordRoute,
-        setKeywordRoute,
     };
 
     return <NavContext.Provider value={value}>{children}</NavContext.Provider>;
