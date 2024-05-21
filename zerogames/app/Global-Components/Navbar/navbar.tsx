@@ -16,7 +16,7 @@ import { FaHome } from "react-icons/fa";
 import { FaGamepad } from "react-icons/fa";
 import { FaUpload } from "react-icons/fa6";
 import { FaListUl } from "react-icons/fa6";
-import { FaDiscord } from "react-icons/fa6";
+import { IoServer } from "react-icons/io5";
 
 export default function Navbar() {
 
@@ -218,7 +218,7 @@ export default function Navbar() {
 
             <div className={styles.navbtn}>
                 <BoxIcon
-                    backgroundColor='red'
+                    backgroundColor='rgba(103, 112, 123, 0.2)'
                     borderRadius='0.3em'
                     height='40px'
                     width='auto'
@@ -229,9 +229,9 @@ export default function Navbar() {
                     iconFontSize='1.1rem'
                     transition='all 0.3s'
                     color='white'
-                    title='Join Discord'
+                    title='ZeroGame API'
                 >
-                    <FaDiscord />
+                    <IoServer />
                 </BoxIcon>
             </div>
         </div>
