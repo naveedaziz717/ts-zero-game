@@ -3,20 +3,28 @@
 import React, { useEffect } from 'react'
 import styles from './style.module.css'
 
+//providers
+import { useNav } from '@/app/States/NavBar/NavState'
+import { useMainGames } from '@/app/States/Games/MainGames'
+
 //components
 import GameBox from '../../../Small-Components/GameBox/GameBox'
 import GamePages from '../../../Small-Components/Pages/GamePages'
 
-import { useMainGames } from '@/app/States/Games/MainGames'
 
 export default function Games() {
 
 
     const { games, page, setPage, getGames, totalPages } = useMainGames()
 
+    const {setNav, setCategory} = useNav()
+
     useEffect(() => {
         getGames(1)
         setPage(1)
+
+        setNav('Home')
+        setCategory('')
     }, [])
 
     const noDesc = "The developers unfortunately didn't provide any description for this game, leaving potential players without information about its features, gameplay, or storyline."
