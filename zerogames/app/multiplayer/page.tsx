@@ -4,6 +4,7 @@ import React from 'react'
 import GamePage from '../Global-Components/GamePage/GamePage'
 import MultiplayerGames from './MultiplayerGames/MultiplayerGames'
 
+
 export default function page() {
     return (
        <GamePage singles={true} theSingles='Multiplayer' >

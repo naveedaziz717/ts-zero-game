@@ -230,7 +230,7 @@ export default function Navbar() {
                     title='Multiplayer'
                     transition='all 0.3s'
                     color={nav === 'Multiplayer' ? '#1a9fff' : 'white'}
-                    onClick={() => { router.push('/categories/Multiplayer'); setNav('Multiplayer'); setCategory('') }}
+                    onClick={() => { router.push('/multiplayer'); setNav('Multiplayer'); setCategory('') }}
                     nav={true}
                 >
                     <FaGamepad />
