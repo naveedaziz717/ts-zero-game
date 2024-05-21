@@ -27,6 +27,7 @@
 }
 
 .search {
+    position: relative;
     display: flex;
     align-items: center;
     margin-left: auto;
@@ -35,9 +36,9 @@
 
 .searchgames{
     position: absolute;
-    top: 4.9em;
+    top: 89%;
+    left: -10.3em;
     width: 400px;
-    left: 59.5em;
     max-height: 300px;
     background-color: #3D4450;
     border-radius: 0.3em;
