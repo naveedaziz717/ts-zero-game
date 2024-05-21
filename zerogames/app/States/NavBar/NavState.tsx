@@ -1,6 +1,6 @@
 'use client';
 
-import React, { createContext, useContext, useState, ReactNode, Dispatch, SetStateAction } from 'react';
+import React, { createContext, useContext, useState, ReactNode, Dispatch, SetStateAction, useEffect } from 'react';
 
 
 interface NavType {
@@ -28,6 +28,11 @@ export const NavProvider: React.FC<{ children: ReactNode }> = ({ children }) => 
     const [nav, setNav] = useState<string>('Home')
     const [category, setCategory] = useState<string>('')
 
+    useEffect(() => {
+        if (nav !== 'Categories') {
+            setCategory('')
+        }
+    }, [nav])
 
     const value = {
         nav,
