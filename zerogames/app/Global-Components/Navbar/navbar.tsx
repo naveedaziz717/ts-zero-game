@@ -24,7 +24,7 @@ export default function Navbar() {
     const { categories } = useCategory()
     const { setSearching, searchValue, isFocused } = useSearch()
 
-    const { nav, setNav, category, setCategory, keyword, setKeyword } = useNav()
+    const { nav, setNav, category, setCategory, keyword, setKeyword, isKeywordRoute, setKeywordRoute } = useNav()
 
 
     const [isKeywords, setKeywords] = useState(false)
@@ -137,7 +137,7 @@ export default function Navbar() {
                             <div key={index} className={styles.cat}>
                                 {categoryGroups[index]?.map((category, groupIndex) => (
                                     <React.Fragment key={groupIndex}>
-                                        <p onClick={() => { router.push('/categories/' + category); setKeywords(false); setKeyword(category) }}
+                                        <p onClick={() => { router.push('/categories/' + category); setKeywords(false); setKeyword(category); setKeywordRoute(true) }}
                                         style={{color: keyword === category ? '#1a9fff' : ''}}
                                         >{category}</p>
                                     </React.Fragment>
@@ -180,7 +180,7 @@ export default function Navbar() {
                     textTransform='uppercase'
                     title='Keywords'
                     transition='all 0.3s'
-                    color='white'
+                    color={isKeywordRoute ? '#1a9fff' : 'white'}
                     onHover={() => { setKeywords(true); setCategories(false); setSearching(false) }}
                     onUnHover={() => {
                         removeKeywords();

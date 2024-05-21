@@ -45,7 +45,13 @@ export const NavProvider: React.FC<{ children: ReactNode }> = ({ children }) => 
         if (nav !== 'Keywords') {
             setKeyword('')
         }
-    }, [])
+    }, [nav])
+
+    useEffect(() => {
+        if (isKeywordRoute) {
+             setCategory('')
+        }
+    }, [isKeywordRoute])
 
     const value = {
         nav,
