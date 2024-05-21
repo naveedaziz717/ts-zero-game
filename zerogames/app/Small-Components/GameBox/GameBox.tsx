@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { MouseEventHandler } from 'react'
 import styles from './page.module.css'
 
 import DiscountPriceBox from '../DiscountPriceBox/DiscountPriceBox';
@@ -12,13 +12,15 @@ interface GameBoxProps {
     discountOriginalPrice?: string | null;
     finalPrice?: string | null;
     gamePrice?: string | null;
+    onClick?: MouseEventHandler<HTMLDivElement>;
     keyword1: string;
     keyword2: string;
 }
 
-export default function GameBox({ imgSrc, title, description, isDiscount, discountOriginalPrice, finalPrice, gamePrice, keyword1, keyword2 }: GameBoxProps) {
+export default function GameBox({ imgSrc, title, description, isDiscount,
+     discountOriginalPrice, finalPrice, gamePrice, keyword1, keyword2, onClick }: GameBoxProps) {
     return (
-        <div className={styles.box}>
+        <div className={styles.box} onClick={onClick}>
             <img alt='Game Image' src={imgSrc}></img>
             <h2 className={styles.title}>{title}</h2>
             <p className={styles.description}>{description}</p>
