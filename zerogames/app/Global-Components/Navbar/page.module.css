@@ -100,6 +100,6 @@
 
 
 .dropcategorie p:hover {
-    color: orange;
+    color: orange !important;
     cursor: pointer;
 }
