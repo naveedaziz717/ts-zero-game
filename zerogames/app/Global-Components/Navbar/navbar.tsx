@@ -163,7 +163,7 @@ export default function Navbar() {
                     title='Home'
                     transition='all 0.3s'
                     color={nav === 'Home' ? '#1a9fff' : 'white'}
-                    onClick={() => { router.push('/'); setNav('Home') }}
+                    onClick={() => { router.push('/'); setNav('Home'); setCategory('') }}
                     nav={true}
                 >
                     <FaHome />
@@ -230,7 +230,7 @@ export default function Navbar() {
                     title='Multiplayer'
                     transition='all 0.3s'
                     color={nav === 'Multiplayer' ? '#1a9fff' : 'white'}
-                    onClick={() => { router.push('/categories/Multiplayer'); setNav('Multiplayer') }}
+                    onClick={() => { router.push('/categories/Multiplayer'); setNav('Multiplayer'); setCategory('') }}
                     nav={true}
                 >
                     <FaGamepad />
