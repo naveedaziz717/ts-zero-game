@@ -18,7 +18,7 @@ export default function ShowcaseNav() {
 
   const router = useRouter()
 
-  const { games, getSearchGames, isSearching, setSearching } = useSearch()
+  const { games, getSearchGames, isSearching, setSearching, setSearchValue } = useSearch()
 
   const disableOnSearch = () => {
     setTimeout(() => {
@@ -52,6 +52,7 @@ export default function ShowcaseNav() {
           }}
           onInput={(e) => {
             getSearchGames(e.currentTarget.value, 1);
+            setSearchValue(e.currentTarget.value)
             if (e.currentTarget.value !== '') {
               setSearching(true)
             } else {
