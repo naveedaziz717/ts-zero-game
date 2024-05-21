@@ -39,6 +39,7 @@ export default function Navbar() {
     const keepKeywords = () => {
         if (timeoutRef.current) {
             clearTimeout(timeoutRef.current)
+            setSearching(false)
         }
     }
 
@@ -51,6 +52,7 @@ export default function Navbar() {
     const keepCategory = () => {
         if (categoryRef.current) {
             clearTimeout(categoryRef.current)
+            setSearching(false)
         }
     }
 
@@ -151,7 +153,7 @@ export default function Navbar() {
                     onUnHover={() => {
                         removeKeywords();
                         if (searchValue !== '' && isFocused) {
-                            setSearching(true)
+                                setSearching(true)
                         }
                     }}
                     nav={true}
