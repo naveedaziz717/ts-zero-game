@@ -18,7 +18,7 @@ export default function ShowcaseNav() {
 
   const router = useRouter()
 
-  const { games, getSearchGames, isSearching, setSearching, setSearchValue } = useSearch()
+  const { games, getSearchGames, isSearching, setSearching, setSearchValue, setFocused } = useSearch()
 
   const disableOnSearch = () => {
     setTimeout(() => {
@@ -46,6 +46,7 @@ export default function ShowcaseNav() {
           titleColor='white'
           backColor='rgba(38, 60, 119, 0.884)'
           onFocus={(e) => {
+            setFocused(true)
             if(e.currentTarget.value !== '') {
               setSearching(true)
             }
@@ -59,7 +60,7 @@ export default function ShowcaseNav() {
               setSearching(false)
             }
           }}
-          onBlur={() => { disableOnSearch() }}
+          onBlur={() => { disableOnSearch(); setFocused(false) }}
           onKeyDown={(e: React.KeyboardEvent<HTMLInputElement>) => {
             if (e.keyCode === 13) {
               router.push('/search/' + e.currentTarget.value)
