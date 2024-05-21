@@ -30,7 +30,7 @@ export default function PageKeywordsGame({ params }: PageProps) {
         getCategoryGames(Number(params.page), params.keyword)
 
         setNav('Keywords')
-        setKeyword(params.keyword)
+        setKeyword(decodeURIComponent(params.keyword))
         setCategory('')
     }, [])
 
