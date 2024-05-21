@@ -21,7 +21,7 @@ import { FaDiscord } from "react-icons/fa6";
 export default function Navbar() {
 
     const { categories } = useCategory()
-    const { setSearching, searchValue } = useSearch()
+    const { setSearching, searchValue, isFocused } = useSearch()
 
 
     const [isKeywords, setKeywords] = useState(false)
@@ -150,7 +150,7 @@ export default function Navbar() {
                     onHover={() => { setKeywords(true); setCategories(false); setSearching(false) }}
                     onUnHover={() => {
                         removeKeywords();
-                        if (searchValue !== '') {
+                        if (searchValue !== '' && isFocused) {
                             setSearching(true)
                         }
                     }}
@@ -175,7 +175,7 @@ export default function Navbar() {
                     onHover={() => { setCategories(true); setKeywords(false); setSearching(false) }}
                     onUnHover={() => {
                         removeCategory();
-                        if (searchValue !== '') {
+                        if (searchValue !== '' && isFocused) {
                             setSearching(true)
                         }
                     }}
