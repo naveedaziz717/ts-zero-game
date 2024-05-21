@@ -87,7 +87,12 @@ export default function Navbar() {
             </div>
 
             {isCategories &&
-                <div className={styles.allcat} onMouseLeave={() => { setCategories(false) }} onMouseOver={() => [keepCategory()]} >
+                <div className={styles.allcat} onMouseLeave={() => { setCategories(false)
+                    if (searchValue !== '' && isFocused) {
+                        setSearching(true)
+                    }
+
+                 }} onMouseOver={() => [keepCategory()]} >
                     <p onClick={(e) => { router.push('/categories/' + e.currentTarget.innerText); setCategories(false) }}>Action</p>
                     <p onClick={(e) => { router.push('/categories/' + e.currentTarget.innerText); setCategories(false) }}>Survival</p>
                     <p onClick={(e) => { router.push('/categories/' + e.currentTarget.innerText); setCategories(false) }}>Open World</p>
@@ -100,7 +105,11 @@ export default function Navbar() {
             }
 
             {isKeywords &&
-                <div onMouseLeave={() => { setKeywords(false) }} onMouseOver={() => [keepKeywords()]} className={styles.dropcategorie}>
+                <div onMouseLeave={() => { setKeywords(false);
+                    if (searchValue !== '' && isFocused) {
+                        setSearching(true)
+                    }
+                 }} onMouseOver={() => {keepKeywords();}} className={styles.dropcategorie}>
                     <div className={styles.cats}>
 
                         {categories?.map((cat, index) => (
