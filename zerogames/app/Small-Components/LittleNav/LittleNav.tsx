@@ -10,6 +10,7 @@ interface LittleNavProps {
     singles: boolean;
     theSingles?: string;
     category?: any;
+    multiplayer?: boolean;
 }
 
 export default function LittleNav({ singles, theSingles, category }: LittleNavProps) {
@@ -22,7 +23,7 @@ export default function LittleNav({ singles, theSingles, category }: LittleNavPr
             {singles &&
                 <>
                     <span onClick={() => { router.push('/') }} className={styles.nav}>Home</span>{' > '}
-                    <span onClick={() => { router.push('/' + theSingles?.toLowerCase()) }} className={styles.nav}>{theSingles}</span>
+                    <span onClick={() => { router.push('/' + theSingles) }} className={styles.nav}>{theSingles}</span>
                 </>
             }
 
