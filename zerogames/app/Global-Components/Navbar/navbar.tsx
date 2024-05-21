@@ -21,7 +21,7 @@ import { FaDiscord } from "react-icons/fa6";
 export default function Navbar() {
 
     const { categories } = useCategory()
-    const { setSearching } = useSearch()
+    const { setSearching, searchValue } = useSearch()
 
 
     const [isKeywords, setKeywords] = useState(false)
@@ -148,7 +148,12 @@ export default function Navbar() {
                     transition='all 0.3s'
                     color='white'
                     onHover={() => { setKeywords(true); setCategories(false); setSearching(false) }}
-                    onUnHover={() => { removeKeywords(); }}
+                    onUnHover={() => {
+                        removeKeywords();
+                        if (searchValue !== '') {
+                            setSearching(true)
+                        }
+                    }}
                     nav={true}
                 >
                     <FaListUl />
@@ -168,7 +173,12 @@ export default function Navbar() {
                     color='white'
                     onClick={() => { }}
                     onHover={() => { setCategories(true); setKeywords(false); setSearching(false) }}
-                    onUnHover={() => { removeCategory(); }}
+                    onUnHover={() => {
+                        removeCategory();
+                        if (searchValue !== '') {
+                            setSearching(true)
+                        }
+                    }}
                     nav={true}
                 >
                     <FaListUl />
