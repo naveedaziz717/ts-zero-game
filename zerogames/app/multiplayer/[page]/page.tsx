@@ -12,7 +12,7 @@ interface PageProps{
 
 export default function page({params} : PageProps) {
   return (
-    <GamePage singles={true} theSingles={'Multiplayer/' + params.page} >
+    <GamePage singles={true} theSingles={'Multiplayer/'.toLocaleLowerCase() + params.page} >
     <PageMultiplayerGames params={params}/>
    </GamePage>
   )
