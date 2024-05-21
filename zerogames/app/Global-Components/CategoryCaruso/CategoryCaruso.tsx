@@ -57,7 +57,7 @@ export default function CategoryCaruso() {
             title: 'Racing'
         },
         fourth: {
-            imgSrc: 'https://wallpapercave.com/wp/wp2621389.jpg',
+            imgSrc: 'https://wallpapercave.com/wp/wp5294211.jpg',
             title: 'Action'
         }
     })
@@ -137,7 +137,7 @@ export default function CategoryCaruso() {
                                 <h2>{secondCategory?.third.title}</h2>
                             </div>
                             <div className={`${styles.box} ${animation ? styles.opac : ''}`} onAnimationEnd={onAnimationEnd}>
-                                <img alt='Category Image' src={secondCategory?.first.imgSrc}></img>
+                                <img alt='Category Image' src={secondCategory?.fourth.imgSrc}></img>
                                 <h2>{secondCategory?.fourth.title}</h2>
                             </div>
                         </>
