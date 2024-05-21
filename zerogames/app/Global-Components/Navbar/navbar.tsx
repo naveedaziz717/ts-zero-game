@@ -24,7 +24,7 @@ export default function Navbar() {
     const { categories } = useCategory()
     const { setSearching, searchValue, isFocused } = useSearch()
 
-    const { nav, setNav, category, setCategory } = useNav()
+    const { nav, setNav, category, setCategory, keyword, setKeyword } = useNav()
 
 
     const [isKeywords, setKeywords] = useState(false)
@@ -137,7 +137,9 @@ export default function Navbar() {
                             <div key={index} className={styles.cat}>
                                 {categoryGroups[index]?.map((category, groupIndex) => (
                                     <React.Fragment key={groupIndex}>
-                                        <p onClick={() => { router.push('/categories/' + category); setKeywords(false) }}>{category}</p>
+                                        <p onClick={() => { router.push('/categories/' + category); setKeywords(false); setKeyword(category) }}
+                                        style={{color: keyword === category ? '#1a9fff' : ''}}
+                                        >{category}</p>
                                     </React.Fragment>
                                 ))}
                             </div>
