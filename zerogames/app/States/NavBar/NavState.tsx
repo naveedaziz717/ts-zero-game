@@ -32,13 +32,6 @@ export const NavProvider: React.FC<{ children: ReactNode }> = ({ children }) => 
     const [category, setCategory] = useState<string>('')
     const [keyword, setKeyword] = useState<string>('')
 
-    useEffect(() => {
-        if (nav !== 'Categories') {
-            setCategory('')
-        }
-    }, [nav])
-
-
 
 
     const value = {
