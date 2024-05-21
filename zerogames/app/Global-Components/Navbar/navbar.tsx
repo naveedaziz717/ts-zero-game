@@ -7,6 +7,7 @@ import styles from './page.module.css'
 import { useRouter } from 'next/navigation'
 import { useCategory } from '@/app/States/Category/CategoryState'
 import { useSearch } from '@/app/States/Search/SearchState'
+import { useNav } from '@/app/States/NavBar/NavState'
 
 //components
 import BoxIcon from '@/app/Small-Components/BoxIcon/BoxIcon'
@@ -23,7 +24,7 @@ export default function Navbar() {
     const { categories } = useCategory()
     const { setSearching, searchValue, isFocused } = useSearch()
 
-    const [nav, setNav] = useState<string>('Home')
+    const { nav, setNav } = useNav()
 
 
     const [isKeywords, setKeywords] = useState(false)
@@ -89,12 +90,13 @@ export default function Navbar() {
             </div>
 
             {isCategories &&
-                <div className={styles.allcat} onMouseLeave={() => { setCategories(false)
+                <div className={styles.allcat} onMouseLeave={() => {
+                    setCategories(false)
                     if (searchValue !== '' && isFocused) {
                         setSearching(true)
                     }
 
-                 }} onMouseOver={() => [keepCategory()]} >
+                }} onMouseOver={() => [keepCategory()]} >
                     <p onClick={(e) => { router.push('/categories/' + e.currentTarget.innerText); setCategories(false) }}>Action</p>
                     <p onClick={(e) => { router.push('/categories/' + e.currentTarget.innerText); setCategories(false) }}>Survival</p>
                     <p onClick={(e) => { router.push('/categories/' + e.currentTarget.innerText); setCategories(false) }}>Open World</p>
@@ -107,11 +109,12 @@ export default function Navbar() {
             }
 
             {isKeywords &&
-                <div onMouseLeave={() => { setKeywords(false);
+                <div onMouseLeave={() => {
+                    setKeywords(false);
                     if (searchValue !== '' && isFocused) {
                         setSearching(true)
                     }
-                 }} onMouseOver={() => {keepKeywords();}} className={styles.dropcategorie}>
+                }} onMouseOver={() => { keepKeywords(); }} className={styles.dropcategorie}>
                     <div className={styles.cats}>
 
                         {categories?.map((cat, index) => (
@@ -164,7 +167,7 @@ export default function Navbar() {
                     onUnHover={() => {
                         removeKeywords();
                         if (searchValue !== '' && isFocused) {
-                                setSearching(true)
+                            setSearching(true)
                         }
                     }}
                     nav={true}
@@ -250,7 +253,7 @@ export default function Navbar() {
                     color='white'
                     title='ZeroGame Script'
                 >
-                <FaFileCode />
+                    <FaFileCode />
                 </BoxIcon>
             </div>
         </div>
