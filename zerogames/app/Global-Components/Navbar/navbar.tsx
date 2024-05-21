@@ -137,7 +137,7 @@ export default function Navbar() {
                             <div key={index} className={styles.cat}>
                                 {categoryGroups[index]?.map((category, groupIndex) => (
                                     <React.Fragment key={groupIndex}>
-                                        <p onClick={() => { router.push('/keywords/' + category); setNav('Keywords') }}
+                                        <p onClick={() => { router.push('/keywords/' + category); setNav('Keywords'); setKeywords(false) }}
                                         style={{color: keyword === category ? '#1a9fff' : ''}}
                                         >{category}</p>
                                     </React.Fragment>
