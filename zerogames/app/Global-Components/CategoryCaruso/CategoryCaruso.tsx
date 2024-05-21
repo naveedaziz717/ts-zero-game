@@ -106,38 +106,38 @@ export default function CategoryCaruso() {
                     {page === 0 ?
                         <>
                             <div className={`${styles.box} ${animation ? styles.opac : ''}`} onAnimationEnd={onAnimationEnd}>
-                                <img src={firstCategory?.first.imgSrc}></img>
+                                <img alt='Category Image' src={firstCategory?.first.imgSrc}></img>
                                 <h2>{firstCategory?.first.title}</h2>
                             </div>
                             <div className={`${styles.box} ${animation ? styles.opac : ''}`} onAnimationEnd={onAnimationEnd}>
-                                <img src={firstCategory?.second.imgSrc}></img>
+                                <img alt='Category Image' src={firstCategory?.second.imgSrc}></img>
                                 <h2>{firstCategory?.second.title}</h2>
                             </div>
                             <div className={`${styles.box} ${animation ? styles.opac : ''}`} onAnimationEnd={onAnimationEnd}>
-                                <img src={firstCategory?.third.imgSrc}></img>
+                                <img alt='Category Image' src={firstCategory?.third.imgSrc}></img>
                                 <h2>{firstCategory?.third.title}</h2>
                             </div>
                             <div className={`${styles.box} ${animation ? styles.opac : ''}`} onAnimationEnd={onAnimationEnd}>
-                                <img src={firstCategory?.fourth.imgSrc}></img>
+                                <img alt='Category Image' src={firstCategory?.fourth.imgSrc}></img>
                                 <h2>{firstCategory?.fourth.title}</h2>
                             </div>
                         </>
                         :
                         <>
                             <div className={`${styles.box} ${animation ? styles.opac : ''}`} onAnimationEnd={onAnimationEnd}>
-                                <img src={secondCategory?.first.imgSrc}></img>
+                                <img alt='Category Image' src={secondCategory?.first.imgSrc}></img>
                                 <h2>{secondCategory?.first.title}</h2>
                             </div>
                             <div className={`${styles.box} ${animation ? styles.opac : ''}`} onAnimationEnd={onAnimationEnd}>
-                                <img src={secondCategory?.second.imgSrc}></img>
+                                <img alt='Category Image' src={secondCategory?.second.imgSrc}></img>
                                 <h2>{secondCategory?.second.title}</h2>
                             </div>
                             <div className={`${styles.box} ${animation ? styles.opac : ''}`} onAnimationEnd={onAnimationEnd}>
-                                <img src={secondCategory?.third.imgSrc}></img>
+                                <img alt='Category Image' src={secondCategory?.third.imgSrc}></img>
                                 <h2>{secondCategory?.third.title}</h2>
                             </div>
                             <div className={`${styles.box} ${animation ? styles.opac : ''}`} onAnimationEnd={onAnimationEnd}>
-                                <img src={secondCategory?.first.imgSrc}></img>
+                                <img alt='Category Image' src={secondCategory?.first.imgSrc}></img>
                                 <h2>{secondCategory?.fourth.title}</h2>
                             </div>
                         </>

@@ -19,7 +19,7 @@ interface GameBoxProps {
 export default function GameBox({ imgSrc, title, description, isDiscount, discountOriginalPrice, finalPrice, gamePrice, keyword1, keyword2 }: GameBoxProps) {
     return (
         <div className={styles.box}>
-            <img src={imgSrc}></img>
+            <img alt='Game Image' src={imgSrc}></img>
             <h2 className={styles.title}>{title}</h2>
             <p className={styles.description}>{description}</p>
 

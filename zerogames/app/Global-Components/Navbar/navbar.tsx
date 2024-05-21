@@ -83,7 +83,7 @@ export default function Navbar() {
     return (
         <div className={styles.navbar}>
             <div className={styles.logo}>
-                <img src={logo}></img>
+                <img alt='Logo' src={logo}></img>
             </div>
 
             {isCategories &&

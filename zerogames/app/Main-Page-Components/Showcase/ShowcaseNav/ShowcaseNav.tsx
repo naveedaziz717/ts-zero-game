@@ -76,7 +76,7 @@ export default function ShowcaseNav() {
             {games?.map((game, index) => (
               <React.Fragment key={index}>
                 <div className={styles.game}>
-                  <img src={game.General.imgSrc}></img>
+                  <img alt='Showcase Image' src={game.General.imgSrc}></img>
                   <div className={styles.info}>
                     <h2>{game.General.Title}</h2>
                     {game.General.gameDiscount &&
