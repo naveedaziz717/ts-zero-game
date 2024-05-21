@@ -10,6 +10,7 @@ import { MainProvider } from "./States/Main/MainState";
 import { MainGamesProvider } from "./States/Games/MainGames";
 import { CategoryProvider } from "./States/Category/CategoryState";
 import { SearchProvider } from "./States/Search/SearchState";
+import { NavProvider } from "./States/NavBar/NavState";
 
 //components
 import Navbar from "./Global-Components/Navbar/navbar";
@@ -27,28 +28,32 @@ export default function RootLayout({
 
         <ApiProvider>
 
-          <MainProvider>
-            <CarusosProvider>
+          <NavProvider>
 
-              <MainGamesProvider>
+            <MainProvider>
+              <CarusosProvider>
 
-                <CategoryProvider>
+                <MainGamesProvider>
 
-                  <SearchProvider>
+                  <CategoryProvider>
 
-                    <Navbar />
-                    <Showcase />
-                    {children}
-                    <Footer />
+                    <SearchProvider>
 
-                  </SearchProvider>
+                      <Navbar />
+                      <Showcase />
+                      {children}
+                      <Footer />
 
-                </CategoryProvider>
+                    </SearchProvider>
 
-              </MainGamesProvider>
+                  </CategoryProvider>
 
-            </CarusosProvider>
-          </MainProvider>
+                </MainGamesProvider>
+
+              </CarusosProvider>
+            </MainProvider>
+
+          </NavProvider>
 
         </ApiProvider>
 
