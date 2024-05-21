@@ -5,6 +5,7 @@ import styles from './page.module.css'
 
 //providers
 import { useCategory } from '@/app/States/Category/CategoryState'
+import { useNav } from '@/app/States/NavBar/NavState'
 
 //components
 import GameBox from '@/app/Small-Components/GameBox/GameBox'
@@ -25,9 +26,12 @@ export default function PageCategoryGames({ params }: CategoryProps) {
 
     const { getCategoryGames, categoryGames, page, setPage, totalPages } = useCategory()
 
+    const { setNav } = useNav()
+
     useEffect(() => {
         getCategoryGames(params.page, params.categorie)
         setPage(Number(params.page))
+        setNav('Categories')
     }, [])
 
     const noDesc = "The developers unfortunately didn't provide any description for this game, leaving potential players without information about its features, gameplay, or storyline."
