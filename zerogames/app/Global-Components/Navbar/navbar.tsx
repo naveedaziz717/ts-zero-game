@@ -186,7 +186,7 @@ export default function Navbar() {
                     textTransform='uppercase'
                     title='Categories'
                     transition='all 0.3s'
-                    color='white'
+                    color={nav === 'Categories' ? '#1a9fff' : 'white'}
                     onClick={() => { }}
                     onHover={() => { setCategories(true); setKeywords(false); setSearching(false) }}
                     onUnHover={() => {
