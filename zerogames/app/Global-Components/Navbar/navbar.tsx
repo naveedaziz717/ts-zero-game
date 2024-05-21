@@ -14,9 +14,9 @@ import BoxIcon from '@/app/Small-Components/BoxIcon/BoxIcon'
 //icons
 import { FaHome } from "react-icons/fa";
 import { FaGamepad } from "react-icons/fa";
-import { FaUpload } from "react-icons/fa6";
 import { FaListUl } from "react-icons/fa6";
 import { IoServer } from "react-icons/io5";
+import { FaFileCode } from "react-icons/fa";
 
 export default function Navbar() {
 
@@ -220,7 +220,7 @@ export default function Navbar() {
                 <BoxIcon
                     backgroundColor='rgba(103, 112, 123, 0.2)'
                     borderRadius='0.3em'
-                    height='40px'
+                    height='30px'
                     width='auto'
                     paddingLeft='1.2em'
                     paddingRight='1.2em'
@@ -232,6 +232,23 @@ export default function Navbar() {
                     title='ZeroGame API'
                 >
                     <IoServer />
+                </BoxIcon>
+
+                <BoxIcon
+                    backgroundColor='rgba(103, 112, 123, 0.2)'
+                    borderRadius='0.3em'
+                    height='30px'
+                    width='auto'
+                    paddingLeft='1.2em'
+                    paddingRight='1.2em'
+                    titleFontWeight='600'
+                    textTransform='uppercase'
+                    iconFontSize='1.1rem'
+                    transition='all 0.3s'
+                    color='white'
+                    title='ZeroGame Script'
+                >
+                <FaFileCode />
                 </BoxIcon>
             </div>
         </div>
