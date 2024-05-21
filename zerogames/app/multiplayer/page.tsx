@@ -7,7 +7,7 @@ import MultiplayerGames from './MultiplayerGames/MultiplayerGames'
 
 export default function page() {
     return (
-       <GamePage singles={true} theSingles='Multiplayer' >
+       <GamePage singles={true} theSingles={'Multiplayer'.toLowerCase()} >
         <MultiplayerGames/>
        </GamePage>
     )
