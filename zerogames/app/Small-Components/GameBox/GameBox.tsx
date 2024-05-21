@@ -1,5 +1,9 @@
+'use client'
+
 import React, { MouseEventHandler } from 'react'
 import styles from './page.module.css'
+
+import { useRouter } from 'next/navigation'
 
 import DiscountPriceBox from '../DiscountPriceBox/DiscountPriceBox';
 import Tag from '../Tag/Tag';
@@ -12,15 +16,17 @@ interface GameBoxProps {
     discountOriginalPrice?: string | null;
     finalPrice?: string | null;
     gamePrice?: string | null;
-    onClick?: MouseEventHandler<HTMLDivElement>;
     keyword1: string;
     keyword2: string;
 }
 
 export default function GameBox({ imgSrc, title, description, isDiscount,
-     discountOriginalPrice, finalPrice, gamePrice, keyword1, keyword2, onClick }: GameBoxProps) {
+     discountOriginalPrice, finalPrice, gamePrice, keyword1, keyword2 }: GameBoxProps) {
+
+        const router = useRouter()
+
     return (
-        <div className={styles.box} onClick={onClick}>
+        <div className={styles.box} onClick={() => {router.push('/game/' + title)}}>
             <img alt='Game Image' src={imgSrc}></img>
             <h2 className={styles.title}>{title}</h2>
             <p className={styles.description}>{description}</p>
