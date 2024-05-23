@@ -219,6 +219,10 @@
     color: rgb(0, 123, 255);
 }
 
+.about img{
+    width: 600px;
+}
+
 .specs {
     margin-top: 5em;
     width: 689px;

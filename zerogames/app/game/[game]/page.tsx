@@ -168,7 +168,7 @@ export default async function page({ params }: PageProps) {
                             {game.General.GamePrice !== 'Free to Play' &&
                                 <div className={styles.buybox}>
                                     <div className={styles.theprice}>
-                                        {game.General.GamePrice ? <p style={{margin: '0'}}>{game.General.GamePrice}</p>
+                                        {game.General.GamePrice ? <p style={{ margin: '0' }}>{game.General.GamePrice}</p>
                                             : <>{game.General.gameDiscount ?
                                                 <DiscountPriceBox
                                                     height='20px'
@@ -179,7 +179,7 @@ export default async function page({ params }: PageProps) {
                                                     percentageFontSize='1rem'
                                                 />
                                                 :
-                                                <p style={{margin: '0'}}>15.00$</p>}
+                                                <p style={{ margin: '0' }}>15.00$</p>}
                                             </>
                                         }
                                     </div>
@@ -199,7 +199,7 @@ export default async function page({ params }: PageProps) {
                                 <p>{game.About.Description}  <a target='_blank' href={game.About.Wikipedia}>Wikipedia</a></p>
                             </>
                         }
-
+                        <img src={game.Extra.Images[0].image}></img>
 
                     </div>
 
