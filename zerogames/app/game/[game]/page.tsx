@@ -196,7 +196,7 @@ export default async function page({ params }: PageProps) {
                         <div className={styles.dlcs}>
                             <h2>Content For This Game</h2>
                             <div className={styles.thedlcs}>
-                                <button>View All</button>
+                                {game.Extra.DLCS.length > 7 && <button>View All</button>}
                                 {game.Extra.DLCS.map((dlc, index) => (
                                     <React.Fragment key={index}>
                                         {index <= 7 &&
