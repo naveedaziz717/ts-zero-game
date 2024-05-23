@@ -49,22 +49,9 @@ interface GameProps {
     }
 
     Requirements: {
-        Maximum: [
-            {
-                Req: string;
-            }
-        ]
-
-        Minimum: [
-            {
-                Req: string;
-            }
-        ]
-        Requirements: [
-            {
-                Req: string;
-            }
-        ]
+        Maximum: Maximum[]
+        Minimum: Minimum[]
+        Requirements: Requirements[]
     }
 }
 
@@ -79,6 +66,21 @@ interface gameVideos {
 interface gameImages {
     image: string;
 }
+
+interface Requirements {
+    req: string;
+}
+
+interface Minimum {
+    req: string;
+}
+
+interface Maximum {
+    req: string;
+}
+
+
+
 
 
 async function getGame(gameTitle: string) {
@@ -153,7 +155,7 @@ export default async function page({ params }: PageProps) {
                 <div className={styles.downfirst}>
                     <div className={styles.buy}>
                         {game.General.GamePrice === 'Free to Play' && <h2>Download {game.General.Title}</h2>}
-                        {game.General.GamePrice !== 'Free To Play' && <h2>Buy {game.General.Title}</h2>}
+                        {game.General.GamePrice !== 'Free to Play' && <h2>Buy {game.General.Title}</h2>}
                         <div className={styles.buyicons}>
                             <FaWindows />
                             <FaSteam />
@@ -180,13 +182,31 @@ export default async function page({ params }: PageProps) {
                     <div className={styles.about}>
                         <h2>About this game</h2>
                         <p>{game.Extra.Description}</p>
-                        {game.About.Description && 
-                        <>
-                             <p>{game.About.Description}  <a target='_blank' href={game.About.Wikipedia}>Wikipedia</a></p>
-                        </>
+                        {game.About.Description &&
+                            <>
+                                <p>{game.About.Description}  <a target='_blank' href={game.About.Wikipedia}>Wikipedia</a></p>
+                            </>
                         }
-                   
-                   
+
+
+                    </div>
+
+                    <div className={styles.specs}>
+                        <h2>System Requirements</h2>
+                        <div className={styles.thespecs}>
+                            {game.Requirements.Requirements ?
+                                <div className={styles.singlereq}>
+                                    <h3>Minimum:</h3>
+                                 {game.Requirements.Requirements.map((req ,index) => (
+                                    <p>{req.req}</p>
+                                 ))}
+                                </div>
+                                :
+                                <div>
+
+                                </div>
+                                }
+                        </div>
                     </div>
 
                 </div>

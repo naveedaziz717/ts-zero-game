@@ -1,11 +1,11 @@
-.game{
+.game {
     position: relative;
     width: 100%;
     height: 1900px;
     background-color: #1a293a;
 }
 
-.main{
+.main {
     position: relative;
     width: 1050px;
     height: 600px;
@@ -13,7 +13,7 @@
     margin-right: auto;
 }
 
-.mainback{
+.mainback {
     position: absolute;
     top: 0;
     left: 0;
@@ -21,7 +21,7 @@
     filter: opacity(0.1) brightness(0.3);
 }
 
-.main h1{
+.main h1 {
     color: white;
     font-weight: 500;
 }
@@ -33,23 +33,24 @@
     align-items: center;
 }
 
-.first{
+.first {
     width: 800px;
     height: 500px;
 }
 
-.video{
+.video {
     width: 100%;
     height: 400px;
 }
 
-.video video{
+.video video {
     width: 100%;
-    height: 100%;;
+    height: 100%;
+    ;
     object-fit: fill;
 }
 
-.extra{
+.extra {
     display: flex;
     align-items: center;
     margin-top: 0.5em;
@@ -57,69 +58,71 @@
     overflow: auto;
 }
 
-.extrabox{
+.extrabox {
     width: 130px;
     height: 70px;
     background-color: red;
     cursor: pointer;
 }
 
-.extrabox img{
+.extrabox img {
     width: 100%;
     height: 100%;
 }
 
-.second{
+.second {
     width: 450px;
     height: 500px;
 }
 
-.info{
+.info {
     margin-left: 1em;
 }
 
-.description p{
+.description p {
     font-size: 0.9rem;
     color: rgb(255, 246, 246);
 }
 
-.keywords{
+.keywords {
     display: flex;
     align-items: center;
     flex-wrap: wrap;
     gap: 0.5em;
 }
 
-.down{
+.down {
     position: relative;
+    display: flex;
+    flex-direction: column;
     width: 1050px;
     height: 600px;
     margin-left: auto;
     margin-right: auto;
 }
 
-.downfirst{
+.downfirst {
     width: 800px;
 }
 
-.buy{
+.buy {
     position: relative;
     display: flex;
     align-items: center;
     border-radius: 0.3em;
     width: 689px;
     height: 80px;
-    background: linear-gradient( 60deg, rgba(117, 176, 34, 0.7) 5%,rgba(88, 138, 27, 0.6) 95%);
+    background: linear-gradient(60deg, rgba(117, 176, 34, 0.7) 5%, rgba(88, 138, 27, 0.6) 95%);
 }
 
-.buy h2{
+.buy h2 {
     color: white;
     font-weight: 500;
     font-size: 1.3rem;
     margin-left: 1em;
 }
 
-.buyicons{
+.buyicons {
     display: flex;
     align-items: center;
     margin-left: auto;
@@ -129,12 +132,12 @@
     font-size: 1.1rem;
 }
 
-.mainbuy{
+.mainbuy {
     position: absolute;
     right: 1em;
 }
 
-.mainbuy .freebtn{
+.mainbuy .freebtn {
     position: relative;
     top: 3em;
     color: white;
@@ -147,7 +150,7 @@
     cursor: pointer;
 }
 
-.buybox{
+.buybox {
     position: relative;
     top: 2.7em;
     display: flex;
@@ -159,7 +162,7 @@
     border-radius: 0.3em;
 }
 
-.theprice{
+.theprice {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -167,45 +170,75 @@
     font-size: 0.9rem;
 }
 
-.card{
+.card {
     display: flex;
     align-items: center;
     justify-content: center;
     color: white;
-    background: -webkit-linear-gradient( top, #6fa720 5%, #588a1b 95%);
+    background: -webkit-linear-gradient(top, #6fa720 5%, #588a1b 95%);
     border-radius: 0.3em;
     height: 32px;
     cursor: pointer;
     transition: all 0.3s;
 }
 
-.card:hover{
+.card:hover {
     font-weight: 500;
 }
 
-.card p{
+.card p {
     padding-left: 0.5em;
     padding-right: 0.5em;
 }
 
-.about{
+.about {
     margin-top: 5em;
     width: 689px;
-    height: 30px;
 }
 
-.about h2{
+.about h2 {
     font-weight: 500;
     color: white;
     font-size: 1rem;
     text-transform: uppercase;
 }
 
-.about p{
+.about p {
     color: rgb(179, 179, 179);
     font-size: 0.9rem;
 }
 
-.about a{
+.about a {
     color: rgb(0, 123, 255);
+}
+
+.specs {
+    margin-top: 5em;
+    width: 689px;
+    height: 30px;
+}
+
+.specs h2 {
+    font-weight: 500;
+    color: white;
+    font-size: 1rem;
+    text-transform: uppercase;
+}
+
+.thespecs {
+    display: flex;
+    align-items: center;
+    gap: 1em;
+}
+
+.singlereq h3 {
+    color: white;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    font-weight: 400;
+}
+
+.singlereq p{
+    color: rgb(155, 153, 153);
+    font-size: 0.7rem;
 }
