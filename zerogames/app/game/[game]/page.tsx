@@ -126,6 +126,7 @@ async function getRelatedGames(category: string) {
 export default async function page({ params }: PageProps) {
 
     const game: GameProps = await getGame(params.game)
+    const relatedGames: relatedGames = await getRelatedGames(game.General.Keywords[0].keyword)
 
     return (
         <div className={styles.game}>
@@ -210,6 +211,7 @@ export default async function page({ params }: PageProps) {
                                     </div>
                                 </div>
                             }
+
                         </div>
                     </div>
 
@@ -287,6 +289,39 @@ export default async function page({ params }: PageProps) {
                                     </div>
                                 </div>
                             }
+                        </div>
+                    </div>
+
+                    <div className={styles.related}>
+                        <h2>More Like This</h2>
+                        <div className={styles.relatedgames}>
+                            {relatedGames.data.map((game2, index) => (
+                                <div key={index} className={styles.relatedbox}>
+                                    <img src={game2.General.imgSrc}></img>
+                                    <h2>{game2.General.Title}</h2>
+                                    {game2.General.GamePrice === 'Free to Play' && <p style={{ margin: '0' }}>Free to Play</p>}
+                                    {game2.General.GamePrice !== 'Free to Play' &&
+                                        <div className={styles.relatebuy}>
+                                            <div className={styles.therelateprice}>
+                                                {game2.General.GamePrice ? <p style={{ margin: '0' }}>{game2.General.GamePrice}</p>
+                                                    : <>{game2.General.gameDiscount ?
+                                                        <DiscountPriceBox
+                                                            height='20px'
+                                                            originalPrice={parseFloat(game2.General.DiscountOriginalPrice ?? "0")}
+                                                            discountPrice={parseFloat(game2.General.FinalPrice ?? "0")}
+                                                            discountPriceFS='0.8rem'
+                                                            originalPriceFS='0.8rem'
+                                                            percentageFontSize='1rem'
+                                                        />
+                                                        :
+                                                        <p style={{ margin: '0' }}>15.00$</p>}
+                                                    </>
+                                                }
+                                            </div>
+                                        </div>
+                                    }
+                                </div>
+                            ))}
                         </div>
                     </div>
 

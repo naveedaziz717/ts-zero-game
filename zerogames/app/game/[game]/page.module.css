@@ -53,7 +53,6 @@
     align-items: center;
     margin-top: 0.5em;
     gap: 0.5em;
-    overflow: auto;
 }
 
 .extrabox {
@@ -339,6 +338,50 @@
     width: 350px;
 }
 
+.related{
+    margin-top: 5em;
+    width: 689px;
+}
+
+.related h2{
+    font-weight: 500;
+    color: white;
+    font-size: 1rem;
+    text-transform: uppercase;
+}
+
+.relatedgames{
+    display: flex;
+    align-items: center;
+    overflow-x: auto;
+    padding-bottom: 1em;
+    padding-top: 1em;
+    gap: 0.5em;
+}
+
+.relatedbox{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 200px;
+    height: 150px;
+    padding-left: 0.9em;
+    padding-right: 0.9em;
+    padding-top: 0.4em;
+    padding-bottom: 0.4em;
+    background-color: rgba( 0, 0, 0, 0.2 );
+    transition: all 0.3s;
+    cursor: pointer;
+}
+
+.relatedbox:hover{
+    transform: scale(1.05);
+}
+
+.relatedbox img{
+    width: 160px;
+    height: 80px;
+}
 
 .alltags{
     display: flex;
@@ -367,4 +410,19 @@
 .alltagbox p{
     color: #66c0f4;
     margin: 0;
+}
+
+.relatedbox p {
+    color: rgb(163, 162, 162);
+    font-size: 0.8rem;
+}
+
+.relatedbox h2{
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    font-size: 0.7rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.25);
 }
