@@ -1,6 +1,9 @@
 import React from 'react'
 import styles from './page.module.css'
 
+//components
+import LittleNav from '@/app/Small-Components/LittleNav/LittleNav'
+
 interface PageProps {
     params: { game: string }
 }
@@ -95,8 +98,7 @@ export default async function page({ params }: PageProps) {
 
     return (
         <div className={styles.game}>
-            {game.Extra.DLCS[0]?.name}
-           
+            <LittleNav singles={true} theSingles={'game/' + game.General.Title} />
         </div>
     )
 }
