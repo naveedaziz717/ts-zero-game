@@ -4,6 +4,7 @@ import styles from './page.module.css'
 //components
 import LittleNav from '@/app/Small-Components/LittleNav/LittleNav'
 import Tag from '@/app/Small-Components/Tag/Tag'
+import DiscountPriceBox from '@/app/Small-Components/DiscountPriceBox/DiscountPriceBox'
 
 //icons
 import { FaWindows } from "react-icons/fa";
@@ -167,8 +168,19 @@ export default async function page({ params }: PageProps) {
                             {game.General.GamePrice !== 'Free to Play' &&
                                 <div className={styles.buybox}>
                                     <div className={styles.theprice}>
-                                        {game.General.GamePrice ? <p>{game.General.GamePrice}</p>
-                                            : <p>15.00$</p>
+                                        {game.General.GamePrice ? <p style={{margin: '0'}}>{game.General.GamePrice}</p>
+                                            : <>{game.General.gameDiscount ?
+                                                <DiscountPriceBox
+                                                    height='20px'
+                                                    originalPrice={parseFloat(game.General.DiscountOriginalPrice ?? "0")}
+                                                    discountPrice={parseFloat(game.General.FinalPrice ?? "0")}
+                                                    discountPriceFS='0.8rem'
+                                                    originalPriceFS='0.8rem'
+                                                    percentageFontSize='1rem'
+                                                />
+                                                :
+                                                <p style={{margin: '0'}}>15.00$</p>}
+                                            </>
                                         }
                                     </div>
                                     <div className={styles.card}>
