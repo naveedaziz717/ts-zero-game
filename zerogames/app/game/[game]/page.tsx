@@ -72,11 +72,11 @@ interface Requirements {
 }
 
 interface Minimum {
-    req: string;
+    Req: string;
 }
 
 interface Maximum {
-    req: string;
+    Req: string;
 }
 
 
@@ -194,18 +194,30 @@ export default async function page({ params }: PageProps) {
                     <div className={styles.specs}>
                         <h2>System Requirements</h2>
                         <div className={styles.thespecs}>
-                            {game.Requirements.Requirements ?
+                            {game.Requirements.Requirements.length > 0 ?
                                 <div className={styles.singlereq}>
                                     <h3>Minimum:</h3>
-                                 {game.Requirements.Requirements.map((req ,index) => (
-                                    <p>{req.req}</p>
-                                 ))}
+                                    {game.Requirements.Requirements.map((req, index) => (
+                                        <p key={index}>{req.req}</p>
+                                    ))}
                                 </div>
                                 :
-                                <div>
+                                <div className={styles.mainspecs}>
+                                    <div className={styles.minspecs}>
+                                        <h3>Minimum:</h3>
+                                        {game.Requirements.Minimum.map((req, index) => (
+                                            <p key={index}>{req.Req}</p>
+                                        ))}
+                                    </div>
 
+                                    <div className={styles.maxspecs}>
+                                        <h3>Recommended:</h3>
+                                        {game.Requirements.Maximum.map((req, index) => (
+                                            <p key={index}>{req.Req}</p>
+                                        ))}
+                                    </div>
                                 </div>
-                                }
+                            }
                         </div>
                     </div>
 

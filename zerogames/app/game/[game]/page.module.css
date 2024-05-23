@@ -248,3 +248,21 @@
     color: rgb(155, 153, 153);
     font-size: 0.7rem;
 }
+
+.mainspecs{
+    display: flex;
+    align-items: center;
+    gap: 2em;
+}
+
+.mainspecs h3{
+    color: white;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    font-weight: 400;
+}
+
+.mainspecs p {
+    color: rgb(155, 153, 153);
+    font-size: 0.7rem;
+}
