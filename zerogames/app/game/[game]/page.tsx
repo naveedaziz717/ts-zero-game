@@ -101,6 +101,14 @@ export default async function page({ params }: PageProps) {
             <LittleNav singles={true} theSingles={'game/' + game.General.Title} />
             <div className={styles.main}>
                 <h1>{game.General.Title}</h1>
+                <div className={styles.themain}>
+                    <div className={styles.first}>
+                        <div className={styles.video}></div>
+                        <div className={styles.extra}></div>
+                    </div>
+
+                    <div className={styles.second}></div>
+                </div>
             </div>
         </div>
     )
