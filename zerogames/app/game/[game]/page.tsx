@@ -153,7 +153,7 @@ export default async function page({ params }: PageProps) {
                 <div className={styles.downfirst}>
                     <div className={styles.buy}>
                         {game.General.GamePrice === 'Free to Play' && <h2>Download {game.General.Title}</h2>}
-
+                        {game.General.GamePrice !== 'Free To Play' && <h2>Buy {game.General.Title}</h2>}
                         <div className={styles.buyicons}>
                             <FaWindows />
                             <FaSteam />
@@ -162,6 +162,18 @@ export default async function page({ params }: PageProps) {
 
                         <div className={styles.mainbuy}>
                             {game.General.GamePrice === 'Free to Play' && <button className={styles.freebtn}>Download</button>}
+                            {game.General.GamePrice !== 'Free to Play' &&
+                                <div className={styles.buybox}>
+                                    <div className={styles.theprice}>
+                                        {game.General.GamePrice ? <p>{game.General.GamePrice}</p> 
+                                        : <p>15.00$</p> 
+                                        }
+                                    </div>
+                                    <div className={styles.card}>
+                                        <p>Add To Card</p>
+                                    </div>
+                                </div>
+                            }
                         </div>
                     </div>
                 </div>
