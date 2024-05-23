@@ -115,6 +115,7 @@
     background: linear-gradient(60deg, rgba(117, 176, 34, 0.7) 5%, rgba(88, 138, 27, 0.6) 95%);
 }
 
+
 .buy h2 {
     color: white;
     font-weight: 500;
@@ -147,7 +148,12 @@
     width: 110px;
     font-weight: 500;
     border-radius: 0.3em;
+    transition: all 0.3s;
     cursor: pointer;
+}
+
+.mainbuy .freebtn:hover{
+    font-weight: 600;
 }
 
 .buybox {
