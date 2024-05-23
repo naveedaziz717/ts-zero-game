@@ -143,18 +143,11 @@ export default async function page({ params }: PageProps) {
                             <div className={styles.extrabox}>
                                 <img src={game.General.imgSrc}></img>
                             </div>
-                            <div className={styles.extrabox}>
-                                <img src={game.Extra.Images[0].image}></img>
-                            </div>
-                            <div className={styles.extrabox}>
-                                <img src={game.Extra.Images[1].image}></img>
-                            </div>
-                            <div className={styles.extrabox}>
-                                <img src={game.Extra.Images[2].image}></img>
-                            </div>
-                            <div className={styles.extrabox}>
-                                <img src={game.Extra.Images[3].image}></img>
-                            </div>
+                            {game.Extra.Images.map((image, index) => (
+                                <div className={styles.extrabox}>
+                                    <img src={image.image}></img>
+                                </div>
+                            ))}
                         </div>
                     </div>
 
