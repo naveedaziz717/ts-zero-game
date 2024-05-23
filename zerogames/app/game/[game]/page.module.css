@@ -92,13 +92,14 @@
 .down {
     position: relative;
     display: flex;
-    flex-direction: column;
     width: 1050px;
     margin-left: auto;
     margin-right: auto;
 }
 
 .downfirst {
+    display: flex;
+    flex-direction: column;
     width: 800px;
 }
 
@@ -336,4 +337,34 @@
 
 .maxspecs{
     width: 350px;
+}
+
+
+.alltags{
+    display: flex;
+    flex-direction: column;
+    background: -webkit-gradient(linear, left top, right top, color-stop(0%,rgba(0,0,0,0.2)), color-stop(100%,rgba(0,0,0,0.5)));
+    padding: 1.2em;
+    margin-left: 5em;
+    gap: 2px;
+}
+
+.alltagbox {
+    display: flex;
+    align-items: center;
+    padding-left: 1em;
+    background: rgba( 103, 193, 245, 0.1 );
+    transition: all 0.3s;
+    width: 300px;
+    height: 30px;
+    cursor: pointer;
+}
+
+.alltagbox:hover{
+    background: rgba(38, 97, 148, 0.539);
+}
+
+.alltagbox p{
+    color: #66c0f4;
+    margin: 0;
 }

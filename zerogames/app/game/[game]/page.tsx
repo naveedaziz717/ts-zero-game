@@ -104,7 +104,7 @@ async function getGame(gameTitle: string) {
 export default async function page({ params }: PageProps) {
 
     const game: GameProps = await getGame(params.game)
-    
+
     return (
         <div className={styles.game}>
             <LittleNav singles={true} theSingles={'game/' + game.General.Title} />
@@ -214,7 +214,7 @@ export default async function page({ params }: PageProps) {
                                                         />
 
                                                         :
-                                                        <p style={{color: 'white'}}>{dlc.price}</p>
+                                                        <p style={{ color: 'white' }}>{dlc.price}</p>
                                                     }
                                                 </div>
                                             </div>
@@ -269,6 +269,18 @@ export default async function page({ params }: PageProps) {
                     </div>
 
                 </div>
+
+                <div className={styles.downsecond}>
+                    <div className={styles.alltags}>
+                        {game.General.Keywords.map((keyword, index) => (
+                            <div className={styles.alltagbox}>
+                                <p>{keyword.keyword}</p>
+                            </div>
+
+                        ))}
+                    </div>
+                </div>
+
             </div>
         </div>
     )
