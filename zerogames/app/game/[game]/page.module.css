@@ -151,7 +151,7 @@
 }
 
 .mainbuy .freebtn:hover{
-    font-weight: 600;
+    transform: scale(1.1);
 }
 
 .buybox {
