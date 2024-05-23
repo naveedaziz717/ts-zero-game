@@ -5,6 +5,11 @@ import styles from './page.module.css'
 import LittleNav from '@/app/Small-Components/LittleNav/LittleNav'
 import Tag from '@/app/Small-Components/Tag/Tag'
 
+//icons
+import { FaWindows } from "react-icons/fa";
+import { FaSteam } from "react-icons/fa";
+import { FaApple } from "react-icons/fa";
+
 interface PageProps {
     params: { game: string }
 }
@@ -145,7 +150,21 @@ export default async function page({ params }: PageProps) {
             </div>
 
             <div className={styles.down}>
-         
+                <div className={styles.downfirst}>
+                    <div className={styles.buy}>
+                        {game.General.GamePrice === 'Free to Play' && <h2>Download {game.General.Title}</h2>}
+
+                        <div className={styles.buyicons}>
+                            <FaWindows />
+                            <FaSteam />
+                            <FaApple />
+                        </div>
+
+                        <div className={styles.mainbuy}>
+                            {game.General.GamePrice === 'Free to Play' && <button className={styles.freebtn}>Download</button>}
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     )
