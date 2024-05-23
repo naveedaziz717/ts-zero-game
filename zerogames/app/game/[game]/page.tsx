@@ -80,6 +80,10 @@ interface gameDLCS {
     price: string;
 }
 
+interface relatedGames {
+    data: GameProps[]
+}
+
 
 
 
@@ -91,6 +95,24 @@ async function getGame(gameTitle: string) {
             'Content-Type': 'application/json',
         },
         body: JSON.stringify({ game: gameTitle }),
+    });
+
+
+    if (!response.ok) {
+        throw new Error(`Error: ${response.statusText}`);
+    }
+
+    return response.json();
+}
+
+async function getRelatedGames(category: string) {
+
+    const response = await fetch('http://localhost:3560/getCategoryGames', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ category }),
     });
 
 
