@@ -75,30 +75,33 @@ interface gamesKeywords {
 }
 
 
-async function getGame(gameTitle : string) {
+async function getGame(gameTitle: string) {
     const response = await fetch('http://localhost:3560/getGame', {
-        method: 'POST', 
+        method: 'POST',
         headers: {
-            'Content-Type': 'application/json', 
+            'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ game: gameTitle }), 
+        body: JSON.stringify({ game: gameTitle }),
     });
 
     if (!response.ok) {
         throw new Error(`Error: ${response.statusText}`);
     }
 
-    return response.json(); 
+    return response.json();
 }
 
 export default async function page({ params }: PageProps) {
 
-    const game : GameProps = await getGame(params.game)
+    const game: GameProps = await getGame(params.game)
 
 
     return (
         <div className={styles.game}>
             <LittleNav singles={true} theSingles={'game/' + game.General.Title} />
+            <div className={styles.main}>
+                <h1>{game.General.Title}</h1>
+            </div>
         </div>
     )
 }
