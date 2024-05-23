@@ -271,3 +271,11 @@
     color: rgb(155, 153, 153);
     font-size: 0.7rem;
 }
+
+.minspecs{
+    width: 350px;
+}
+
+.maxspecs{
+    width: 350px;
+}
