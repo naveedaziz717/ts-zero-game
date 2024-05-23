@@ -136,7 +136,7 @@ export default async function page({ params }: PageProps) {
                         <div className={styles.info}>
                             <img src={game.General.imgSrc}></img>
                             <div className={styles.description}>
-                                <p>{game.About.Description}</p>
+                                <p>{game.Extra.Description}</p>
                             </div>
                             <div className={styles.keywords}>
                                 {game.General.Keywords[0].keyword && <Tag tag={game.General.Keywords[0].keyword} />}
@@ -165,8 +165,8 @@ export default async function page({ params }: PageProps) {
                             {game.General.GamePrice !== 'Free to Play' &&
                                 <div className={styles.buybox}>
                                     <div className={styles.theprice}>
-                                        {game.General.GamePrice ? <p>{game.General.GamePrice}</p> 
-                                        : <p>15.00$</p> 
+                                        {game.General.GamePrice ? <p>{game.General.GamePrice}</p>
+                                            : <p>15.00$</p>
                                         }
                                     </div>
                                     <div className={styles.card}>
@@ -176,6 +176,19 @@ export default async function page({ params }: PageProps) {
                             }
                         </div>
                     </div>
+
+                    <div className={styles.about}>
+                        <h2>About this game</h2>
+                        <p>{game.Extra.Description}</p>
+                        {game.About.Description && 
+                        <>
+                             <p>{game.About.Description}  <a target='_blank' href={game.About.Wikipedia}>Wikipedia</a></p>
+                        </>
+                        }
+                   
+                   
+                    </div>
+
                 </div>
             </div>
         </div>
