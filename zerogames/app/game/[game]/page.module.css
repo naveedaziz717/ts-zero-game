@@ -198,6 +198,67 @@
     padding-right: 0.5em;
 }
 
+.dlcs{
+    margin-top: 5em;
+    width: 689px;
+}
+
+.dlcs h2{
+    font-weight: 500;
+    color: white;
+    font-size: 1rem;
+    text-transform: uppercase;
+}
+
+.thedlcs{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+}
+
+.thedlcs button{
+    position: absolute;
+    background: rgba( 103, 193, 245, 0.1 );
+    color: white;
+    width: 120px;
+    height: 25px;
+    border: none;
+    right: 0;
+    bottom: -2.5em;
+    transition: all 0.3s;
+    cursor: pointer;
+}
+
+.thedlcs button:hover{
+    background: rgba(38, 97, 148, 0.539);
+}
+
+.dlcbox{
+    display: flex;
+    align-items: center;
+    background: -webkit-gradient(linear, left top, right bottom, color-stop(0%,rgba(97,100,101,0.3)), color-stop(100%,rgba(226,244,255,0.3)));
+    transition: all 0.3s;
+    height: 30px;
+    cursor: pointer;
+}
+
+.dlcbox:hover{
+    background-color: rgba(38, 97, 148, 0.539);
+}
+
+.dlcbox p{
+    margin: 0;
+    color: #a8b2ba;
+    padding-left: 1em;
+    font-size: 0.9rem;
+}
+
+.dlcprice{
+    margin-left: auto;
+    margin-right: 1em;
+}
+
 .about {
     margin-top: 5em;
     width: 689px;

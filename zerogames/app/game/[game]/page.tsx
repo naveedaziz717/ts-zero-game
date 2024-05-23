@@ -38,15 +38,7 @@ interface GameProps {
         Description: string;
         Images: gameImages[]
         Videos: gameVideos[]
-        DLCS: [
-            {
-                name: string;
-                discount: boolean;
-                discountPrice: string[];
-                originalDiscountPrices: string[];
-                price: string;
-            }
-        ]
+        DLCS: gameDLCS[]
     }
 
     Requirements: {
@@ -80,6 +72,14 @@ interface Maximum {
     Req: string;
 }
 
+interface gameDLCS {
+    name: string;
+    discount: false;
+    originalDiscountPrices: string[]
+    discountPrice: string[]
+    price: string;
+}
+
 
 
 
@@ -93,6 +93,7 @@ async function getGame(gameTitle: string) {
         body: JSON.stringify({ game: gameTitle }),
     });
 
+
     if (!response.ok) {
         throw new Error(`Error: ${response.statusText}`);
     }
@@ -103,8 +104,7 @@ async function getGame(gameTitle: string) {
 export default async function page({ params }: PageProps) {
 
     const game: GameProps = await getGame(params.game)
-
-
+    
     return (
         <div className={styles.game}>
             <LittleNav singles={true} theSingles={'game/' + game.General.Title} />
@@ -190,6 +190,41 @@ export default async function page({ params }: PageProps) {
                             }
                         </div>
                     </div>
+
+
+                    {game.Extra.DLCS.length > 0 &&
+                        <div className={styles.dlcs}>
+                            <h2>Content For This Game</h2>
+                            <div className={styles.thedlcs}>
+                                <button>View All</button>
+                                {game.Extra.DLCS.map((dlc, index) => (
+                                    <React.Fragment key={index}>
+                                        {index <= 7 &&
+                                            <div className={styles.dlcbox}>
+                                                <p>{dlc.name}</p>
+                                                <div className={styles.dlcprice}>
+                                                    {dlc.discount ?
+                                                        <DiscountPriceBox
+                                                            height='20px'
+                                                            originalPrice={parseFloat(dlc.originalDiscountPrices?.[0] ?? "40")}
+                                                            discountPrice={parseFloat(dlc.discountPrice?.[0] ?? "20")}
+                                                            discountPriceFS='0.8rem'
+                                                            originalPriceFS='0.8rem'
+                                                            percentageFontSize='1rem'
+                                                        />
+
+                                                        :
+                                                        <p style={{color: 'white'}}>{dlc.price}</p>
+                                                    }
+                                                </div>
+                                            </div>
+                                        }
+                                    </React.Fragment>
+                                ))}
+                            </div>
+                        </div>
+                    }
+
 
                     <div className={styles.about}>
                         <h2>About this game</h2>
