@@ -23,7 +23,7 @@ export default function GameBox({ imgSrc, title, description, isDiscount,
 
     return (
         <>
-            <Link style={{textDecoration: 'none'}} href={'/game/' + title}> <div className={styles.box} onClick={() => {  }}>
+            <Link style={{textDecoration: 'none'}} href={'/game/' + title}> <div className={styles.box}>
                 <img alt='Game Image' src={imgSrc}></img>
                 <h2 className={styles.title}>{title}</h2>
                 <p className={styles.description}>{description}</p>
