@@ -1,5 +1,3 @@
-'use client'
-
 
 
 import React, { useState } from 'react'
@@ -9,16 +7,98 @@ import styles from './page.module.css'
 import ShowcaseNav from './ShowcaseNav/ShowcaseNav'
 import RandomImg from '../../Small-Components/Hexogan/RandomImg'
 
-//providers
-import { useMain } from '@/app/States/Main/MainState'
+//Utils
+import api from '@/app/Utils/getAPi'
+
+
+interface GameProps {
+    General: {
+        Title: string;
+        Link: string;
+        imgSrc: string;
+        GamePrice: string | null;
+        DiscountOriginalPrice: string | null;
+        FinalPrice: string | null;
+        gameDiscount: boolean | null;
+        Keywords: gamesKeywords[]
+
+    }
+
+    About: {
+        Description: string;
+        Wikipedia: string;
+    }
+
+    Extra: {
+        Description: string;
+        Images: gameImages[]
+        Videos: gameVideos[]
+        DLCS: gameDLCS[]
+    }
+
+    Requirements: {
+        Maximum: Maximum[]
+        Minimum: Minimum[]
+        Requirements: Requirements[]
+    }
+}
+
+interface gamesKeywords {
+    keyword: string;
+}
+
+interface gameVideos {
+    video: string;
+}
+
+interface gameImages {
+    image: string;
+}
+
+interface Requirements {
+    req: string;
+}
+
+interface Minimum {
+    Req: string;
+}
+
+interface Maximum {
+    Req: string;
+}
+
+interface gameDLCS {
+    name: string;
+    discount: false;
+    originalDiscountPrices: string[]
+    discountPrice: string[]
+    price: string;
+}
 
 
 
+async function getShowcaseGames() {
+    const response = await fetch(api + '/getShowcase', {
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+    });
 
-export default function Showcase() {
+    if (!response.ok) {
+        throw new Error(`Error: ${response.statusText}`);
+    }
 
-    const {games, setGames} = useMain()
+    return response.json();
 
+}
+
+
+
+export default async function Showcase() {
+
+
+    const games : GameProps[] = await getShowcaseGames()
 
     return (
         <div className={styles.showcase}>
@@ -82,7 +162,7 @@ export default function Showcase() {
 
                     <div className={styles.last}>
                         <div className={styles.last1}>
-                        {games?.map((game, index) => (
+                            {games?.map((game, index) => (
                                 <React.Fragment key={index}>
                                     {index > 4 && index <= 6 &&
                                         <RandomImg
@@ -96,7 +176,7 @@ export default function Showcase() {
                             ))}
                         </div>
                         <div className={styles.last1}>
-                        {games?.map((game, index) => (
+                            {games?.map((game, index) => (
                                 <React.Fragment key={index}>
                                     {index > 6 && index <= 8 &&
                                         <RandomImg
