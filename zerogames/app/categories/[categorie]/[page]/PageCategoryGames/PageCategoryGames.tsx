@@ -1,16 +1,11 @@
-'use client'
-
 import React, { useEffect } from 'react'
 import styles from './page.module.css'
 
-//providers
-import { useCategory } from '@/app/States/Category/CategoryState'
-import { useNav } from '@/app/States/NavBar/NavState'
+import api from '@/app/Utils/getAPi'
 
 //components
 import GameBox from '@/app/Small-Components/GameBox/GameBox'
-import LittleNav from '@/app/Small-Components/LittleNav/LittleNav'
-import GamePages from '@/app/Small-Components/Pages/GamePages'
+import CategoryGamesPageClient from './Client/Client'
 
 
 interface CategoryProps {
@@ -20,21 +15,104 @@ interface CategoryProps {
     }
 }
 
-//components
+interface theGames {
+    data: GameProps[]
+}
 
-export default function PageCategoryGames({ params }: CategoryProps) {
+interface GameProps {
+    General: {
+        Title: string;
+        Link: string;
+        imgSrc: string;
+        GamePrice: string | null;
+        DiscountOriginalPrice: string | null;
+        FinalPrice: string | null;
+        gameDiscount: boolean | null;
+        Keywords: gamesKeywords[]
 
-    const { getCategoryGames, categoryGames, page, setPage, totalPages } = useCategory()
+    }
 
-    const { setNav, setCategory, setKeyword } = useNav()
+    About: {
+        Description: string;
+        Wikipedia: string;
+    }
 
-    useEffect(() => {
-        getCategoryGames(params.page, params.categorie)
-        setPage(Number(params.page))
-        setNav('Categories')
-        setCategory(params.categorie)
-        setKeyword('')
-    }, [])
+    Extra: {
+        Description: string;
+        Images: gameImages[]
+        Videos: gameVideos[]
+        DLCS: gameDLCS[]
+    }
+
+    Requirements: {
+        Maximum: Maximum[]
+        Minimum: Minimum[]
+        Requirements: Requirements[]
+    }
+}
+
+interface gamesKeywords {
+    keyword: string;
+}
+
+interface gameVideos {
+    video: string;
+}
+
+interface gameImages {
+    image: string;
+}
+
+interface Requirements {
+    req: string;
+}
+
+interface Minimum {
+    Req: string;
+}
+
+interface Maximum {
+    Req: string;
+}
+
+interface gameDLCS {
+    name: string;
+    discount: false;
+    originalDiscountPrices: string[]
+    discountPrice: string[]
+    price: string;
+}
+
+
+async function getCategoryGames(page: number | undefined, category: string) {
+    if (page === undefined) {
+      page = 1;
+    }
+  
+    try {
+      const response = await fetch(api + '/getCategoryGames', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ page, category })
+      });
+  
+      if (!response.ok) {
+        throw new Error('Failed to fetch data');
+      }
+  
+      return response.json();
+  
+  
+    } catch (error) {
+      //console.error('Error fetching data:', error.message);
+    }
+  }
+
+export default async function PageCategoryGames({ params }: CategoryProps) {
+
+    const categoryGames : theGames = await getCategoryGames(Number(params.page), params.categorie)
 
     const noDesc = "The developers unfortunately didn't provide any description for this game, leaving potential players without information about its features, gameplay, or storyline."
 
@@ -43,7 +121,7 @@ export default function PageCategoryGames({ params }: CategoryProps) {
         <>
 
             <div className={styles.games}>
-                {categoryGames?.map((game, index) => (
+                {categoryGames?.data.map((game, index) => (
                     <GameBox
                         description={game.About.Description ? game.About.Description : game.Extra.Description ? game.Extra.Description : noDesc}
                         key={index}
@@ -59,7 +137,7 @@ export default function PageCategoryGames({ params }: CategoryProps) {
                 ))}
             </div>
 
-            <GamePages defaultPage='/' pushPage={'/categories/' + params.categorie + '/'} onPageChange={setPage} page={page} count={totalPages} />
+           <CategoryGamesPageClient params={params}/>
         </>
     )
 }
