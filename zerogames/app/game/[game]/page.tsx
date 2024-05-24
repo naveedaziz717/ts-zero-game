@@ -11,6 +11,9 @@ import { FaWindows } from "react-icons/fa";
 import { FaSteam } from "react-icons/fa";
 import { FaApple } from "react-icons/fa";
 
+//Utils
+import api from '@/app/Utils/getAPi'
+
 interface PageProps {
     params: { game: string }
 }
@@ -89,7 +92,7 @@ interface relatedGames {
 
 
 async function getGame(gameTitle: string) {
-    const response = await fetch('http://localhost:3560/getGame', {
+    const response = await fetch(api +'/getGame', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
@@ -107,7 +110,7 @@ async function getGame(gameTitle: string) {
 
 async function getRelatedGames(category: string) {
 
-    const response = await fetch('http://localhost:3560/getCategoryGames', {
+    const response = await fetch(api + '/getCategoryGames', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
