@@ -110,7 +110,6 @@ export default async function AllGames({ params }: PageProps) {
 
     const games : theGames = await getGames(params.page) 
 
-    console.log(games)
 
     const noDesc = "The developers unfortunately didn't provide any description for this game, leaving potential players without information about its features, gameplay, or storyline."
 
