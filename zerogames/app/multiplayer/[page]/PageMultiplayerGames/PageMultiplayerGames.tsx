@@ -1,39 +1,122 @@
-'use client'
-
 import React, { useEffect } from 'react'
 import styles from './page.module.css'
 
-import { useCategory } from '@/app/States/Category/CategoryState'
-import { useNav } from '@/app/States/NavBar/NavState'
+import api from '@/app/Utils/getAPi'
 
 //components
 import GameBox from '@/app/Small-Components/GameBox/GameBox'
-import GamePages from '@/app/Small-Components/Pages/GamePages'
+import MultiplayerGamesPageClient from './Client/Client'
 
 interface PageProps {
     params: { page: number }
 }
 
-export default function PageMultiplayerGames({ params }: PageProps) {
+interface theGames {
+    data: GameProps[]
+}
 
-    const { getCategoryGames, categoryGames, page, setPage, totalPages } = useCategory()
+interface GameProps {
+    General: {
+        Title: string;
+        Link: string;
+        imgSrc: string;
+        GamePrice: string | null;
+        DiscountOriginalPrice: string | null;
+        FinalPrice: string | null;
+        gameDiscount: boolean | null;
+        Keywords: gamesKeywords[]
 
-    const { setNav, setCategory, setKeyword } = useNav()
+    }
 
-    useEffect(() => {
-        setPage(Number(params.page))
-        getCategoryGames(Number(params.page), 'Multiplayer')
+    About: {
+        Description: string;
+        Wikipedia: string;
+    }
 
-        setNav('Multiplayer')
-        setCategory('')
-        setKeyword('')
-    }, [])
+    Extra: {
+        Description: string;
+        Images: gameImages[]
+        Videos: gameVideos[]
+        DLCS: gameDLCS[]
+    }
+
+    Requirements: {
+        Maximum: Maximum[]
+        Minimum: Minimum[]
+        Requirements: Requirements[]
+    }
+}
+
+interface gamesKeywords {
+    keyword: string;
+}
+
+interface gameVideos {
+    video: string;
+}
+
+interface gameImages {
+    image: string;
+}
+
+interface Requirements {
+    req: string;
+}
+
+interface Minimum {
+    Req: string;
+}
+
+interface Maximum {
+    Req: string;
+}
+
+interface gameDLCS {
+    name: string;
+    discount: false;
+    originalDiscountPrices: string[]
+    discountPrice: string[]
+    price: string;
+}
+
+
+async function getCategoryGames(page: number | undefined, category: string) {
+    if (page === undefined) {
+        page = 1;
+    }
+
+    try {
+        const response = await fetch(api + '/getCategoryGames', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ page, category })
+        });
+
+        if (!response.ok) {
+            throw new Error('Failed to fetch data');
+        }
+
+        return response.json();
+
+
+    } catch (error) {
+        //console.error('Error fetching data:', error.message);
+    }
+}
+
+export default async function PageMultiplayerGames({ params }: PageProps) {
+
+    const categoryGames: theGames = await getCategoryGames(Number(params.page), 'Multiplayer')
+
+
     const noDesc = "The developers unfortunately didn't provide any description for this game, leaving potential players without information about its features, gameplay, or storyline."
 
     return (
         <>
             <div className={styles.games}>
-                {categoryGames?.map((game, index) => (
+                {categoryGames?.data.map((game, index) => (
                     <GameBox
                         description={game.About.Description ? game.About.Description : game.Extra.Description ? game.Extra.Description : noDesc}
                         key={index}
@@ -48,7 +131,7 @@ export default function PageMultiplayerGames({ params }: PageProps) {
                     />
                 ))}
             </div>
-            <GamePages defaultPage='/' pushPage='/multiplayer/' page={page} onPageChange={setPage} count={totalPages} />
+            <MultiplayerGamesPageClient params={params} />
         </>
     )
 }
