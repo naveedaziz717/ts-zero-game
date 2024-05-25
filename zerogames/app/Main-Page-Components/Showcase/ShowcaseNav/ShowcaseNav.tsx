@@ -61,6 +61,8 @@ export default function ShowcaseNav() {
           onBlur={() => { disableOnSearch(); setFocused(false) }}
           onKeyDown={(e: React.KeyboardEvent<HTMLInputElement>) => {
             if (e.keyCode === 13) {
+              disableOnSearch();
+              setFocused(false);
               router.push('/search/' + e.currentTarget.value)
             }
           }}
@@ -73,7 +75,7 @@ export default function ShowcaseNav() {
 
             {games?.map((game, index) => (
               <React.Fragment key={index}>
-                <div className={styles.game}>
+                <div onClick={() => {router.push('/game/' + game.General.Title)}} className={styles.game}>
                   <img alt='Showcase Image' src={game.General.imgSrc}></img>
                   <div className={styles.info}>
                     <h2>{game.General.Title}</h2>
