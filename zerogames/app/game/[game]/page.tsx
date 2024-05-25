@@ -6,6 +6,7 @@ import Link from 'next/link'
 import LittleNav from '@/app/Small-Components/LittleNav/LittleNav'
 import Tag from '@/app/Small-Components/Tag/Tag'
 import DiscountPriceBox from '@/app/Small-Components/DiscountPriceBox/DiscountPriceBox'
+import MainGameClient from './Client/Client'
 
 //icons
 import { FaWindows } from "react-icons/fa";
@@ -93,7 +94,7 @@ interface relatedGames {
 
 
 async function getGame(gameTitle: string) {
-    const response = await fetch(api +'/getGame', {
+    const response = await fetch(api + '/getGame', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
@@ -217,11 +218,11 @@ export default async function page({ params }: PageProps) {
                         <div className={styles.dlcs}>
                             <h2>Content For This Game</h2>
                             <div className={styles.thedlcs}>
-                                {game.Extra.DLCS.length > 7 &&  <Link className='link' target='_blank' href={game.General.Link}><button>View All</button></Link>}
+                                {game.Extra.DLCS.length > 7 && <Link className='link' target='_blank' href={game.General.Link}><button>View All</button></Link>}
                                 {game.Extra.DLCS.map((dlc, index) => (
                                     <React.Fragment key={index}>
                                         {index <= 7 &&
-                                           <Link className='link' target='_blank' href={game.General.Link}><div className={styles.dlcbox}>
+                                            <Link className='link' target='_blank' href={game.General.Link}><div className={styles.dlcbox}>
                                                 <p>{dlc.name}</p>
                                                 <div className={styles.dlcprice}>
                                                     {dlc.discount ?
@@ -295,7 +296,7 @@ export default async function page({ params }: PageProps) {
                             {relatedGames.data.map((game2, index) => (
                                 <React.Fragment key={index}>
                                     {game.General.Title !== game2.General.Title &&
-                                         <Link className='link' href={'/game/' + game2.General.Title}><div className={styles.relatedbox}>
+                                        <Link className='link' href={'/game/' + game2.General.Title}><div className={styles.relatedbox}>
                                             <img alt='Main Image' src={game2.General.imgSrc}></img>
                                             <h2>{game2.General.Title}</h2>
                                             {game2.General.GamePrice === 'Free to Play' && <p style={{ margin: '0' }}>Free to Play</p>}
@@ -332,7 +333,7 @@ export default async function page({ params }: PageProps) {
                 <div className={styles.downsecond}>
                     <div className={styles.alltags}>
                         {game.General.Keywords.map((keyword, index) => (
-                           <Link className='link' href={'/keywords/' + keyword.keyword}><div className={styles.alltagbox}>
+                            <Link className='link' href={'/keywords/' + keyword.keyword}><div className={styles.alltagbox}>
                                 <p>{keyword.keyword}</p>
                             </div></Link>
                         ))}
@@ -340,6 +341,7 @@ export default async function page({ params }: PageProps) {
                 </div>
 
             </div>
+            <MainGameClient />
         </div>
     )
 }
