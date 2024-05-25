@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react'
 import styles from './page.module.css'
+import Link from 'next/link'
 
 //components
 import ShowcaseNav from './ShowcaseNav/ShowcaseNav'
@@ -98,7 +99,7 @@ async function getShowcaseGames() {
 export default async function Showcase() {
 
 
-    const games : GameProps[] = await getShowcaseGames()
+    const games: GameProps[] = await getShowcaseGames()
 
     return (
         <div className={styles.showcase}>
@@ -115,12 +116,12 @@ export default async function Showcase() {
                             {games?.map((game, index) => (
                                 <React.Fragment key={index}>
                                     {index <= 1 &&
-                                        <RandomImg
+                                        <Link href={'/game/' + game.General.Title}><RandomImg
                                             borderRadius='1em'
                                             width='280px'
                                             height='180px'
                                             imgSrc={game.General.imgSrc}
-                                        />
+                                        /></Link>
                                     }
                                 </React.Fragment>
                             ))}
@@ -133,12 +134,12 @@ export default async function Showcase() {
                             {games?.map((game, index) => (
                                 <React.Fragment key={index}>
                                     {index > 1 && index <= 3 &&
-                                        <RandomImg
+                                        <Link href={'/game/' + game.General.Title}><RandomImg
                                             borderRadius='1em'
                                             width='280px'
                                             height='180px'
                                             imgSrc={game.General.imgSrc}
-                                        />
+                                        /></Link>
                                     }
                                 </React.Fragment>
                             ))}
@@ -149,12 +150,12 @@ export default async function Showcase() {
                         {games?.map((game, index) => (
                             <React.Fragment key={index}>
                                 {index === 4 &&
-                                    <RandomImg
+                                    <Link href={'/game/' + game.General.Title}><RandomImg
                                         borderRadius='1em'
                                         width='550px'
                                         height='320px'
                                         imgSrc={game.General.imgSrc}
-                                    />
+                                    /></Link>
                                 }
                             </React.Fragment>
                         ))}
@@ -165,12 +166,12 @@ export default async function Showcase() {
                             {games?.map((game, index) => (
                                 <React.Fragment key={index}>
                                     {index > 4 && index <= 6 &&
-                                        <RandomImg
+                                        <Link href={'/game/' + game.General.Title}><RandomImg
                                             borderRadius='1em'
                                             width='280px'
                                             height='180px'
                                             imgSrc={game.General.imgSrc}
-                                        />
+                                        /></Link>
                                     }
                                 </React.Fragment>
                             ))}
@@ -179,12 +180,12 @@ export default async function Showcase() {
                             {games?.map((game, index) => (
                                 <React.Fragment key={index}>
                                     {index > 6 && index <= 8 &&
-                                        <RandomImg
+                                        <Link href={'/game/' + game.General.Title}><RandomImg
                                             borderRadius='1em'
                                             width='280px'
                                             height='180px'
                                             imgSrc={game.General.imgSrc}
-                                        />
+                                        /></Link>
                                     }
                                 </React.Fragment>
                             ))}
