@@ -143,129 +143,134 @@ export default function SpecialCaruso() {
     };
 
     return (
-        <div className={styles.thecaruso}>
-            <div className={styles.caruso}>
-                <Arrow onClick={() => { backPage() }} left={true} />
+        <>
+            {currentGames &&
+                <div className={styles.thecaruso}>
+                    <div className={styles.caruso}>
+                        <Arrow onClick={() => { backPage() }} left={true} />
 
-                {currentGames?.map((game, index) => (
-                    <React.Fragment key={index}>
-                        {index < 2 &&
-                            <div className={`${styles.box} ${animation ? styles.opac : ''}`} onAnimationEnd={onAnimationEnd}>
-                                {game?.Extra?.Images?.[0]?.image && (
-                                    <img src={game.Extra.Images[0].image} alt="Game Extra Image" />
-                                )}
-                                <div className={styles.info}>
-                                    <h2>{game.General.Title}</h2>
-                                    <p className={styles.desc}>
-                                        {game?.About.Description ? game.About.Description :
-                                            game?.Extra.Description ? game.Extra.Description :
-                                                "The developers unfortunately didn't provide any description for this game, leaving potential players without information about its features, gameplay, or storyline."
-                                        }
-                                    </p>
-                                    <div className={styles.tags}>
-                                        {game?.General.Keywords[0]?.keyword &&   <Tag tag={game?.General.Keywords[0]?.keyword } />}
-                                        {game?.General.Keywords[1]?.keyword &&   <Tag tag={game?.General.Keywords[1]?.keyword } />}
-                                        {game?.General.Keywords[2]?.keyword &&   <Tag tag={game?.General.Keywords[2]?.keyword } />}
-                                        {game?.General.Keywords[3]?.keyword &&   <Tag tag={game?.General.Keywords[3]?.keyword } />}
-                                        {game?.General.Keywords[4]?.keyword &&   <Tag tag={game?.General.Keywords[4]?.keyword } />}
-                                    </div>
+                        {currentGames?.map((game, index) => (
+                            <React.Fragment key={index}>
+                                {index < 2 &&
+                                    <div className={`${styles.box} ${animation ? styles.opac : ''}`} onAnimationEnd={onAnimationEnd}>
+                                        {game?.Extra?.Images?.[0]?.image && (
+                                            <img src={game.Extra.Images[0].image} alt="Game Extra Image" />
+                                        )}
+                                        <div className={styles.info}>
+                                            <h2>{game.General.Title}</h2>
+                                            <p className={styles.desc}>
+                                                {game?.About.Description ? game.About.Description :
+                                                    game?.Extra.Description ? game.Extra.Description :
+                                                        "The developers unfortunately didn't provide any description for this game, leaving potential players without information about its features, gameplay, or storyline."
+                                                }
+                                            </p>
+                                            <div className={styles.tags}>
+                                                {game?.General.Keywords[0]?.keyword && <Tag tag={game?.General.Keywords[0]?.keyword} />}
+                                                {game?.General.Keywords[1]?.keyword && <Tag tag={game?.General.Keywords[1]?.keyword} />}
+                                                {game?.General.Keywords[2]?.keyword && <Tag tag={game?.General.Keywords[2]?.keyword} />}
+                                                {game?.General.Keywords[3]?.keyword && <Tag tag={game?.General.Keywords[3]?.keyword} />}
+                                                {game?.General.Keywords[4]?.keyword && <Tag tag={game?.General.Keywords[4]?.keyword} />}
+                                            </div>
 
-                                    <div className={styles.bottomcontent}>
+                                            <div className={styles.bottomcontent}>
 
-                                        <div className={styles.price}>
-                                            {game?.General.gameDiscount &&
-                                                <DiscountPriceBox
-                                                    height='20px'
-                                                    originalPrice={parseFloat(game.General.DiscountOriginalPrice ?? "0")}
-                                                    discountPrice={parseFloat(game.General.FinalPrice ?? "0")}
-                                                    discountPriceFS='0.8rem'
-                                                    originalPriceFS='0.8rem'
-                                                    percentageFontSize='1rem'
-                                                />
-                                            }
-                                            {!game?.General.gameDiscount && <p className={styles.theprice}>{game?.General.GamePrice}</p>}
-                                            {!game?.General.gameDiscount && !game?.General.GamePrice && <p className={styles.theprice}>15,00$</p>}
+                                                <div className={styles.price}>
+                                                    {game?.General.gameDiscount &&
+                                                        <DiscountPriceBox
+                                                            height='20px'
+                                                            originalPrice={parseFloat(game.General.DiscountOriginalPrice ?? "0")}
+                                                            discountPrice={parseFloat(game.General.FinalPrice ?? "0")}
+                                                            discountPriceFS='0.8rem'
+                                                            originalPriceFS='0.8rem'
+                                                            percentageFontSize='1rem'
+                                                        />
+                                                    }
+                                                    {!game?.General.gameDiscount && <p className={styles.theprice}>{game?.General.GamePrice}</p>}
+                                                    {!game?.General.gameDiscount && !game?.General.GamePrice && <p className={styles.theprice}>15,00$</p>}
+                                                </div>
+
+                                            </div>
+
                                         </div>
-
                                     </div>
-
-                                </div>
-                            </div>
-                        }
+                                }
 
 
-                    </React.Fragment>
-                ))}
+                            </React.Fragment>
+                        ))}
 
-                <div className={styles.boxes}>
-                    {currentGames?.map((game, index) => (
-                        <React.Fragment key={index}>
-                            {index === 2 &&
-                                <div className={`${styles.box2} ${animation ? styles.opac : ''}`} onAnimationEnd={onAnimationEnd}>
-                                    {game?.Extra?.Images?.[0]?.image && (
-                                        <img src={game.Extra.Images[0].image} alt="Game Extra Image" />
-                                    )}
-                                    <div className={styles.info2}>
-                                        <h2>{game.General.Title}</h2>
-                                    </div>
+                        <div className={styles.boxes}>
+                            {currentGames?.map((game, index) => (
+                                <React.Fragment key={index}>
+                                    {index === 2 &&
+                                        <div className={`${styles.box2} ${animation ? styles.opac : ''}`} onAnimationEnd={onAnimationEnd}>
+                                            {game?.Extra?.Images?.[0]?.image && (
+                                                <img src={game.Extra.Images[0].image} alt="Game Extra Image" />
+                                            )}
+                                            <div className={styles.info2}>
+                                                <h2>{game.General.Title}</h2>
+                                            </div>
 
-                                    <div className={styles.bottomcontent2}>
+                                            <div className={styles.bottomcontent2}>
 
-                                        <div className={styles.price}>
-                                            {game?.General.gameDiscount &&
-                                                <DiscountPriceBox
-                                                    height='20px'
-                                                    originalPrice={parseFloat(game.General.DiscountOriginalPrice ?? "0")}
-                                                    discountPrice={parseFloat(game.General.FinalPrice ?? "0")}
-                                                    discountPriceFS='0.8rem'
-                                                    originalPriceFS='0.8rem'
-                                                    percentageFontSize='1rem'
-                                                />
-                                            }
-                                            {!game?.General.gameDiscount && <p className={styles.theprice}>{game?.General.GamePrice}</p>}
-                                            {!game?.General.gameDiscount && !game?.General.GamePrice && <p className={styles.theprice}>15,00$</p>}
+                                                <div className={styles.price}>
+                                                    {game?.General.gameDiscount &&
+                                                        <DiscountPriceBox
+                                                            height='20px'
+                                                            originalPrice={parseFloat(game.General.DiscountOriginalPrice ?? "0")}
+                                                            discountPrice={parseFloat(game.General.FinalPrice ?? "0")}
+                                                            discountPriceFS='0.8rem'
+                                                            originalPriceFS='0.8rem'
+                                                            percentageFontSize='1rem'
+                                                        />
+                                                    }
+                                                    {!game?.General.gameDiscount && <p className={styles.theprice}>{game?.General.GamePrice}</p>}
+                                                    {!game?.General.gameDiscount && !game?.General.GamePrice && <p className={styles.theprice}>15,00$</p>}
+                                                </div>
+
+                                            </div>
+
                                         </div>
+                                    }
 
-                                    </div>
+                                    {index === 3 &&
+                                        <div className={`${styles.box2} ${animation ? styles.opac : ''}`} onAnimationEnd={onAnimationEnd}>
+                                            {game?.Extra?.Images?.[0]?.image && (
+                                                <img src={game.Extra.Images[0].image} alt="Game Extra Image" />
+                                            )}
+                                            <div className={styles.info2}>
+                                                <h2>{game.General.Title}</h2>
+                                            </div>
 
-                                </div>
-                            }
+                                            <div className={styles.bottomcontent2}>
 
-                            {index === 3 &&
-                                <div className={`${styles.box2} ${animation ? styles.opac : ''}`} onAnimationEnd={onAnimationEnd}>
-                                    {game?.Extra?.Images?.[0]?.image && (
-                                        <img src={game.Extra.Images[0].image} alt="Game Extra Image" />
-                                    )}
-                                    <div className={styles.info2}>
-                                        <h2>{game.General.Title}</h2>
-                                    </div>
+                                                <div className={styles.price}>
+                                                    {game?.General.gameDiscount &&
+                                                        <DiscountPriceBox
+                                                            height='20px'
+                                                            originalPrice={parseFloat(game.General.DiscountOriginalPrice ?? "0")}
+                                                            discountPrice={parseFloat(game.General.FinalPrice ?? "0")}
+                                                            discountPriceFS='0.8rem'
+                                                            originalPriceFS='0.8rem'
+                                                            percentageFontSize='1rem'
+                                                        />
+                                                    }
+                                                    {!game?.General.gameDiscount && <p className={styles.theprice}>{game?.General.GamePrice}</p>}
+                                                    {!game?.General.gameDiscount && !game?.General.GamePrice && <p className={styles.theprice}>15,00$</p>}
+                                                </div>
 
-                                    <div className={styles.bottomcontent2}>
-
-                                        <div className={styles.price}>
-                                            {game?.General.gameDiscount &&
-                                                <DiscountPriceBox
-                                                    height='20px'
-                                                    originalPrice={parseFloat(game.General.DiscountOriginalPrice ?? "0")}
-                                                    discountPrice={parseFloat(game.General.FinalPrice ?? "0")}
-                                                    discountPriceFS='0.8rem'
-                                                    originalPriceFS='0.8rem'
-                                                    percentageFontSize='1rem'
-                                                />
-                                            }
-                                            {!game?.General.gameDiscount && <p className={styles.theprice}>{game?.General.GamePrice}</p>}
-                                            {!game?.General.gameDiscount && !game?.General.GamePrice && <p className={styles.theprice}>15,00$</p>}
+                                            </div>
                                         </div>
-
-                                    </div>
-                                </div>
-                            }
-                        </React.Fragment>
-                    ))}
+                                    }
+                                </React.Fragment>
+                            ))}
+                        </div>
+                        <Arrow onClick={() => { nextPage() }} left={false} />
+                    </div>
+                    <ProgressBar page={page} setPage={switchPage} count={5} />
                 </div>
-                <Arrow onClick={() => { nextPage() }} left={false} />
-            </div>
-            <ProgressBar page={page} setPage={switchPage} count={5} />
-        </div>
+            }
+
+        </>
     )
 }
