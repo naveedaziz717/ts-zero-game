@@ -1,5 +1,6 @@
 import React from 'react'
 import styles from './page.module.css'
+import Link from 'next/link';
 
 interface TagProps {
     tag: string | undefined;
@@ -7,8 +8,8 @@ interface TagProps {
 
 export default function Tag({ tag }: TagProps) {
     return (
-        <div className={styles.tag}>
+        <Link className='link' href={'/keywords/' + tag}><div className={styles.tag}>
             <p>{tag}</p>
-        </div>
+        </div></Link>
     )
 }
