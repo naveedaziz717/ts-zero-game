@@ -1,50 +1,25 @@
 import React from 'react'
 import styles from './page.module.css'
-
-//icons
-import { FaDiscord } from "react-icons/fa";
-import { FaYoutube } from "react-icons/fa";
-import { FaInstagram } from "react-icons/fa";
-import { FaTwitter } from "react-icons/fa";
-import { ImPower } from "react-icons/im";
-
+import Link from 'next/link'
 
 
 export default function Footer() {
   return (
     <div className={styles.footer}>
       <div className={styles.main}>
-        <img src='/images/Logo/logo.png'></img>
-        <p>© 2024 Valve Corporation. All rights reserved. All trademarks are property of their respective owners in the US and other countries.
-          VAT included in all prices where applicable.
+        <Link className='link' href='/'><img src='/images/Logo/logo.png'></img></Link>
+        <p>© 2024 ZeroGames Corporation. All rights reserved. All trademarks are property of their respective owners in the US and other countries.
         </p>
       </div>
 
       <div className={styles.hrefs}>
         <div className={styles.href}>
-          <p>About Valve</p>
+          <p><a href='https://github.com/unknownbulgarian' target='_blank' className='link' style={{color: 'white'}}>GitHub</a></p>
         </div>
 
         <div className={styles.href}>
-          <p>Jobs</p>
+          <p><a href='https://www.instagram.com/dn8.sw/' target='_blank' className='link' style={{color: 'white'}}>Instagram</a></p>
         </div>
-
-        <div className={styles.href}>
-          <p>Steam Work</p>
-        </div>
-
-        <div className={styles.href}>
-          <p>Support</p>
-        </div>
-
-        <div className={styles.href}>
-          <p>Gift Cards</p>
-        </div>
-
-        <div style={{borderRight: '0px'}} className={styles.href}>
-          <p>Steam</p>
-        </div>
-        
       </div>
     </div>
   )
