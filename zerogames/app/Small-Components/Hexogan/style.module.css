@@ -3,7 +3,7 @@
     cursor: pointer;
     border: 2px solid transparent;
     border-radius: 10px;
-    animation: glow 1s infinite alternate;
+    animation: glow 2s infinite alternate;
     transition: all 0.3s; 
 }
 
