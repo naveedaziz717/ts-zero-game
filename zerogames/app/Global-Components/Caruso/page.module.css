@@ -134,7 +134,7 @@
 
 .tags{
     display: flex;
-    width: 100%;
+    width: 95%;
     flex-wrap: wrap;
     gap: 0.5em;
 }
