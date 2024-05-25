@@ -3,7 +3,6 @@
     height: 360px;
     background-color: rgb(26, 32, 39);
     transition: all 0.3s;
-    cursor: pointer;
     animation: show 0.4s forwards;
     padding-bottom: 0.5em;
 }
