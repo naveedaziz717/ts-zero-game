@@ -152,8 +152,8 @@ export default async function Showcase() {
                                 {index === 4 &&
                                     <Link href={'/game/' + game.General.Title}><RandomImg
                                         borderRadius='1em'
-                                        width='550px'
-                                        height='320px'
+                                        width='520px'
+                                        height='300px'
                                         imgSrc={game.General.imgSrc}
                                     /></Link>
                                 }
