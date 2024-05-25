@@ -2,9 +2,9 @@
 
 import React, { useEffect, useRef, useState } from 'react'
 import styles from './page.module.css'
+import { useRouter } from 'next/navigation'
 
 //providers
-import { useRouter } from 'next/navigation'
 import { useCategory } from '@/app/States/Category/CategoryState'
 import { useSearch } from '@/app/States/Search/SearchState'
 import { useNav } from '@/app/States/NavBar/NavState'
