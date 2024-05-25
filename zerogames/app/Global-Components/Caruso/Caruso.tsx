@@ -2,7 +2,7 @@
 
 import React, { useEffect, useRef, useState } from 'react'
 import styles from './page.module.css'
-
+import { useRouter } from 'next/navigation'
 //components
 import Arrow from '../CarusoComponents/Arrow/Arrow';
 import ProgressBar from '../CarusoComponents/ProgressBar/ProgressBar';
@@ -83,6 +83,8 @@ interface gameKeywords {
 }
 
 export default function Caruso() {
+
+    const router = useRouter()
 
     const [page, setPage] = useState<number>(0)
     const [currentGame, setCurrentGame] = useState<GameProps>()
@@ -183,7 +185,7 @@ export default function Caruso() {
                         <div className={styles.title}><p>FEATURED & RECOMMENDED</p></div>
                         <div className={`${animation ? `${styles.image} ${styles.opac}` : styles.image}`} onAnimationEnd={onAnimationEnd}>
                             {currentGame?.Extra?.Images?.[0]?.image && (
-                                <img src={currentGame.Extra.Images[0].image} alt="Game Extra Image" />
+                                <img onClick={() => {router.push('/game/' + currentGame?.General.Title)}} src={currentGame.Extra.Images[0].image} alt="Game Extra Image" />
                             )}
                             <div className={styles.info}>
                                 <div className={styles.theinfo}>
@@ -192,10 +194,10 @@ export default function Caruso() {
                                     <div className={styles.extraimages}>
                                         {currentGame?.Extra?.Images?.[1]?.image && (
                                             <>
-                                                {currentGame.Extra?.Images[1]?.image && <img src={currentGame.Extra?.Images[1]?.image} alt="Game Extra Image" />}
-                                                {currentGame.Extra?.Images[2]?.image && <img src={currentGame.Extra?.Images[2]?.image} alt="Game Extra Image" />}
-                                                {currentGame.Extra?.Images[3]?.image && <img src={currentGame.Extra?.Images[3]?.image} alt="Game Extra Image" />}
-                                                {currentGame.Extra?.Images[4]?.image && <img src={currentGame.Extra?.Images[4]?.image} alt="Game Extra Image" />}
+                                                {currentGame.Extra?.Images[1]?.image && <img onClick={() => {router.push('/game/' + currentGame?.General.Title)}}  src={currentGame.Extra?.Images[1]?.image} alt="Game Extra Image" />}
+                                                {currentGame.Extra?.Images[2]?.image && <img onClick={() => {router.push('/game/' + currentGame?.General.Title)}}  src={currentGame.Extra?.Images[2]?.image} alt="Game Extra Image" />}
+                                                {currentGame.Extra?.Images[3]?.image && <img onClick={() => {router.push('/game/' + currentGame?.General.Title)}}  src={currentGame.Extra?.Images[3]?.image} alt="Game Extra Image" />}
+                                                {currentGame.Extra?.Images[4]?.image && <img onClick={() => {router.push('/game/' + currentGame?.General.Title)}}  src={currentGame.Extra?.Images[4]?.image} alt="Game Extra Image" />}
                                             </>
                                         )}
 
