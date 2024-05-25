@@ -174,72 +174,77 @@ export default function Caruso() {
 
 
     return (
-        <div className={styles.caruso}>
-            <Arrow onClick={() => { backPage() }} left={true} />
+        <>
+            {currentGame &&
+                <div className={styles.caruso}>
+                    <Arrow onClick={() => { backPage() }} left={true} />
 
-            <div className={styles.middle}>
-                <div className={styles.title}><p>FEATURED & RECOMMENDED</p></div>
-                <div className={`${animation ? `${styles.image} ${styles.opac}` : styles.image}`} onAnimationEnd={onAnimationEnd}>
-                    {currentGame?.Extra?.Images?.[0]?.image && (
-                        <img src={currentGame.Extra.Images[0].image} alt="Game Extra Image" />
-                    )}
-                    <div className={styles.info}>
-                        <div className={styles.theinfo}>
-                            <h2 className={styles.infotitle}>{currentGame?.General.Title}</h2>
+                    <div className={styles.middle}>
+                        <div className={styles.title}><p>FEATURED & RECOMMENDED</p></div>
+                        <div className={`${animation ? `${styles.image} ${styles.opac}` : styles.image}`} onAnimationEnd={onAnimationEnd}>
+                            {currentGame?.Extra?.Images?.[0]?.image && (
+                                <img src={currentGame.Extra.Images[0].image} alt="Game Extra Image" />
+                            )}
+                            <div className={styles.info}>
+                                <div className={styles.theinfo}>
+                                    <h2 className={styles.infotitle}>{currentGame?.General.Title}</h2>
 
-                            <div className={styles.extraimages}>
-                                {currentGame?.Extra?.Images?.[1]?.image && (
-                                    <>
-                                        {currentGame.Extra?.Images[1]?.image && <img src={currentGame.Extra?.Images[1]?.image} alt="Game Extra Image" />}
-                                        {currentGame.Extra?.Images[2]?.image && <img src={currentGame.Extra?.Images[2]?.image} alt="Game Extra Image" />}
-                                        {currentGame.Extra?.Images[3]?.image && <img src={currentGame.Extra?.Images[3]?.image} alt="Game Extra Image" />}
-                                        {currentGame.Extra?.Images[4]?.image && <img src={currentGame.Extra?.Images[4]?.image} alt="Game Extra Image" />}
-                                    </>
-                                )}
+                                    <div className={styles.extraimages}>
+                                        {currentGame?.Extra?.Images?.[1]?.image && (
+                                            <>
+                                                {currentGame.Extra?.Images[1]?.image && <img src={currentGame.Extra?.Images[1]?.image} alt="Game Extra Image" />}
+                                                {currentGame.Extra?.Images[2]?.image && <img src={currentGame.Extra?.Images[2]?.image} alt="Game Extra Image" />}
+                                                {currentGame.Extra?.Images[3]?.image && <img src={currentGame.Extra?.Images[3]?.image} alt="Game Extra Image" />}
+                                                {currentGame.Extra?.Images[4]?.image && <img src={currentGame.Extra?.Images[4]?.image} alt="Game Extra Image" />}
+                                            </>
+                                        )}
 
-                            </div>
+                                    </div>
 
-                            <p className={styles.infodesc}>
-                                {currentGame?.About.Description ? currentGame.About.Description :
-                                    currentGame?.Extra.Description ? currentGame.Extra.Description :
-                                        "The developers unfortunately didn't provide any description for this game, leaving potential players without information about its features, gameplay, or storyline."
-                                }
-                            </p>
+                                    <p className={styles.infodesc}>
+                                        {currentGame?.About.Description ? currentGame.About.Description :
+                                            currentGame?.Extra.Description ? currentGame.Extra.Description :
+                                                "The developers unfortunately didn't provide any description for this game, leaving potential players without information about its features, gameplay, or storyline."
+                                        }
+                                    </p>
 
-                            <div className={styles.tags}>
-                                {currentGame?.General.Keywords[0]?.keyword && <Tag tag={currentGame?.General.Keywords[0]?.keyword} />}
-                                {currentGame?.General.Keywords[1]?.keyword && <Tag tag={currentGame?.General.Keywords[1]?.keyword} />}
-                                {currentGame?.General.Keywords[2]?.keyword && <Tag tag={currentGame?.General.Keywords[2]?.keyword} />}
-                                {currentGame?.General.Keywords[3]?.keyword && <Tag tag={currentGame?.General.Keywords[3]?.keyword} />}
-                            </div>
+                                    <div className={styles.tags}>
+                                        {currentGame?.General.Keywords[0]?.keyword && <Tag tag={currentGame?.General.Keywords[0]?.keyword} />}
+                                        {currentGame?.General.Keywords[1]?.keyword && <Tag tag={currentGame?.General.Keywords[1]?.keyword} />}
+                                        {currentGame?.General.Keywords[2]?.keyword && <Tag tag={currentGame?.General.Keywords[2]?.keyword} />}
+                                        {currentGame?.General.Keywords[3]?.keyword && <Tag tag={currentGame?.General.Keywords[3]?.keyword} />}
+                                    </div>
 
-                            <div className={styles.bottomcontent}>
-                                <div className={styles.price}>
-                                    {currentGame?.General.gameDiscount &&
-                                        <DiscountPriceBox
-                                            height='20px'
-                                            originalPrice={parseFloat(currentGame.General.DiscountOriginalPrice ?? "0")}
-                                            discountPrice={parseFloat(currentGame.General.FinalPrice ?? "0")}
-                                            discountPriceFS='0.8rem'
-                                            originalPriceFS='0.8rem'
-                                            percentageFontSize='1rem'
-                                        />
-                                    }
-                                    {!currentGame?.General.gameDiscount && <p className={styles.theprice}>{currentGame?.General.GamePrice}</p>}
-                                    {!currentGame?.General.gameDiscount && !currentGame?.General.GamePrice && <p className={styles.theprice}>15,00$</p>}
-                                </div>
+                                    <div className={styles.bottomcontent}>
+                                        <div className={styles.price}>
+                                            {currentGame?.General.gameDiscount &&
+                                                <DiscountPriceBox
+                                                    height='20px'
+                                                    originalPrice={parseFloat(currentGame.General.DiscountOriginalPrice ?? "0")}
+                                                    discountPrice={parseFloat(currentGame.General.FinalPrice ?? "0")}
+                                                    discountPriceFS='0.8rem'
+                                                    originalPriceFS='0.8rem'
+                                                    percentageFontSize='1rem'
+                                                />
+                                            }
+                                            {!currentGame?.General.gameDiscount && <p className={styles.theprice}>{currentGame?.General.GamePrice}</p>}
+                                            {!currentGame?.General.gameDiscount && !currentGame?.General.GamePrice && <p className={styles.theprice}>15,00$</p>}
+                                        </div>
 
-                                <div className={styles.infoicon}>
-                                    <IoShieldCheckmarkSharp />
+                                        <div className={styles.infoicon}>
+                                            <IoShieldCheckmarkSharp />
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
+                        <ProgressBar page={page} setPage={handleProgressBarClick} count={10} />
                     </div>
-                </div>
-                <ProgressBar page={page} setPage={handleProgressBarClick} count={10} />
-            </div>
 
-            <Arrow onClick={() => { nextPage() }} left={false} />
-        </div >
+                    <Arrow onClick={() => { nextPage() }} left={false} />
+                </div >
+            }
+
+        </>
     )
 }
