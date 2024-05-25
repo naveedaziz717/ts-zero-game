@@ -35,8 +35,7 @@ export default function GamePages({ count, page, onPageChange, pushPage, default
     <div className={styles.pages}>
 
       <button
-        onClick={() => {onPageChange(1); router.push('/')}}
-        disabled={page === 1}
+        onClick={() => {onPageChange(0); router.push('/')}}
         className={styles.page}
       >
         Home
