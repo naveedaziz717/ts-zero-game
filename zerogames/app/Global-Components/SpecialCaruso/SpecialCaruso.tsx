@@ -2,6 +2,7 @@
 
 import React, { useEffect, useState } from 'react'
 import styles from './page.module.css'
+import { useRouter } from 'next/navigation'
 
 //components
 import Arrow from '../CarusoComponents/Arrow/Arrow';
@@ -80,6 +81,8 @@ interface gameKeywords {
 
 export default function SpecialCaruso() {
 
+    const router = useRouter()
+
     const [page, setPage] = useState<number>(0)
     const [currentGames, setCurrentGames] = useState<Array<GameProps>>()
 
@@ -152,7 +155,7 @@ export default function SpecialCaruso() {
                         {currentGames?.map((game, index) => (
                             <React.Fragment key={index}>
                                 {index < 2 &&
-                                    <div className={`${styles.box} ${animation ? styles.opac : ''}`} onAnimationEnd={onAnimationEnd}>
+                                    <div onClick={() => {router.push('/game/' + game.General.Title)}} className={`${styles.box} ${animation ? styles.opac : ''}`} onAnimationEnd={onAnimationEnd}>
                                         {game?.Extra?.Images?.[0]?.image && (
                                             <img src={game.Extra.Images[0].image} alt="Game Extra Image" />
                                         )}
@@ -203,7 +206,7 @@ export default function SpecialCaruso() {
                             {currentGames?.map((game, index) => (
                                 <React.Fragment key={index}>
                                     {index === 2 &&
-                                        <div className={`${styles.box2} ${animation ? styles.opac : ''}`} onAnimationEnd={onAnimationEnd}>
+                                        <div onClick={() => {router.push('/game/' + game.General.Title)}} className={`${styles.box2} ${animation ? styles.opac : ''}`} onAnimationEnd={onAnimationEnd}>
                                             {game?.Extra?.Images?.[0]?.image && (
                                                 <img src={game.Extra.Images[0].image} alt="Game Extra Image" />
                                             )}
@@ -234,7 +237,7 @@ export default function SpecialCaruso() {
                                     }
 
                                     {index === 3 &&
-                                        <div className={`${styles.box2} ${animation ? styles.opac : ''}`} onAnimationEnd={onAnimationEnd}>
+                                        <div onClick={() => {router.push('/game/' + game.General.Title)}} className={`${styles.box2} ${animation ? styles.opac : ''}`} onAnimationEnd={onAnimationEnd}>
                                             {game?.Extra?.Images?.[0]?.image && (
                                                 <img src={game.Extra.Images[0].image} alt="Game Extra Image" />
                                             )}
