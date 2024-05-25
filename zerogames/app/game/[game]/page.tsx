@@ -1,5 +1,6 @@
 import React from 'react'
 import styles from './page.module.css'
+import Link from 'next/link'
 
 //components
 import LittleNav from '@/app/Small-Components/LittleNav/LittleNav'
@@ -174,8 +175,8 @@ export default async function page({ params }: PageProps) {
             <div className={styles.down}>
                 <div className={styles.downfirst}>
                     <div className={styles.buy}>
-                        {game.General.GamePrice === 'Free to Play' && <h2>Download {game.General.Title}</h2>}
-                        {game.General.GamePrice !== 'Free to Play' && <h2>Buy {game.General.Title}</h2>}
+                        {game.General.GamePrice === 'Free to Play' && <Link className='link' target='_blank' href={game.General.Link}><h2>Download {game.General.Title}</h2></Link>}
+                        {game.General.GamePrice !== 'Free to Play' && <Link className='link' target='_blank' href={game.General.Link}><h2>Buy {game.General.Title}</h2></Link>}
                         <div className={styles.buyicons}>
                             <FaWindows />
                             <FaSteam />
@@ -183,7 +184,7 @@ export default async function page({ params }: PageProps) {
                         </div>
 
                         <div className={styles.mainbuy}>
-                            {game.General.GamePrice === 'Free to Play' && <button className={styles.freebtn}>Download</button>}
+                            {game.General.GamePrice === 'Free to Play' && <Link className='link' target='_blank' href={game.General.Link}><button className={styles.freebtn}>Download</button></Link>}
                             {game.General.GamePrice !== 'Free to Play' &&
                                 <div className={styles.buybox}>
                                     <div className={styles.theprice}>
@@ -202,9 +203,9 @@ export default async function page({ params }: PageProps) {
                                             </>
                                         }
                                     </div>
-                                    <div className={styles.card}>
+                                    <Link className='link' target='_blank' href={game.General.Link}><div className={styles.card}>
                                         <p>Add To Card</p>
-                                    </div>
+                                    </div></Link>
                                 </div>
                             }
 
@@ -216,11 +217,11 @@ export default async function page({ params }: PageProps) {
                         <div className={styles.dlcs}>
                             <h2>Content For This Game</h2>
                             <div className={styles.thedlcs}>
-                                {game.Extra.DLCS.length > 7 && <button>View All</button>}
+                                {game.Extra.DLCS.length > 7 &&  <Link className='link' target='_blank' href={game.General.Link}><button>View All</button></Link>}
                                 {game.Extra.DLCS.map((dlc, index) => (
                                     <React.Fragment key={index}>
                                         {index <= 7 &&
-                                            <div className={styles.dlcbox}>
+                                           <Link className='link' target='_blank' href={game.General.Link}><div className={styles.dlcbox}>
                                                 <p>{dlc.name}</p>
                                                 <div className={styles.dlcprice}>
                                                     {dlc.discount ?
@@ -237,7 +238,7 @@ export default async function page({ params }: PageProps) {
                                                         <p style={{ color: 'white' }}>{dlc.price}</p>
                                                     }
                                                 </div>
-                                            </div>
+                                            </div></Link>
                                         }
                                     </React.Fragment>
                                 ))}
@@ -294,7 +295,7 @@ export default async function page({ params }: PageProps) {
                             {relatedGames.data.map((game2, index) => (
                                 <React.Fragment key={index}>
                                     {game.General.Title !== game2.General.Title &&
-                                        <div className={styles.relatedbox}>
+                                         <Link className='link' href={'/game/' + game2.General.Title}><div className={styles.relatedbox}>
                                             <img alt='Main Image' src={game2.General.imgSrc}></img>
                                             <h2>{game2.General.Title}</h2>
                                             {game2.General.GamePrice === 'Free to Play' && <p style={{ margin: '0' }}>Free to Play</p>}
@@ -318,7 +319,7 @@ export default async function page({ params }: PageProps) {
                                                     </div>
                                                 </div>
                                             }
-                                        </div>
+                                        </div></Link>
                                     }
 
                                 </React.Fragment>
@@ -331,10 +332,9 @@ export default async function page({ params }: PageProps) {
                 <div className={styles.downsecond}>
                     <div className={styles.alltags}>
                         {game.General.Keywords.map((keyword, index) => (
-                            <div className={styles.alltagbox}>
+                           <Link className='link' href={'/keywords/' + keyword.keyword}><div className={styles.alltagbox}>
                                 <p>{keyword.keyword}</p>
-                            </div>
-
+                            </div></Link>
                         ))}
                     </div>
                 </div>
