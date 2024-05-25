@@ -86,7 +86,7 @@ export default function Navbar() {
     return (
         <div className={styles.navbar}>
             <div className={styles.logo}>
-                <img alt='Logo' src={logo}></img>
+                <img onClick={() => {router.push('/')}} alt='Logo' src={logo}></img>
             </div>
 
             {isCategories &&
