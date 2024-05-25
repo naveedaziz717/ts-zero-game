@@ -29,10 +29,8 @@ export default function ShowcaseNav() {
   return (
     <div className={styles.nav}>
       <div className={styles.hrefs}>
-        <p>New & Worthy</p>
-        <p>Safety Rates</p>
-        <p>Top Websites</p>
-        <p>Untrusted Websites</p>
+        <p><a style={{color: "white"}} className='link' href='https://github.com/unknownbulgarian/ZeroGames' target='_blank'>GitHub</a></p>
+        <p><a style={{color: "white"}} className='link' href='https://www.instagram.com/dn8.sw/' target='_blank'>Instagram</a></p>
       </div>
 
       <div className={styles.search}>
