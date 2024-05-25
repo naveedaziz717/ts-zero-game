@@ -86,44 +86,10 @@ export default function Navbar() {
     return (
         <div className={styles.navbar}>
             <div className={styles.logo}>
-                <img onClick={() => {router.push('/')}} alt='Logo' src={logo}></img>
+                <img onClick={() => { router.push('/') }} alt='Logo' src={logo}></img>
             </div>
 
-            {isCategories &&
-                <div className={styles.allcat} onMouseLeave={() => {
-                    setCategories(false)
-                    if (searchValue !== '' && isFocused) {
-                        setSearching(true)
-                    }
-
-                }} onMouseOver={() => [keepCategory()]} >
-                    <p onClick={(e) => { router.push('/categories/' + e.currentTarget.innerText); setCategories(false); setCategory(e.currentTarget.innerText) }}
-                        style={{ color: category === 'Action' ? '#1a9fff' : '', fontWeight: category === 'Action' ? '500' : '' }}
-                    >Action</p>
-                    <p onClick={(e) => { router.push('/categories/' + e.currentTarget.innerText); setCategories(false); setCategory(e.currentTarget.innerText) }}
-                        style={{ color: category === 'Survival' ? '#1a9fff' : '', fontWeight: category === 'Survival' ? '500' : '' }}
-                    >Survival</p>
-                    <p onClick={(e) => { router.push('/categories/' + e.currentTarget.innerText); setCategories(false); setCategory(e.currentTarget.innerText) }}
-                        style={{ color: category === 'Open World' ? '#1a9fff' : '', fontWeight: category === 'Open World' ? '500' : '' }}
-                    >Open World</p>
-                    <p onClick={(e) => { router.push('/categories/' + e.currentTarget.innerText); setCategories(false); setCategory(e.currentTarget.innerText) }}
-                        style={{ color: category === 'Horror' ? '#1a9fff' : '', fontWeight: category === 'Horror' ? '500' : '' }}
-                    >Horror</p>
-                    <p onClick={(e) => { router.push('/categories/' + e.currentTarget.innerText); setCategories(false); setCategory(e.currentTarget.innerText) }}
-                        style={{ color: category === 'Adventure' ? '#1a9fff' : '', fontWeight: category === 'Adventure' ? '500' : '' }}
-                    >Adventure</p>
-                    <p onClick={(e) => { router.push('/categories/' + e.currentTarget.innerText); setCategories(false); setCategory(e.currentTarget.innerText) }}
-                        style={{ color: category === 'Indie' ? '#1a9fff' : '', fontWeight: category === 'Indie' ? '500' : '' }}
-                    >Indie</p>
-                    <p onClick={(e) => { router.push('/categories/' + e.currentTarget.innerText); setCategories(false); setCategory(e.currentTarget.innerText) }}
-                        style={{ color: category === 'Simulation' ? '#1a9fff' : '', fontWeight: category === 'Simulation' ? '500' : '' }}
-                    >Simulation</p>
-                    <p onClick={(e) => { router.push('/categories/' + e.currentTarget.innerText); setCategories(false); setCategory(e.currentTarget.innerText) }}
-                        style={{ color: category === 'Racing' ? '#1a9fff' : '', fontWeight: category === 'Racing' ? '500' : '' }}
-                    >Racing</p>
-                </div>
-            }
-
+         
             {isKeywords &&
                 <div onMouseLeave={() => {
                     setKeywords(false);
@@ -138,7 +104,7 @@ export default function Navbar() {
                                 {categoryGroups[index]?.map((category, groupIndex) => (
                                     <React.Fragment key={groupIndex}>
                                         <p onClick={() => { router.push('/keywords/' + category); setNav('Keywords'); setKeywords(false) }}
-                                        style={{color: keyword === category ? '#1a9fff' : ''}}
+                                            style={{ color: keyword === category ? '#1a9fff' : '' }}
                                         >{category}</p>
                                     </React.Fragment>
                                 ))}
@@ -193,30 +159,68 @@ export default function Navbar() {
                     <FaListUl />
                 </BoxIcon>
 
-                <BoxIcon
-                    width='auto'
-                    height='35px'
-                    backgroundColor='transperent'
-                    borderRadius='0.3em'
-                    paddingLeft='1.2em'
-                    paddingRight='1.2em'
-                    titleFontWeight='500'
-                    textTransform='uppercase'
-                    title='Categories'
-                    transition='all 0.3s'
-                    color={nav === 'Categories' ? '#1a9fff' : 'white'}
-                    onClick={() => { }}
-                    onHover={() => { setCategories(true); setKeywords(false); setSearching(false) }}
-                    onUnHover={() => {
-                        removeCategory();
-                        if (searchValue !== '' && isFocused) {
-                            setSearching(true)
-                        }
-                    }}
-                    nav={true}
-                >
-                    <FaListUl />
-                </BoxIcon>
+                <div className={styles.thecatdiv}>
+                    <BoxIcon
+                        width='auto'
+                        height='35px'
+                        backgroundColor='transperent'
+                        borderRadius='0.3em'
+                        paddingLeft='1.2em'
+                        paddingRight='1.2em'
+                        titleFontWeight='500'
+                        textTransform='uppercase'
+                        title='Categories'
+                        transition='all 0.3s'
+                        color={nav === 'Categories' ? '#1a9fff' : 'white'}
+                        onClick={() => { }}
+                        onHover={() => { setCategories(true); setKeywords(false); setSearching(false) }}
+                        onUnHover={() => {
+                            removeCategory();
+                            if (searchValue !== '' && isFocused) {
+                                setSearching(true)
+                            }
+                        }}
+                        nav={true}
+                    >
+                        <FaListUl />
+                    </BoxIcon>
+
+                    {isCategories &&
+                <div className={styles.allcat} onMouseLeave={() => {
+                    setCategories(false)
+                    if (searchValue !== '' && isFocused) {
+                        setSearching(true)
+                    }
+
+                }} onMouseOver={() => [keepCategory()]} >
+                    <p onClick={(e) => { router.push('/categories/' + e.currentTarget.innerText); setCategories(false); setCategory(e.currentTarget.innerText) }}
+                        style={{ color: category === 'Action' ? '#1a9fff' : '', fontWeight: category === 'Action' ? '500' : '' }}
+                    >Action</p>
+                    <p onClick={(e) => { router.push('/categories/' + e.currentTarget.innerText); setCategories(false); setCategory(e.currentTarget.innerText) }}
+                        style={{ color: category === 'Survival' ? '#1a9fff' : '', fontWeight: category === 'Survival' ? '500' : '' }}
+                    >Survival</p>
+                    <p onClick={(e) => { router.push('/categories/' + e.currentTarget.innerText); setCategories(false); setCategory(e.currentTarget.innerText) }}
+                        style={{ color: category === 'Open World' ? '#1a9fff' : '', fontWeight: category === 'Open World' ? '500' : '' }}
+                    >Open World</p>
+                    <p onClick={(e) => { router.push('/categories/' + e.currentTarget.innerText); setCategories(false); setCategory(e.currentTarget.innerText) }}
+                        style={{ color: category === 'Horror' ? '#1a9fff' : '', fontWeight: category === 'Horror' ? '500' : '' }}
+                    >Horror</p>
+                    <p onClick={(e) => { router.push('/categories/' + e.currentTarget.innerText); setCategories(false); setCategory(e.currentTarget.innerText) }}
+                        style={{ color: category === 'Adventure' ? '#1a9fff' : '', fontWeight: category === 'Adventure' ? '500' : '' }}
+                    >Adventure</p>
+                    <p onClick={(e) => { router.push('/categories/' + e.currentTarget.innerText); setCategories(false); setCategory(e.currentTarget.innerText) }}
+                        style={{ color: category === 'Indie' ? '#1a9fff' : '', fontWeight: category === 'Indie' ? '500' : '' }}
+                    >Indie</p>
+                    <p onClick={(e) => { router.push('/categories/' + e.currentTarget.innerText); setCategories(false); setCategory(e.currentTarget.innerText) }}
+                        style={{ color: category === 'Simulation' ? '#1a9fff' : '', fontWeight: category === 'Simulation' ? '500' : '' }}
+                    >Simulation</p>
+                    <p onClick={(e) => { router.push('/categories/' + e.currentTarget.innerText); setCategories(false); setCategory(e.currentTarget.innerText) }}
+                        style={{ color: category === 'Racing' ? '#1a9fff' : '', fontWeight: category === 'Racing' ? '500' : '' }}
+                    >Racing</p>
+                </div>
+            }
+
+                </div>
 
                 <BoxIcon
                     width='auto'
