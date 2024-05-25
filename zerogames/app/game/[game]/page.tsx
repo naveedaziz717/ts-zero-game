@@ -135,7 +135,7 @@ export default async function page({ params }: PageProps) {
         <div className={styles.game}>
             <LittleNav singles={true} theSingles={'game/' + game.General.Title} />
             <div className={styles.main}>
-                <img src={game.Extra.Images[0].image} className={styles.mainback}></img>
+                <img alt='Extra Image' src={game.Extra.Images[0].image} className={styles.mainback}></img>
                 <h1>{game.General.Title}</h1>
                 <div className={styles.themain}>
                     <div className={styles.first}>
@@ -144,11 +144,11 @@ export default async function page({ params }: PageProps) {
                         </div>
                         <div className={styles.extra}>
                             <div className={styles.extrabox}>
-                                <img src={game.General.imgSrc}></img>
+                                <img alt='Main Image' src={game.General.imgSrc}></img>
                             </div>
                             {game.Extra.Images.map((image, index) => (
                                 <div className={styles.extrabox}>
-                                    <img src={image.image}></img>
+                                    <img alt='Main Image' src={image.image}></img>
                                 </div>
                             ))}
                         </div>
@@ -156,7 +156,7 @@ export default async function page({ params }: PageProps) {
 
                     <div className={styles.second}>
                         <div className={styles.info}>
-                            <img src={game.General.imgSrc}></img>
+                            <img alt='Main Image' src={game.General.imgSrc}></img>
                             <div className={styles.description}>
                                 <p>{game.Extra.Description}</p>
                             </div>
@@ -254,7 +254,7 @@ export default async function page({ params }: PageProps) {
                                 <p>{game.About.Description}  <a target='_blank' href={game.About.Wikipedia}>Wikipedia</a></p>
                             </>
                         }
-                        <img src={game.Extra.Images[0].image}></img>
+                        <img alt='Extra Image' src={game.Extra.Images[0].image}></img>
 
                     </div>
 
@@ -295,7 +295,7 @@ export default async function page({ params }: PageProps) {
                                 <React.Fragment key={index}>
                                     {game.General.Title !== game2.General.Title &&
                                         <div className={styles.relatedbox}>
-                                            <img src={game2.General.imgSrc}></img>
+                                            <img alt='Main Image' src={game2.General.imgSrc}></img>
                                             <h2>{game2.General.Title}</h2>
                                             {game2.General.GamePrice === 'Free to Play' && <p style={{ margin: '0' }}>Free to Play</p>}
                                             {game2.General.GamePrice !== 'Free to Play' &&
