@@ -6,7 +6,8 @@
 }
 
 .main {
-    width: 1050px;
+    width: 95%;
+    max-width: 1050px;
     margin-left: auto;
     margin-right: auto;
 }
@@ -151,7 +152,7 @@
     cursor: pointer;
 }
 
-.mainbuy .freebtn:hover{
+.mainbuy .freebtn:hover {
     transform: scale(1.1);
 }
 
@@ -198,28 +199,28 @@
     padding-right: 0.5em;
 }
 
-.dlcs{
+.dlcs {
     margin-top: 5em;
     width: 689px;
 }
 
-.dlcs h2{
+.dlcs h2 {
     font-weight: 500;
     color: white;
     font-size: 1rem;
     text-transform: uppercase;
 }
 
-.thedlcs{
+.thedlcs {
     position: relative;
     display: flex;
     flex-direction: column;
     gap: 1px;
 }
 
-.thedlcs button{
+.thedlcs button {
     position: absolute;
-    background: rgba( 103, 193, 245, 0.1 );
+    background: rgba(103, 193, 245, 0.1);
     color: white;
     width: 120px;
     height: 25px;
@@ -230,38 +231,39 @@
     cursor: pointer;
 }
 
-.thedlcs button:hover{
+.thedlcs button:hover {
     background: rgba(38, 97, 148, 0.539);
 }
 
-.dlcbox{
+.dlcbox {
     display: flex;
     align-items: center;
-    background: -webkit-gradient(linear, left top, right bottom, color-stop(0%,rgba(97,100,101,0.3)), color-stop(100%,rgba(226,244,255,0.3)));
+    background: -webkit-gradient(linear, left top, right bottom, color-stop(0%, rgba(97, 100, 101, 0.3)), color-stop(100%, rgba(226, 244, 255, 0.3)));
     transition: all 0.3s;
     height: 30px;
     cursor: pointer;
 }
 
-.dlcbox:hover{
+.dlcbox:hover {
     background-color: rgba(38, 97, 148, 0.539);
 }
 
-.dlcbox p{
+.dlcbox p {
     margin: 0;
     color: #a8b2ba;
     padding-left: 1em;
     font-size: 0.9rem;
 }
 
-.dlcprice{
+.dlcprice {
     margin-left: auto;
     margin-right: 1em;
 }
 
 .about {
     margin-top: 5em;
-    width: 689px;
+    width: 95%;
+    max-width: 689px;
 }
 
 .about h2 {
@@ -280,7 +282,7 @@
     color: rgb(0, 123, 255);
 }
 
-.about img{
+.about img {
     width: 600px;
 }
 
@@ -309,18 +311,18 @@
     font-weight: 400;
 }
 
-.singlereq p{
+.singlereq p {
     color: rgb(155, 153, 153);
     font-size: 0.7rem;
 }
 
-.mainspecs{
+.mainspecs {
     display: flex;
     align-items: center;
     gap: 2em;
 }
 
-.mainspecs h3{
+.mainspecs h3 {
     color: white;
     font-size: 0.7rem;
     text-transform: uppercase;
@@ -332,27 +334,29 @@
     font-size: 0.7rem;
 }
 
-.minspecs{
-    width: 350px;
+.minspecs {
+    width: 95%;
+    max-width: 350px;
 }
 
-.maxspecs{
-    width: 350px;
+.maxspecs {
+    width: 95%;
+    max-width: 350px;
 }
 
-.related{
+.related {
     margin-top: 5em;
     width: 889px;
 }
 
-.related h2{
+.related h2 {
     font-weight: 500;
     color: white;
     font-size: 1rem;
     text-transform: uppercase;
 }
 
-.relatedgames{
+.relatedgames {
     display: flex;
     align-items: center;
     overflow-x: auto;
@@ -361,7 +365,7 @@
     gap: 0.5em;
 }
 
-.relatedbox{
+.relatedbox {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -372,24 +376,24 @@
     padding-right: 0.9em;
     padding-top: 0.4em;
     padding-bottom: 0.4em;
-    background-color: rgba( 0, 0, 0, 0.2 );
+    background-color: rgba(0, 0, 0, 0.2);
     transition: all 0.3s;
     cursor: pointer;
 }
 
-.relatedbox:hover{
+.relatedbox:hover {
     transform: scale(1.05);
 }
 
-.relatedbox img{
+.relatedbox img {
     width: 160px;
     height: 80px;
 }
 
-.alltags{
+.alltags {
     display: flex;
     flex-direction: column;
-    background: -webkit-gradient(linear, left top, right top, color-stop(0%,rgba(0,0,0,0.2)), color-stop(100%,rgba(0,0,0,0.5)));
+    background: -webkit-gradient(linear, left top, right top, color-stop(0%, rgba(0, 0, 0, 0.2)), color-stop(100%, rgba(0, 0, 0, 0.5)));
     padding: 1.2em;
     margin-left: 5em;
     gap: 2px;
@@ -399,18 +403,18 @@
     display: flex;
     align-items: center;
     padding-left: 1em;
-    background: rgba( 103, 193, 245, 0.1 );
+    background: rgba(103, 193, 245, 0.1);
     transition: all 0.3s;
     width: 300px;
     height: 30px;
     cursor: pointer;
 }
 
-.alltagbox:hover{
+.alltagbox:hover {
     background: rgba(38, 97, 148, 0.539);
 }
 
-.alltagbox p{
+.alltagbox p {
     color: #66c0f4;
     margin: 0;
 }
@@ -420,7 +424,7 @@
     font-size: 0.8rem;
 }
 
-.relatedbox h2{
+.relatedbox h2 {
     display: -webkit-box;
     -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;
@@ -428,4 +432,141 @@
     overflow: hidden;
     text-overflow: ellipsis;
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.25);
+}
+
+@media only screen and (max-width: 1336px) {
+    .main {
+        height: auto;
+    }
+
+    .themain {
+        display: unset;
+    }
+
+    .first {
+        margin-left: auto;
+        margin-right: auto;
+        width: 100%;
+        height: auto;
+    }
+
+    .video {
+        height: auto;
+    }
+
+    .info {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .dlcs {
+        margin-top: 2em;
+    }
+
+    .info img {
+        width: 500px;
+    }
+
+    .second {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        height: auto;
+        padding-top: 2em;
+        padding-bottom: 2em;
+        width: 100%;
+    }
+
+    .keywords {
+        justify-content: center;
+    }
+
+    .downsecond {
+        display: none;
+    }
+
+    .down {
+        width: unset;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .downfirst {
+        align-items: center;
+        width: 100%;
+    }
+
+    .buy {
+        width: 90%;
+    }
+
+    .dlcs {
+        width: 90%;
+    }
+
+    .related {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        margin-top: 3em;
+        padding-left: 1em;
+        width: 90%;
+    }
+
+    .relatedgames {
+        overflow-x: auto;
+        width: 90%;
+
+    }
+
+    .about {
+        margin-top: 2em;
+        text-align: center;
+    }
+
+    .specs {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        margin-top: 2em;
+        width: 100%;
+    }
+
+    .thespecs {
+        flex-wrap: wrap;
+        width: 100%;
+    }
+
+    .mainspecs {
+        width: 100%;
+        justify-content: center;
+        padding-left: 1em;
+        padding-right: 1em;
+        text-align: center;
+        flex-wrap: wrap;
+    }
+
+    .extra {
+        justify-content: center;
+    }
+
+}
+
+@media only screen and (max-width: 648px) {
+    .about img {
+        width: 95%;
+        max-width: 600;
+    }
+}
+
+@media only screen and (max-width: 548px) {
+    .info img {
+        width: 95%;
+        max-width: 500px;
+    }
 }
