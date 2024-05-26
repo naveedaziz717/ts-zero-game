@@ -182,7 +182,7 @@ export default function Caruso() {
                 <h2>FEATURED & RECOMMENDED</h2>
                 <div className={styles.mobgames}>
                     {games?.map((game, index) => (
-                        <div className={styles.mobbox}>
+                        <div key={index} className={styles.mobbox}>
                             <img src={game.Extra.Images[0].image}></img>
                             <p>{game.General.Title}</p>
                             <div className={styles.mobprice}>
