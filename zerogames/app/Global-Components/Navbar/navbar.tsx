@@ -100,79 +100,79 @@ export default function Navbar() {
 
     return (
         <>
-                <div className={`${mobileNav ? `${styles.mobilenav} ${styles.mobnav}` : styles.mobilenav}`}>
-                    <div onClick={() => { router.push('/'); setNav('Home'); setMobileNav(false); setCategory('') }} className={styles.mobilebox}>
-                        <p style={{ color: nav === 'Home' ? '#1a9fff' : 'white'}}>Home</p>
-                    </div>
+            <div className={`${mobileNav ? `${styles.mobilenav} ${styles.mobnav}` : styles.mobilenav}`}>
+                <div onClick={() => { router.push('/'); setNav('Home'); setMobileNav(false); setCategory('') }} className={styles.mobilebox}>
+                    <p style={{ color: nav === 'Home' ? '#1a9fff' : 'white' }}>Home</p>
+                </div>
 
-                    <div onClick={() => { setMobileKeywords(p => !p) }} className={styles.mobilebox}>
-                        <p style={{ color: nav === 'Keywords' ? '#1a9fff' : 'white'}}>Keywords</p>
-                        <IoIosArrowDown className={`${mobileKeywords ? `${styles.mobilearrow} ${styles.mobarrow}` : styles.mobilearrow}`} />
-                    </div>
-
-
-                    <div className={`${mobileKeywords ? `${styles.mobilekeywords} ${styles.mobilekey}` : styles.mobilekeywords}`}>
-                        {categories?.map((cat, index) => (
-                            <div key={index} className={styles.cat}>
-                                {categoryGroups[index]?.map((category, groupIndex) => (
-                                    <React.Fragment key={groupIndex}>
-                                        <p onClick={() => { router.push('/keywords/' + category); setNav('Keywords'); setKeywords(false); setMobileNav(false) }}
-                                            style={{ color: keyword === category ? '#1a9fff' : '' }}
-                                        >{category}</p>
-                                    </React.Fragment>
-                                ))}
-                            </div>
-                        ))}
-                    </div>
+                <div onClick={() => { setMobileKeywords(p => !p) }} className={styles.mobilebox}>
+                    <p style={{ color: nav === 'Keywords' ? '#1a9fff' : 'white' }}>Keywords</p>
+                    <IoIosArrowDown className={`${mobileKeywords ? `${styles.mobilearrow} ${styles.mobarrow}` : styles.mobilearrow}`} />
+                </div>
 
 
-                    <div onClick={() => { setMobileCategories(p => !p) }} className={styles.mobilebox}>
-                        <p style={{ color: nav === 'Categories' ? '#1a9fff' : 'white'}}>Categories</p>
-                        <IoIosArrowDown  className={`${mobileCategories ? `${styles.mobilearrow} ${styles.mobarrow}` : styles.mobilearrow}`} />
-                    </div>
-
-                    <div className={`${mobileCategories ? `${styles.mobilecategories} ${styles.mobilecat}` : styles.mobilecategories}`}>
-                     
-                            <p onClick={(e) => { router.push('/categories/' + e.currentTarget.innerText); setMobileNav(false); setCategories(false); setCategory(e.currentTarget.innerText) }}
-                                style={{ color: category === 'Action' ? '#1a9fff' : '', fontWeight: category === 'Action' ? '500' : '' }}
-                            >Action</p>
-                            <p onClick={(e) => { router.push('/categories/' + e.currentTarget.innerText); setMobileNav(false); setCategories(false); setCategory(e.currentTarget.innerText) }}
-                                style={{ color: category === 'Survival' ? '#1a9fff' : '', fontWeight: category === 'Survival' ? '500' : '' }}
-                            >Survival</p>
-                            <p onClick={(e) => { router.push('/categories/' + e.currentTarget.innerText); setMobileNav(false); setCategories(false); setCategory(e.currentTarget.innerText) }}
-                                style={{ color: category === 'Open World' ? '#1a9fff' : '', fontWeight: category === 'Open World' ? '500' : '' }}
-                            >Open World</p>
-                            <p onClick={(e) => { router.push('/categories/' + e.currentTarget.innerText); setMobileNav(false); setCategories(false); setCategory(e.currentTarget.innerText) }}
-                                style={{ color: category === 'Horror' ? '#1a9fff' : '', fontWeight: category === 'Horror' ? '500' : '' }}
-                            >Horror</p>
-                            <p onClick={(e) => { router.push('/categories/' + e.currentTarget.innerText); setMobileNav(false); setCategories(false); setCategory(e.currentTarget.innerText) }}
-                                style={{ color: category === 'Adventure' ? '#1a9fff' : '', fontWeight: category === 'Adventure' ? '500' : '' }}
-                            >Adventure</p>
-                            <p onClick={(e) => { router.push('/categories/' + e.currentTarget.innerText); setMobileNav(false); setCategories(false); setCategory(e.currentTarget.innerText) }}
-                                style={{ color: category === 'Indie' ? '#1a9fff' : '', fontWeight: category === 'Indie' ? '500' : '' }}
-                            >Indie</p>
-                            <p onClick={(e) => { router.push('/categories/' + e.currentTarget.innerText); setMobileNav(false); setCategories(false); setCategory(e.currentTarget.innerText) }}
-                                style={{ color: category === 'Simulation' ? '#1a9fff' : '', fontWeight: category === 'Simulation' ? '500' : '' }}
-                            >Simulation</p>
-                            <p onClick={(e) => { router.push('/categories/' + e.currentTarget.innerText); setMobileNav(false); setCategories(false); setCategory(e.currentTarget.innerText) }}
-                                style={{ color: category === 'Racing' ? '#1a9fff' : '', fontWeight: category === 'Racing' ? '500' : '' }}
-                            >Racing</p>
+                <div className={`${mobileKeywords ? `${styles.mobilekeywords} ${styles.mobilekey}` : styles.mobilekeywords}`}>
+                    {categories?.map((cat, index) => (
+                        <div key={index} className={styles.cat}>
+                            {categoryGroups[index]?.map((category, groupIndex) => (
+                                <React.Fragment key={groupIndex}>
+                                    <p onClick={() => { router.push('/keywords/' + category); setNav('Keywords'); setKeywords(false); setMobileNav(false) }}
+                                        style={{ color: keyword === category ? '#1a9fff' : '' }}
+                                    >{category}</p>
+                                </React.Fragment>
+                            ))}
                         </div>
-             
+                    ))}
+                </div>
 
-                    <div   onClick={() => { router.push('/multiplayer'); setNav('Multiplayer'); setMobileNav(false); setCategory('') }} className={styles.mobilebox}>
-                        <p style={{ color: nav === 'Multiplayer' ? '#1a9fff' : 'white'}}>Multiplayer</p>
-                    </div>
 
-                    <div className={styles.mobilebox}>
-                        <p>Zerogame API</p>
-                    </div>
+                <div onClick={() => { setMobileCategories(p => !p) }} className={styles.mobilebox}>
+                    <p style={{ color: nav === 'Categories' ? '#1a9fff' : 'white' }}>Categories</p>
+                    <IoIosArrowDown className={`${mobileCategories ? `${styles.mobilearrow} ${styles.mobarrow}` : styles.mobilearrow}`} />
+                </div>
 
-                    <div className={styles.mobilebox}>
-                        <p>Zerogame Script</p>
-                    </div>
-                </div >
-            
+                <div className={`${mobileCategories ? `${styles.mobilecategories} ${styles.mobilecat}` : styles.mobilecategories}`}>
+
+                    <p onClick={(e) => { router.push('/categories/' + e.currentTarget.innerText); setMobileNav(false); setCategories(false); setCategory(e.currentTarget.innerText) }}
+                        style={{ color: category === 'Action' ? '#1a9fff' : '', fontWeight: category === 'Action' ? '500' : '' }}
+                    >Action</p>
+                    <p onClick={(e) => { router.push('/categories/' + e.currentTarget.innerText); setMobileNav(false); setCategories(false); setCategory(e.currentTarget.innerText) }}
+                        style={{ color: category === 'Survival' ? '#1a9fff' : '', fontWeight: category === 'Survival' ? '500' : '' }}
+                    >Survival</p>
+                    <p onClick={(e) => { router.push('/categories/' + e.currentTarget.innerText); setMobileNav(false); setCategories(false); setCategory(e.currentTarget.innerText) }}
+                        style={{ color: category === 'Open World' ? '#1a9fff' : '', fontWeight: category === 'Open World' ? '500' : '' }}
+                    >Open World</p>
+                    <p onClick={(e) => { router.push('/categories/' + e.currentTarget.innerText); setMobileNav(false); setCategories(false); setCategory(e.currentTarget.innerText) }}
+                        style={{ color: category === 'Horror' ? '#1a9fff' : '', fontWeight: category === 'Horror' ? '500' : '' }}
+                    >Horror</p>
+                    <p onClick={(e) => { router.push('/categories/' + e.currentTarget.innerText); setMobileNav(false); setCategories(false); setCategory(e.currentTarget.innerText) }}
+                        style={{ color: category === 'Adventure' ? '#1a9fff' : '', fontWeight: category === 'Adventure' ? '500' : '' }}
+                    >Adventure</p>
+                    <p onClick={(e) => { router.push('/categories/' + e.currentTarget.innerText); setMobileNav(false); setCategories(false); setCategory(e.currentTarget.innerText) }}
+                        style={{ color: category === 'Indie' ? '#1a9fff' : '', fontWeight: category === 'Indie' ? '500' : '' }}
+                    >Indie</p>
+                    <p onClick={(e) => { router.push('/categories/' + e.currentTarget.innerText); setMobileNav(false); setCategories(false); setCategory(e.currentTarget.innerText) }}
+                        style={{ color: category === 'Simulation' ? '#1a9fff' : '', fontWeight: category === 'Simulation' ? '500' : '' }}
+                    >Simulation</p>
+                    <p onClick={(e) => { router.push('/categories/' + e.currentTarget.innerText); setMobileNav(false); setCategories(false); setCategory(e.currentTarget.innerText) }}
+                        style={{ color: category === 'Racing' ? '#1a9fff' : '', fontWeight: category === 'Racing' ? '500' : '' }}
+                    >Racing</p>
+                </div>
+
+
+                <div onClick={() => { router.push('/multiplayer'); setNav('Multiplayer'); setMobileNav(false); setCategory('') }} className={styles.mobilebox}>
+                    <p style={{ color: nav === 'Multiplayer' ? '#1a9fff' : 'white' }}>Multiplayer</p>
+                </div>
+
+                <div className={styles.mobilebox}>
+                    <p>Zerogame API</p>
+                </div>
+
+                <div className={styles.mobilebox}>
+                    <p>Zerogame Script</p>
+                </div>
+            </div >
+
 
             {mobileNav && <div onClick={() => { setMobileNav(false) }} className={styles.blank}></div>}
 
@@ -181,7 +181,7 @@ export default function Navbar() {
             <div className={styles.navbar}>
 
                 <div className={styles.menu}>
-                    <IoMdMenu onClick={() => { setMobileNav(true); window.scroll(0,0) }} className={styles.menuicon} />
+                    <IoMdMenu onClick={() => { setMobileNav(true); window.scroll(0, 0) }} className={styles.menuicon} />
                 </div>
 
 
