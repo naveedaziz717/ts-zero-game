@@ -177,6 +177,35 @@ export default function Caruso() {
 
     return (
         <>
+
+            <div className={styles.mobilecaruso}>
+                <h2>FEATURED & RECOMMENDED</h2>
+                <div className={styles.mobgames}>
+                    {games?.map((game, index) => (
+                        <div className={styles.mobbox}>
+                            <img src={game.Extra.Images[0].image}></img>
+                            <p>{game.General.Title}</p>
+                            <div className={styles.mobprice}>
+                            {game.General.gameDiscount &&
+                                                <DiscountPriceBox
+                                                    height='20px'
+                                                    originalPrice={parseFloat(game.General.DiscountOriginalPrice ?? "0")}
+                                                    discountPrice={parseFloat(game.General.FinalPrice ?? "0")}
+                                                    discountPriceFS='0.8rem'
+                                                    originalPriceFS='0.8rem'
+                                                    percentageFontSize='1rem'
+                                                />
+                                            }
+                                            {!game?.General.gameDiscount && <p className={styles.theprice}>{game?.General.GamePrice}</p>}
+                                            {!game?.General.gameDiscount && !game?.General.GamePrice && <p className={styles.theprice}>15,00$</p>}
+                            </div>
+                        </div>
+                    ))}
+                </div>
+            </div>
+
+
+
             {currentGame &&
                 <div className={styles.caruso}>
                     <Arrow onClick={() => { backPage() }} left={true} />
@@ -185,7 +214,7 @@ export default function Caruso() {
                         <div className={styles.title}><p>FEATURED & RECOMMENDED</p></div>
                         <div className={`${animation ? `${styles.image} ${styles.opac}` : styles.image}`} onAnimationEnd={onAnimationEnd}>
                             {currentGame?.Extra?.Images?.[0]?.image && (
-                                <img onClick={() => {router.push('/game/' + currentGame?.General.Title)}} src={currentGame.Extra.Images[0].image} alt="Game Extra Image" />
+                                <img onClick={() => { router.push('/game/' + currentGame?.General.Title) }} src={currentGame.Extra.Images[0].image} alt="Game Extra Image" />
                             )}
                             <div className={styles.info}>
                                 <div className={styles.theinfo}>
@@ -194,10 +223,10 @@ export default function Caruso() {
                                     <div className={styles.extraimages}>
                                         {currentGame?.Extra?.Images?.[1]?.image && (
                                             <>
-                                                {currentGame.Extra?.Images[1]?.image && <img onClick={() => {router.push('/game/' + currentGame?.General.Title)}}  src={currentGame.Extra?.Images[1]?.image} alt="Game Extra Image" />}
-                                                {currentGame.Extra?.Images[2]?.image && <img onClick={() => {router.push('/game/' + currentGame?.General.Title)}}  src={currentGame.Extra?.Images[2]?.image} alt="Game Extra Image" />}
-                                                {currentGame.Extra?.Images[3]?.image && <img onClick={() => {router.push('/game/' + currentGame?.General.Title)}}  src={currentGame.Extra?.Images[3]?.image} alt="Game Extra Image" />}
-                                                {currentGame.Extra?.Images[4]?.image && <img onClick={() => {router.push('/game/' + currentGame?.General.Title)}}  src={currentGame.Extra?.Images[4]?.image} alt="Game Extra Image" />}
+                                                {currentGame.Extra?.Images[1]?.image && <img onClick={() => { router.push('/game/' + currentGame?.General.Title) }} src={currentGame.Extra?.Images[1]?.image} alt="Game Extra Image" />}
+                                                {currentGame.Extra?.Images[2]?.image && <img onClick={() => { router.push('/game/' + currentGame?.General.Title) }} src={currentGame.Extra?.Images[2]?.image} alt="Game Extra Image" />}
+                                                {currentGame.Extra?.Images[3]?.image && <img onClick={() => { router.push('/game/' + currentGame?.General.Title) }} src={currentGame.Extra?.Images[3]?.image} alt="Game Extra Image" />}
+                                                {currentGame.Extra?.Images[4]?.image && <img onClick={() => { router.push('/game/' + currentGame?.General.Title) }} src={currentGame.Extra?.Images[4]?.image} alt="Game Extra Image" />}
                                             </>
                                         )}
 

@@ -49,14 +49,14 @@
     font-size: 0.9rem;
 }
 
-.extraimages{
+.extraimages {
     display: flex;
     flex-wrap: wrap;
     gap: 0.5em;
     width: 100%;
 }
 
-.extraimages img{
+.extraimages img {
     width: 130px !important;
     height: auto !important;
 }
@@ -72,7 +72,7 @@
     cursor: pointer;
 }
 
-.opac{
+.opac {
     animation: opac 0.5s forwards;
 }
 
@@ -115,7 +115,7 @@
 }
 
 
-.bottomcontent{
+.bottomcontent {
     position: absolute;
     display: flex;
     align-items: center;
@@ -132,14 +132,14 @@
     color: white;
 }
 
-.tags{
+.tags {
     display: flex;
     width: 95%;
     flex-wrap: wrap;
     gap: 0.5em;
 }
 
-.price{
+.price {
     position: absolute;
 }
 
@@ -147,4 +147,96 @@
     margin: 0;
     font-size: 0.8rem;
     color: white;
+}
+
+.mobilecaruso {
+    display: none;
+    flex-direction: column;
+    margin-top: 1em;
+    width: 100%;
+    height: 100%;
+    padding-left: 2em;
+}
+
+.mobilecaruso h2 {
+    color: white;
+    font-size: 0.9rem;
+    font-weight: 400;
+}
+
+.mobgames {
+    display: flex;
+    align-items: center;
+    overflow-x: auto;
+    overflow-y: hidden;
+}
+
+.mobbox {
+    display: flex;
+    flex-direction: column;
+    width: 800px;
+    height: 600px;
+
+}
+
+.mobbox img {
+    width: 800px;
+    height: 500px;
+}
+
+.mobbox p {
+    color: white;
+    font-weight: 500;
+    margin-left: 0.4em;
+}
+
+.mobprice {
+    margin-left: 0.4em;
+}
+
+@media only screen and (max-width: 1200px) {
+    .caruso {
+        display: none;
+    }
+
+    .mobilecaruso {
+        display: flex;
+    }
+}
+
+@media only screen and (max-width: 930px) {
+    .mobbox {
+        width: 800px;
+        height: 400px;
+    }
+
+    .mobbox img {
+        width: 500px;
+        height: 300px;
+    }
+
+}
+
+@media only screen and (max-width: 526px) {
+    .mobbox {
+        width: 500px;
+        height: 300px;
+    }
+
+    .mobbox img {
+        width: 300px;
+        height: 200px;
+    }
+}
+
+@media only screen and (max-width: 338px) {
+    .mobbox {
+        width: 400px;
+        height: 250px;
+    }
+
+    .mobbox img {
+        width: 250px;
+        height: 150px;
+    }
 }
