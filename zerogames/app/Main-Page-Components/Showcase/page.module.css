@@ -32,8 +32,10 @@
 .random {
     display: flex;
     align-items: center;
+    flex-wrap: wrap;
     margin: 4em;
-    width: 1750px;
+    width: 95%;
+    max-width: 1750px;
 }
 
 .first {
@@ -65,3 +67,25 @@
     display: flex;
     gap: 1em;
 }
+
+@media only screen and (max-width: 1802px) {
+    .middle{
+        display: none;
+    }
+    .random {
+        width: 95%;
+        justify-content: center;
+        width: auto;
+        gap: 1em;
+    }
+    .showcase {
+        height: auto;
+    }
+    .first {
+        margin-right: unset;
+    }
+    .last{
+        margin-left: unset;
+    }
+    
+  }
