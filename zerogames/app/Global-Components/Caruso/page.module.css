@@ -66,8 +66,8 @@
 }
 
 .image img {
-    width: 540px;
-    height: 420px;
+    width: 740px;
+    height: 410px;
     object-fit: fill;
     cursor: pointer;
 }
