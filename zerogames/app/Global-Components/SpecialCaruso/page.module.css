@@ -187,3 +187,10 @@
     }
 
 }
+
+
+@media only screen and (max-width: 580px) {
+    .mobilecaruso {
+        width: 90%;
+    }
+}
