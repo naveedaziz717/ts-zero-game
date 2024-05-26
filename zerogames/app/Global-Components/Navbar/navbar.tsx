@@ -181,7 +181,7 @@ export default function Navbar() {
             <div className={styles.navbar}>
 
                 <div className={styles.menu}>
-                    <IoMdMenu onClick={() => { setMobileNav(true) }} className={styles.menuicon} />
+                    <IoMdMenu onClick={() => { setMobileNav(true); window.scroll(0,0) }} className={styles.menuicon} />
                 </div>
 
 
