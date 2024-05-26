@@ -142,7 +142,6 @@
     align-items: center;
     overflow-x: auto;
     overflow-y: hidden;
-    margin-right: 1em;
 }
 
 @media only screen and (max-width: 1200px) {
