@@ -155,7 +155,6 @@ export const CarusosProvider: React.FC<{ children: ReactNode }> = ({ children })
             }
 
             const data = await response.json();
-            setSpecialGames(data)
             setPart1Games(data[0])
             setPart2Games(data[1])
             setPart3Games(data[2])
@@ -169,10 +168,34 @@ export const CarusosProvider: React.FC<{ children: ReactNode }> = ({ children })
 
     }
 
+    const getAllSpecialCarusoGames = async () => {
+        try {
+            const response = await fetch(api + '/getSpecialCarusoGamesFlat', {
+                method: 'GET',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+            });
+
+            if (!response.ok) {
+                throw new Error('Failed to fetch data');
+            }
+
+            const data = await response.json();
+            setSpecialGames(data)
+
+
+        } catch (error) {
+            //console.error('Error fetching data:', error.message);
+        };
+
+    }
+
 
     useEffect(() => {
         getCarusoGames()
         getSpecialCarusoGames()
+        getAllSpecialCarusoGames()
     }, [])
 
     const value = {
