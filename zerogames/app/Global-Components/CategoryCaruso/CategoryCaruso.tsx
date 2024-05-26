@@ -95,60 +95,106 @@ export default function CategoryCaruso() {
     }
 
     useEffect(() => {
-       setAnimation(true)
-    },[page])
+        setAnimation(true)
+    }, [page])
 
 
     return (
-        <div className={styles.caruso}>
-            <Arrow onClick={() => { backPage() }} left={true} />
-            <div className={styles.main}>
-                <p>BROWSE BY CATEGORY</p>
-                <div className={styles.boxes}>
-                    {page === 0 ?
-                        <>
-                            <div onClick={() => {router.push('/categories/' + firstCategory?.first.title)}} className={`${styles.box} ${animation ? styles.opac : ''}`} onAnimationEnd={onAnimationEnd}>
-                                <img alt='Category Image' src={firstCategory?.first.imgSrc}></img>
-                                <h2>{firstCategory?.first.title}</h2>
-                            </div>
-                            <div onClick={() => {router.push('/categories/' + firstCategory?.second.title)}}  className={`${styles.box} ${animation ? styles.opac : ''}`} onAnimationEnd={onAnimationEnd}>
-                                <img alt='Category Image' src={firstCategory?.second.imgSrc}></img>
-                                <h2>{firstCategory?.second.title}</h2>
-                            </div>
-                            <div onClick={() => {router.push('/categories/' + firstCategory?.third.title)}}  className={`${styles.box} ${animation ? styles.opac : ''}`} onAnimationEnd={onAnimationEnd}>
-                                <img alt='Category Image' src={firstCategory?.third.imgSrc}></img>
-                                <h2>{firstCategory?.third.title}</h2>
-                            </div>
-                            <div onClick={() => {router.push('/categories/' + firstCategory?.fourth.title)}}  className={`${styles.box} ${animation ? styles.opac : ''}`} onAnimationEnd={onAnimationEnd}>
-                                <img alt='Category Image' src={firstCategory?.fourth.imgSrc}></img>
-                                <h2>{firstCategory?.fourth.title}</h2>
-                            </div>
-                        </>
-                        :
-                        <>
-                            <div onClick={() => {router.push('/categories/' + secondCategory?.first.title)}}  className={`${styles.box} ${animation ? styles.opac : ''}`} onAnimationEnd={onAnimationEnd}>
-                                <img alt='Category Image' src={secondCategory?.first.imgSrc}></img>
-                                <h2>{secondCategory?.first.title}</h2>
-                            </div>
-                            <div onClick={() => {router.push('/categories/' + secondCategory?.second.title)}}  className={`${styles.box} ${animation ? styles.opac : ''}`} onAnimationEnd={onAnimationEnd}>
-                                <img alt='Category Image' src={secondCategory?.second.imgSrc}></img>
-                                <h2>{secondCategory?.second.title}</h2>
-                            </div>
-                            <div onClick={() => {router.push('/categories/' + secondCategory?.third.title)}}  className={`${styles.box} ${animation ? styles.opac : ''}`} onAnimationEnd={onAnimationEnd}>
-                                <img alt='Category Image' src={secondCategory?.third.imgSrc}></img>
-                                <h2>{secondCategory?.third.title}</h2>
-                            </div>
-                            <div onClick={() => {router.push('/categories/' + secondCategory?.fourth.title)}}  className={`${styles.box} ${animation ? styles.opac : ''}`} onAnimationEnd={onAnimationEnd}>
-                                <img alt='Category Image' src={secondCategory?.fourth.imgSrc}></img>
-                                <h2>{secondCategory?.fourth.title}</h2>
-                            </div>
-                        </>
-                    }
+        <>
+
+            <div className={styles.mobilecaruso}>
+                <h2>BROWSE BY CATEGORY</h2>
+                <div className={styles.mobilecat}>
+
+                                <div onClick={() => { router.push('/categories/' + firstCategory?.first.title) }} className={`${styles.box} ${animation ? styles.opac : ''}`} onAnimationEnd={onAnimationEnd}>
+                                    <img alt='Category Image' src={firstCategory?.first.imgSrc}></img>
+                                    <h2>{firstCategory?.first.title}</h2>
+                                </div>
+                                <div onClick={() => { router.push('/categories/' + firstCategory?.second.title) }} className={`${styles.box} ${animation ? styles.opac : ''}`} onAnimationEnd={onAnimationEnd}>
+                                    <img alt='Category Image' src={firstCategory?.second.imgSrc}></img>
+                                    <h2>{firstCategory?.second.title}</h2>
+                                </div>
+                                <div onClick={() => { router.push('/categories/' + firstCategory?.third.title) }} className={`${styles.box} ${animation ? styles.opac : ''}`} onAnimationEnd={onAnimationEnd}>
+                                    <img alt='Category Image' src={firstCategory?.third.imgSrc}></img>
+                                    <h2>{firstCategory?.third.title}</h2>
+                                </div>
+                                <div onClick={() => { router.push('/categories/' + firstCategory?.fourth.title) }} className={`${styles.box} ${animation ? styles.opac : ''}`} onAnimationEnd={onAnimationEnd}>
+                                    <img alt='Category Image' src={firstCategory?.fourth.imgSrc}></img>
+                                    <h2>{firstCategory?.fourth.title}</h2>
+                                </div>
+                          
+                     
+                         
+                                <div onClick={() => { router.push('/categories/' + secondCategory?.first.title) }} className={`${styles.box} ${animation ? styles.opac : ''}`} onAnimationEnd={onAnimationEnd}>
+                                    <img alt='Category Image' src={secondCategory?.first.imgSrc}></img>
+                                    <h2>{secondCategory?.first.title}</h2>
+                                </div>
+                                <div onClick={() => { router.push('/categories/' + secondCategory?.second.title) }} className={`${styles.box} ${animation ? styles.opac : ''}`} onAnimationEnd={onAnimationEnd}>
+                                    <img alt='Category Image' src={secondCategory?.second.imgSrc}></img>
+                                    <h2>{secondCategory?.second.title}</h2>
+                                </div>
+                                <div onClick={() => { router.push('/categories/' + secondCategory?.third.title) }} className={`${styles.box} ${animation ? styles.opac : ''}`} onAnimationEnd={onAnimationEnd}>
+                                    <img alt='Category Image' src={secondCategory?.third.imgSrc}></img>
+                                    <h2>{secondCategory?.third.title}</h2>
+                                </div>
+                                <div onClick={() => { router.push('/categories/' + secondCategory?.fourth.title) }} className={`${styles.box} ${animation ? styles.opac : ''}`} onAnimationEnd={onAnimationEnd}>
+                                    <img alt='Category Image' src={secondCategory?.fourth.imgSrc}></img>
+                                    <h2>{secondCategory?.fourth.title}</h2>
+                                </div>
 
                 </div>
-                <ProgressBar page={page} setPage={switchPage} count={2} />
             </div>
-            <Arrow onClick={() => { nextPage() }} left={false} />
-        </div>
+
+            <div className={styles.caruso}>
+                <Arrow onClick={() => { backPage() }} left={true} />
+                <div className={styles.main}>
+                    <p>BROWSE BY CATEGORY</p>
+                    <div className={styles.boxes}>
+                        {page === 0 ?
+                            <>
+                                <div onClick={() => { router.push('/categories/' + firstCategory?.first.title) }} className={`${styles.box} ${animation ? styles.opac : ''}`} onAnimationEnd={onAnimationEnd}>
+                                    <img alt='Category Image' src={firstCategory?.first.imgSrc}></img>
+                                    <h2>{firstCategory?.first.title}</h2>
+                                </div>
+                                <div onClick={() => { router.push('/categories/' + firstCategory?.second.title) }} className={`${styles.box} ${animation ? styles.opac : ''}`} onAnimationEnd={onAnimationEnd}>
+                                    <img alt='Category Image' src={firstCategory?.second.imgSrc}></img>
+                                    <h2>{firstCategory?.second.title}</h2>
+                                </div>
+                                <div onClick={() => { router.push('/categories/' + firstCategory?.third.title) }} className={`${styles.box} ${animation ? styles.opac : ''}`} onAnimationEnd={onAnimationEnd}>
+                                    <img alt='Category Image' src={firstCategory?.third.imgSrc}></img>
+                                    <h2>{firstCategory?.third.title}</h2>
+                                </div>
+                                <div onClick={() => { router.push('/categories/' + firstCategory?.fourth.title) }} className={`${styles.box} ${animation ? styles.opac : ''}`} onAnimationEnd={onAnimationEnd}>
+                                    <img alt='Category Image' src={firstCategory?.fourth.imgSrc}></img>
+                                    <h2>{firstCategory?.fourth.title}</h2>
+                                </div>
+                            </>
+                            :
+                            <>
+                                <div onClick={() => { router.push('/categories/' + secondCategory?.first.title) }} className={`${styles.box} ${animation ? styles.opac : ''}`} onAnimationEnd={onAnimationEnd}>
+                                    <img alt='Category Image' src={secondCategory?.first.imgSrc}></img>
+                                    <h2>{secondCategory?.first.title}</h2>
+                                </div>
+                                <div onClick={() => { router.push('/categories/' + secondCategory?.second.title) }} className={`${styles.box} ${animation ? styles.opac : ''}`} onAnimationEnd={onAnimationEnd}>
+                                    <img alt='Category Image' src={secondCategory?.second.imgSrc}></img>
+                                    <h2>{secondCategory?.second.title}</h2>
+                                </div>
+                                <div onClick={() => { router.push('/categories/' + secondCategory?.third.title) }} className={`${styles.box} ${animation ? styles.opac : ''}`} onAnimationEnd={onAnimationEnd}>
+                                    <img alt='Category Image' src={secondCategory?.third.imgSrc}></img>
+                                    <h2>{secondCategory?.third.title}</h2>
+                                </div>
+                                <div onClick={() => { router.push('/categories/' + secondCategory?.fourth.title) }} className={`${styles.box} ${animation ? styles.opac : ''}`} onAnimationEnd={onAnimationEnd}>
+                                    <img alt='Category Image' src={secondCategory?.fourth.imgSrc}></img>
+                                    <h2>{secondCategory?.fourth.title}</h2>
+                                </div>
+                            </>
+                        }
+
+                    </div>
+                    <ProgressBar page={page} setPage={switchPage} count={2} />
+                </div>
+                <Arrow onClick={() => { nextPage() }} left={false} />
+            </div>
+        </>
     )
 }
