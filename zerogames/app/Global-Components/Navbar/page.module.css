@@ -1,4 +1,5 @@
 .navbar {
+    position: relative;
     display: flex;
     justify-content: center;
     width: 100%;
@@ -34,12 +35,12 @@
     margin-left: 10em;
 }
 
-.thecatdiv{
+.thecatdiv {
     position: relative;
 }
 
 
-.allcat{
+.allcat {
     position: absolute;
     display: flex;
     flex-direction: column;
@@ -54,7 +55,7 @@
     border-radius: 0.3em;
 }
 
-.allcat p{
+.allcat p {
     width: 100%;
     padding-top: 0.5em;
     padding-bottom: 0.5em;
@@ -62,7 +63,7 @@
     margin: 0;
 }
 
-.allcat p:hover{
+.allcat p:hover {
     background-color: rgba(128, 128, 128, 0.123);
     cursor: pointer;
 }
@@ -105,4 +106,161 @@
 .dropcategorie p:hover {
     color: orange !important;
     cursor: pointer;
+}
+
+.mobilenav {
+    position: absolute;
+    height: 100%;
+    z-index: 5;
+    width: 230px;
+    background: #171a21;
+    left: -20em;
+    overflow-x: hidden;
+    overflow-y: auto;
+    display: none;
+    transition: all 0.8s;
+}
+
+.mobnav{
+    left: 0em;
+}
+
+
+.blank{
+    position: absolute;
+    z-index: 3;
+    width: 100%;
+    height: 100%;
+    background-color: #0000009d;
+}
+
+.mobilebox{
+    position: relative;
+    display: flex;
+    align-items: center;
+    padding-top: 1em;
+    padding-bottom: 1em;
+    border-bottom: 1px solid rgba(171, 167, 167, 0.32);
+    cursor: pointer;
+}
+
+.mobilebox p{
+    color: rgb(227, 221, 221);
+    margin-top: 0;
+    margin-right: 0;
+    margin-bottom: 0;
+    margin-left: 0.5em;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.25);
+    font-size: 1.2rem;
+}
+
+.mobilearrow{
+    position: absolute;
+    right: 0.3em;
+    font-size: 1.5rem;
+    color: white;
+    transition: all 0.5s;
+}
+
+.mobarrow{
+    transform: rotate(-180deg);
+}
+
+.mobilekeywords{
+    display: flex;
+    flex-direction: column;
+    height: 0px;
+    width: 100%;
+    overflow-y: auto;
+    overflow-x: hidden;
+    transition: all 0.5s;
+}
+
+.mobilekey{
+    height: 290px;
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
+    border-bottom: 1px solid rgba(171, 167, 167, 0.32);
+}
+
+.mobilekeywords p{
+    margin-left: 1em;
+    color: white;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.25);
+    cursor: pointer;
+}
+
+.mobilecategories{
+    display: flex;
+    flex-direction: column;
+    height: 0px;
+    width: 100%;
+    overflow-y: auto;
+    overflow-x: hidden;
+    transition: all 0.5s;
+}
+
+.mobilecat{
+    height: 100px;
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
+    border-bottom: 1px solid rgba(171, 167, 167, 0.32);
+}
+
+.mobilecategories p{
+    margin-left: 1em;
+    margin-top: 0;
+    margin-bottom: 0;
+    margin-right: 0;
+    color: white;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.25);
+    cursor: pointer;
+    font-size: 0.8rem;
+}
+
+
+.menu {
+    position: absolute;
+    right: 2em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    margin-top: -1em;
+    margin-bottom: -1em;
+    display: none;
+
+}
+
+.menuicon {
+    right: 2em;
+    color: white;
+    font-size: 3rem;
+    cursor: pointer;
+}
+
+@media only screen and (max-width: 1290px) {
+    .navbar {
+        justify-content: unset;
+    }
+
+    .logo {
+        margin-left: 1.5em;
+    }
+
+    .hrefs {
+        display: none;
+    }
+
+    .navbtn {
+        display: none;
+    }
+
+
+    .menu,
+    .menuicon,
+    .mobilenav {
+        display: flex;
+        flex-direction: column;
+    }
 }
