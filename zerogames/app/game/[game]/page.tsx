@@ -1,6 +1,7 @@
 import React from 'react'
 import styles from './page.module.css'
 import Link from 'next/link'
+import type { Metadata, ResolvingMetadata } from 'next'
 
 //components
 import LittleNav from '@/app/Small-Components/LittleNav/LittleNav'
@@ -19,6 +20,46 @@ import api from '@/app/Utils/getAPi'
 interface PageProps {
     params: { game: string }
 }
+
+
+export async function generateMetadata(
+    { params }: PageProps,
+    parent: ResolvingMetadata
+  ): Promise<Metadata> {
+
+    const game = params.game
+
+    const response = await fetch(api + '/getGame', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ game }),
+    });
+
+
+    if (!response.ok) {
+        throw new Error(`Error: ${response.statusText}`);
+    }
+
+   
+    // optionally access and extend (rather than replace) parent metadata
+    const data : GameProps =  await response.json();
+
+    var noDesc = "The developers unfortunately didn't provide any description for this game, leaving potential players without information about its features, gameplay, or storyline."
+   
+    return {
+      title: data.General.Title,
+      description: data.Extra.Description ? data.Extra.Description : 
+      data.About.Description ? data.About.Description : noDesc,
+      keywords: data.General.Keywords.map((keyowrd => keyowrd.keyword)),
+
+      openGraph: {
+        videos: [data.Extra.Videos[1].video],
+        images: [data.General.imgSrc],
+      },
+    }
+  }
 
 
 interface GameProps {
