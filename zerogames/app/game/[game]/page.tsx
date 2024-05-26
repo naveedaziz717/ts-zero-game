@@ -163,10 +163,10 @@ export default async function page({ params }: PageProps) {
                                 <p>{game.Extra.Description}</p>
                             </div>
                             <div className={styles.keywords}>
-                                {game.General.Keywords[0].keyword && <Tag tag={game.General.Keywords[0].keyword} />}
-                                {game.General.Keywords[1].keyword && <Tag tag={game.General.Keywords[1].keyword} />}
-                                {game.General.Keywords[2].keyword && <Tag tag={game.General.Keywords[2].keyword} />}
-                                {game.General.Keywords[3].keyword && <Tag tag={game.General.Keywords[3].keyword} />}
+                                {game.General.Keywords[0]?.keyword && <Tag tag={game.General.Keywords[0].keyword} />}
+                                {game.General.Keywords[1]?.keyword && <Tag tag={game.General.Keywords[1].keyword} />}
+                                {game.General.Keywords[2]?.keyword && <Tag tag={game.General.Keywords[2].keyword} />}
+                                {game.General.Keywords[3]?.keyword && <Tag tag={game.General.Keywords[3].keyword} />}
                             </div>
                         </div>
                     </div>
