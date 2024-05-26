@@ -570,3 +570,32 @@
         max-width: 500px;
     }
 }
+
+@media only screen and (max-width: 739px) {
+    .dlcbox p{
+        font-size: 0.7rem;
+    }
+}
+
+@media only screen and (max-width: 613px) {
+    .dlcbox p{
+        font-size: 0.7rem;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space:nowrap
+    }
+}
+
+@media only screen and (max-width: 487px) {
+    .buy h2{
+        font-size: 1rem !important;
+    }
+    .buybox{
+        top: 3.5em;
+    }
+    .card{
+      font-size: 0.9rem;
+    }
+}
+
+
