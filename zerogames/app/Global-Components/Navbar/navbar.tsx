@@ -28,7 +28,7 @@ export default function Navbar() {
 
     const { nav, setNav, category, setCategory, keyword, setKeyword, } = useNav()
 
-    const [mobileNav, setMobileNav] = useState<boolean>(true)
+    const [mobileNav, setMobileNav] = useState<boolean>(false)
     const [mobileKeywords, setMobileKeywords] = useState<boolean>(false)
     const [mobileCategories, setMobileCategories] = useState<boolean>(false)
 
