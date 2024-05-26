@@ -28,7 +28,7 @@ interface GameProps {
     Extra: {
         Description: string;
         Images: gameImages[],
-        
+
         Videos: [
             {
                 video: string | null;
@@ -68,7 +68,7 @@ interface GameProps {
 
 
 interface gameImages {
-    image : string;
+    image: string;
 }
 
 interface CarusosType {
@@ -80,7 +80,7 @@ interface CarusosType {
     part3Games: GameProps[] | undefined,
     part4Games: GameProps[] | undefined,
     part5Games: GameProps[] | undefined,
-    
+
 }
 
 
@@ -100,6 +100,8 @@ export const CarusosProvider: React.FC<{ children: ReactNode }> = ({ children })
 
     const [games, setGames] = useState<Array<GameProps>>()
 
+
+    const [specialGames, setSpecialGames] = useState<Array<GameProps>>()
 
     //specialCaruso vars
     const [part1Games, setPart1Games] = useState<Array<GameProps>>()
@@ -129,7 +131,7 @@ export const CarusosProvider: React.FC<{ children: ReactNode }> = ({ children })
             }
 
             const data = await response.json();
-           // console.log(data)
+            // console.log(data)
             setGames(data)
 
         } catch (error) {
@@ -151,37 +153,37 @@ export const CarusosProvider: React.FC<{ children: ReactNode }> = ({ children })
             }
 
             const data = await response.json();
-           // console.log('Data:', data);
+            setSpecialGames(data)
             setPart1Games(data[0])
             setPart2Games(data[1])
             setPart3Games(data[2])
             setPart4Games(data[3])
             setPart5Games(data[4])
-         
+
 
         } catch (error) {
             //console.error('Error fetching data:', error.message);
+        };
+
+    }
+
+
+    useEffect(() => {
+        getCarusoGames()
+        getSpecialCarusoGames()
+    }, [])
+
+    const value = {
+        games,
+        setGames,
+
+        part1Games,
+        part2Games,
+        part3Games,
+        part4Games,
+        part5Games
+
     };
 
-}
-
-
-useEffect(() => {
-    getCarusoGames()
-    getSpecialCarusoGames()
-}, [])
-
-const value = {
-    games,
-    setGames,
-
-    part1Games,
-    part2Games,
-    part3Games,
-    part4Games,
-    part5Games
-
-};
-
-return <CarusosContext.Provider value={value}>{children}</CarusosContext.Provider>;
+    return <CarusosContext.Provider value={value}>{children}</CarusosContext.Provider>;
 };
