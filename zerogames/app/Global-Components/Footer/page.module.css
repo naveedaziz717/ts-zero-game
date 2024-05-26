@@ -14,7 +14,8 @@
     align-items: center;
     padding-top: 1em;
     padding-bottom: 1em;
-    width: 900px;
+    width: 95%;
+    max-width: 900px;
     border-top: 1px solid rgba(128, 128, 128, 0.454);
     border-bottom: 1px solid rgba(128, 128, 128, 0.454);
 }
@@ -37,7 +38,8 @@
     gap: 1em;
     padding-top: 1em;
     padding-bottom: 1em;
-    width: 900px;
+    width: 95%;
+    max-width: 900px;
     color: white;
     font-size: 0.9rem;
 }
@@ -46,7 +48,8 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 150px;
+    width: 95%;
+    max-width: 150px;
     border-right: 1px solid rgba(128, 128, 128, 0.454);
 }
 
