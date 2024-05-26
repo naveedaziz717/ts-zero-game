@@ -164,11 +164,11 @@ export default function Navbar() {
                     <p style={{ color: nav === 'Multiplayer' ? '#1a9fff' : 'white' }}>Multiplayer</p>
                 </div>
 
-                <div className={styles.mobilebox}>
+                <div onClick={() => {alert('Coming Soon')}} className={styles.mobilebox}>
                     <p>Zerogame API</p>
                 </div>
 
-                <div className={styles.mobilebox}>
+                <div onClick={() => {window.open('https://github.com/unknownbulgarian/Steam-Game-Scrapper', '_blank')}} className={styles.mobilebox}>
                     <p>Zerogame Script</p>
                 </div>
             </div >
