@@ -86,7 +86,7 @@ export default function SpecialCaruso() {
     const [page, setPage] = useState<number>(0)
     const [currentGames, setCurrentGames] = useState<Array<GameProps>>()
 
-    const { part1Games, part2Games, part3Games, part4Games, part5Games } = useCarusos()
+    const { specialGames, part1Games, part2Games, part3Games, part4Games, part5Games } = useCarusos()
 
     const [animation, setAnimation] = useState<boolean>(false)
 
@@ -147,6 +147,63 @@ export default function SpecialCaruso() {
 
     return (
         <>
+
+
+
+            <div className={styles.mobilecaruso}>
+                <div className={styles.mobgames}>
+                    {specialGames?.map((game, index) => (
+                        <React.Fragment key={index}>
+
+                                <div onClick={() => { router.push('/game/' + game.General.Title) }} className={`${styles.box} ${animation ? styles.opac : ''}`} onAnimationEnd={onAnimationEnd}>
+                                    {game?.Extra?.Images?.[0]?.image && (
+                                        <img src={game.Extra.Images[0].image} alt="Game Extra Image" />
+                                    )}
+                                    <div className={styles.info}>
+                                        <h2>{game.General.Title}</h2>
+                                        <p className={styles.desc}>
+                                            {game?.About.Description ? game.About.Description :
+                                                game?.Extra.Description ? game.Extra.Description :
+                                                    "The developers unfortunately didn't provide any description for this game, leaving potential players without information about its features, gameplay, or storyline."
+                                            }
+                                        </p>
+                                        <div className={styles.tags}>
+                                            {game?.General.Keywords[0]?.keyword && <Tag tag={game?.General.Keywords[0]?.keyword} />}
+                                            {game?.General.Keywords[1]?.keyword && <Tag tag={game?.General.Keywords[1]?.keyword} />}
+                                            {game?.General.Keywords[2]?.keyword && <Tag tag={game?.General.Keywords[2]?.keyword} />}
+                                            {game?.General.Keywords[3]?.keyword && <Tag tag={game?.General.Keywords[3]?.keyword} />}
+                                            {game?.General.Keywords[4]?.keyword && <Tag tag={game?.General.Keywords[4]?.keyword} />}
+                                        </div>
+
+                                        <div className={styles.bottomcontent}>
+
+                                            <div className={styles.price}>
+                                                {game?.General.gameDiscount &&
+                                                    <DiscountPriceBox
+                                                        height='20px'
+                                                        originalPrice={parseFloat(game.General.DiscountOriginalPrice ?? "0")}
+                                                        discountPrice={parseFloat(game.General.FinalPrice ?? "0")}
+                                                        discountPriceFS='0.8rem'
+                                                        originalPriceFS='0.8rem'
+                                                        percentageFontSize='1rem'
+                                                    />
+                                                }
+                                                {!game?.General.gameDiscount && <p className={styles.theprice}>{game?.General.GamePrice}</p>}
+                                                {!game?.General.gameDiscount && !game?.General.GamePrice && <p className={styles.theprice}>15,00$</p>}
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+                                </div>
+
+
+                        </React.Fragment>
+                    ))}
+
+                </div>
+            </div>
+
             {currentGames &&
                 <div className={styles.thecaruso}>
                     <div className={styles.caruso}>
@@ -155,7 +212,7 @@ export default function SpecialCaruso() {
                         {currentGames?.map((game, index) => (
                             <React.Fragment key={index}>
                                 {index < 2 &&
-                                    <div onClick={() => {router.push('/game/' + game.General.Title)}} className={`${styles.box} ${animation ? styles.opac : ''}`} onAnimationEnd={onAnimationEnd}>
+                                    <div onClick={() => { router.push('/game/' + game.General.Title) }} className={`${styles.box} ${animation ? styles.opac : ''}`} onAnimationEnd={onAnimationEnd}>
                                         {game?.Extra?.Images?.[0]?.image && (
                                             <img src={game.Extra.Images[0].image} alt="Game Extra Image" />
                                         )}
@@ -206,7 +263,7 @@ export default function SpecialCaruso() {
                             {currentGames?.map((game, index) => (
                                 <React.Fragment key={index}>
                                     {index === 2 &&
-                                        <div onClick={() => {router.push('/game/' + game.General.Title)}} className={`${styles.box2} ${animation ? styles.opac : ''}`} onAnimationEnd={onAnimationEnd}>
+                                        <div onClick={() => { router.push('/game/' + game.General.Title) }} className={`${styles.box2} ${animation ? styles.opac : ''}`} onAnimationEnd={onAnimationEnd}>
                                             {game?.Extra?.Images?.[0]?.image && (
                                                 <img src={game.Extra.Images[0].image} alt="Game Extra Image" />
                                             )}
@@ -237,7 +294,7 @@ export default function SpecialCaruso() {
                                     }
 
                                     {index === 3 &&
-                                        <div onClick={() => {router.push('/game/' + game.General.Title)}} className={`${styles.box2} ${animation ? styles.opac : ''}`} onAnimationEnd={onAnimationEnd}>
+                                        <div onClick={() => { router.push('/game/' + game.General.Title) }} className={`${styles.box2} ${animation ? styles.opac : ''}`} onAnimationEnd={onAnimationEnd}>
                                             {game?.Extra?.Images?.[0]?.image && (
                                                 <img src={game.Extra.Images[0].image} alt="Game Extra Image" />
                                             )}

@@ -1,15 +1,16 @@
-.caruso{
+.caruso {
     display: flex;
     align-items: center;
     gap: 1em;
     margin-top: 5em;
 }
 
-.box,.box2{
+.box,
+.box2 {
     position: relative;
 }
 
-.box{
+.box {
     width: 330px;
     height: 550px;
     background-color: rgb(26, 32, 39);
@@ -17,22 +18,22 @@
 }
 
 
-.box img{
+.box img {
     width: 100%;
     height: 240px;
     object-fit: cover;
 }
 
-.info{
+.info {
     color: white;
     margin-left: 1em;
 }
 
-.info h2{
+.info h2 {
     font-weight: 500;
 }
 
-.desc{
+.desc {
     display: -webkit-box;
     -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;
@@ -43,13 +44,13 @@
     color: rgb(255, 246, 246);
 }
 
-.info2 h2{
+.info2 h2 {
     font-size: 1.2rem;
     padding-left: 1em;
-    padding-right:1em;
+    padding-right: 1em;
 }
 
-.tags{
+.tags {
     display: flex;
     align-items: center;
     flex-wrap: wrap;
@@ -57,38 +58,38 @@
 }
 
 
-.boxes{
+.boxes {
     display: flex;
     flex-direction: column;
     gap: 1em;
 }
 
 
-.box2{
+.box2 {
     width: 320px;
     height: 266px;
     background-color: rgb(14, 16, 19);
     cursor: pointer;
 }
 
-.box2 img{
+.box2 img {
     width: 100%;
     height: 140px;
     object-fit: cover;
 }
 
-.box2 h2{
+.box2 h2 {
     color: white;
     font-weight: 500;
     margin-top: 0.4em;
     text-align: center;
 }
 
-.opac{
+.opac {
     animation: opac 0.4s forwards;
 }
 
-.bottomcontent{
+.bottomcontent {
     position: absolute;
     display: flex;
     align-items: center;
@@ -96,7 +97,7 @@
     width: 100%;
 }
 
-.bottomcontent2{
+.bottomcontent2 {
     position: absolute;
     display: flex;
     align-items: center;
@@ -106,7 +107,7 @@
 }
 
 
-.price{
+.price {
     position: absolute;
 }
 
@@ -124,4 +125,65 @@
     100% {
         transform: scale(1);
     }
+}
+
+.mobilecaruso {
+    display: none;
+    flex-direction: column;
+    margin-top: 1em;
+    width: 100%;
+    height: 100%;
+    padding-left: 2em;
+
+}
+
+.mobgames {
+    display: flex;
+    align-items: center;
+    overflow-x: auto;
+    overflow-y: hidden;
+    margin-right: 1em;
+}
+
+@media only screen and (max-width: 1200px) {
+    .thecaruso {
+        display: none;
+    }
+
+    .mobilecaruso {
+        display: flex;
+    }
+
+    .box {
+        width: 330px;
+        height: 550px;
+    }
+
+    .mobgames {
+        gap: 1em;
+        padding-bottom: 1em;
+    }
+
+    .box img {
+        width: 330px;
+        height: 240px;
+    }
+}
+
+@media only screen and (max-width: 930px) {
+    .box {
+        width: 330px;
+        height: 420px;
+    }
+
+    .info h2 {
+        font-size: 1.1rem;
+        font-weight: 500;
+    }
+
+    .box img {
+        width: 230px;
+        height: 140px;
+    }
+
 }
