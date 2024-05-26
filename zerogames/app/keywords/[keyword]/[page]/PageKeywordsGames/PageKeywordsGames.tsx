@@ -6,12 +6,28 @@ import api from '@/app/Utils/getAPi'
 //components
 import GameBox from '@/app/Small-Components/GameBox/GameBox'
 import KeywordsGamesPageClient from './Client/Client'
+import { Metadata, ResolvingMetadata } from 'next'
 
 interface PageProps {
     params: {
         keyword: string,
         page: number
     }
+}
+
+export async function generateMetadata(
+  { params }: PageProps,
+  parent: ResolvingMetadata
+): Promise<Metadata> {
+
+  return {
+    title: decodeURIComponent(params.keyword) + ' Page ' + params.page,
+    description: decodeURIComponent(params.keyword) + ' Games',
+    openGraph: {
+      images: ['https://i.ibb.co/7tw599R/Untitled-design-3.png'],
+
+    }
+  }
 }
 
 interface theGames {
