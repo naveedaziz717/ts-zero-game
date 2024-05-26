@@ -14,10 +14,7 @@ interface GameProps {
         DiscountOriginalPrice: string | null;
         FinalPrice: string | null;
         gameDiscount: boolean | null;
-        Keywords: [{
-            keyword: string;
-        }]
-
+        Keywords: gameKeywords[]
     }
 
     About: {
@@ -65,6 +62,9 @@ interface GameProps {
     }
 }
 
+interface gameKeywords {
+    keyword: string;
+}
 
 
 interface gameImages {
@@ -74,6 +74,8 @@ interface gameImages {
 interface CarusosType {
     games: GameProps[] | undefined,
     setGames: React.Dispatch<React.SetStateAction<GameProps[] | undefined>>;
+
+    specialGames: GameProps[] | undefined,
 
     part1Games: GameProps[] | undefined,
     part2Games: GameProps[] | undefined,
@@ -181,7 +183,9 @@ export const CarusosProvider: React.FC<{ children: ReactNode }> = ({ children })
         part2Games,
         part3Games,
         part4Games,
-        part5Games
+        part5Games,
+
+        specialGames
 
     };
 
