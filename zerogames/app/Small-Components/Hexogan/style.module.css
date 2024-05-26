@@ -37,3 +37,31 @@
         transform: scale(1);
     }
 }
+
+@media only screen and (max-width: 632px) {
+    .random{
+        width: 230px !important;
+        height: 160px !important; 
+    }
+}
+
+@media only screen and (max-width: 516px) {
+    .random{
+        width: 200px !important;
+        height: 140px !important; 
+    }
+}
+
+@media only screen and (max-width: 440px) {
+    .random{
+        width: 160px !important;
+        height: 110px !important; 
+    }
+}
+
+@media only screen and (max-width: 440px) {
+    .random{
+        width: 130px !important;
+        height: 90px !important; 
+    }
+}
