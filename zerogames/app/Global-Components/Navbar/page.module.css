@@ -239,7 +239,7 @@
     cursor: pointer;
 }
 
-@media only screen and (max-width: 1850px) {
+@media only screen and (max-width: 1820px) {
     .navbar {
         justify-content: unset;
     }
