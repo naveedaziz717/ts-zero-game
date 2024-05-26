@@ -3,6 +3,8 @@
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
+    padding-left: 1em;
+    padding-right: 1em;
     gap: 0.5em;
 }
 
