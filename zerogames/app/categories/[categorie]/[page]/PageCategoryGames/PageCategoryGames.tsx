@@ -121,7 +121,7 @@ export default async function PageCategoryGames({ params }: CategoryProps) {
         <>
 
             <div className={styles.games}>
-            {!categoryGames && <p style={{color: 'white'}}>No search results were found.</p>}
+            {categoryGames && categoryGames.data.length < 1 && <p style={{color: 'white'}}>No search results were found.</p>}
                 {categoryGames?.data.map((game, index) => (
                     <GameBox
                         description={game.About.Description ? game.About.Description : game.Extra.Description ? game.Extra.Description : noDesc}
