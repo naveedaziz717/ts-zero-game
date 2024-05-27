@@ -139,6 +139,7 @@ async function getGame(gameTitle: string) {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
+            'bypass-tunnel-reminder': 'anyvalue',
         },
         body: JSON.stringify({ game: gameTitle }),
     });
@@ -157,6 +158,7 @@ async function getRelatedGames(category: string) {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
+            'bypass-tunnel-reminder': 'anyvalue',
         },
         body: JSON.stringify({ category }),
     });
