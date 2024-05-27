@@ -183,7 +183,7 @@ export default async function page({ params }: PageProps) {
                 <div className={styles.themain}>
                     <div className={styles.first}>
                         <div className={styles.video}>
-                            <video loop controls autoPlay muted src={game.Extra.Videos[1].video}></video>
+                            <video playsInline loop controls autoPlay muted src={game.Extra.Videos[1].video}></video>
                         </div>
                         <div className={styles.extra}>
                             <div className={styles.extrabox}>

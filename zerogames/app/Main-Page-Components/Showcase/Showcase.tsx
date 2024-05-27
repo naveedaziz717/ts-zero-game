@@ -104,7 +104,7 @@ export default async function Showcase() {
     return (
         <div className={styles.showcase}>
             <div className={styles.showvideo}>
-                <video loop autoPlay muted src='https://cdn.akamai.steamstatic.com/steam/apps/257013078/movie_max_vp9.webm?t=1712202951'></video>
+                <video playsInline loop autoPlay muted src='https://cdn.akamai.steamstatic.com/steam/apps/257013078/movie_max_vp9.webm?t=1712202951'></video>
             </div>
 
             <div className={styles.main}>
