@@ -28,6 +28,7 @@ export default function SearchGames({ params }: PageProps) {
     return (
         <>
             <div className={styles.games}>
+                {!games && <p style={{color: 'white'}}>No search results were found.</p>}
                 {games?.map((game, index) => (
                     <GameBox
                         description={game.About.Description ? game.About.Description : game.Extra.Description ? game.Extra.Description : noDesc}
