@@ -20,7 +20,7 @@ export const useApi = (): ApiType => {
 
 export const ApiProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
 
-     const [api, setApi] = useState('http://localhost:3560')
+     const [api, setApi] = useState('https://zerogames-server.onrender.com')
 
 
 

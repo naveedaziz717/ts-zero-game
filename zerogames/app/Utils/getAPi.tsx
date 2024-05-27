@@ -1,4 +1,4 @@
-const api : string = 'http://localhost:3560'
+const api : string = 'https://zerogames-server.onrender.com'
 
 
 
