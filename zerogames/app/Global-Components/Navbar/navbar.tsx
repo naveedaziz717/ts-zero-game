@@ -359,6 +359,7 @@ export default function Navbar() {
                         transition='all 0.3s'
                         color='white'
                         title='ZeroGame API'
+                        onClick={() => {alert('Coming Soon')}}
                     >
                         <IoServer />
                     </BoxIcon>
@@ -375,6 +376,7 @@ export default function Navbar() {
                         iconFontSize='1.1rem'
                         transition='all 0.3s'
                         color='white'
+                        onClick={() => {window.open('https://github.com/unknownbulgarian/Steam-Game-Scrapper', '_blank')}}
                         title='ZeroGame Script'
                     >
                         <FaFileCode />
