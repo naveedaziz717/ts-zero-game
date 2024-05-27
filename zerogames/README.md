@@ -1,3 +1,101 @@
+# ZeroGames
+
+> [!NOTE]
+> If the API is **offline**, please visit the ZeroGames **steam game scrapper script**
+
+[Steam Game Scrapper](https://github.com/unknownbulgarian/Steam-Game-Scrapper)
+
+[ZeroGames]()
+
+ZeroGames offers a **free API** that provides **real-time** data from Steam, enabling developers to access the **latest game information** and statistics effortlessly.
+
+## API Information
+
+### What do you get?
+
+- [x] The link for the game
+
+- [x] The title
+
+- [x] The main game image
+
+- [x] The game discount if there is any
+
+- [x] The discount original price
+
+- [x] The final price
+
+- [x] The game price if there is no discount
+
+- [x] 20 Keywords about the game
+
+- [x] Google description about the game
+
+- [x] Wikipedia link
+
+- [x] Extra description from steam
+
+- [x] The game DLCS
+
+- [x] The dlcs name
+
+- [x] The dlcs discount price if there is any
+
+- [x] The dlcs discount original price
+
+- [x] The final discount price
+
+- [x] The dlcs price if there is no discount
+
+- [x] 19 extra images about the game
+
+- [x] 1 video about the game
+
+- [x] The system requirements for the game
+
+- [x] The minimum requirements
+
+- [x] The recommended requirements
+
+**The final json**
+
+```
+ const game = {
+        General: {
+            Link: newUrl,
+            Title: title,
+            imgSrc: imgSrc,
+            gameDiscount: originalDiscountPrice?.isDiscount,
+            GamePrice: gamePrice,
+            DiscountOriginalPrice: originalDiscountPrice?.DiscountOriginalPrice,
+            FinalPrice: finalPrice,
+            Keywords: []
+        },
+        About: {
+            Description: description?.desc,
+            Wikipedia: description?.wikiLink,
+        },
+        Extra: {
+            Description: extraDescription,
+            DLCS: [],
+            Images: [],
+            Videos: [],
+        },
+        Requirements: {
+            Requirements: [],
+            Minimum: [],
+            Maximum: [],
+        },
+    };
+```
+
+### How to use it?
+
+> [!IMPORTANT]
+> The API will be released soon!
+
+# For the nerds
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
