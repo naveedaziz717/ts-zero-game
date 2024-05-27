@@ -87,7 +87,7 @@ export default function Navbar() {
 
     const router = useRouter()
 
-    const logo = '/images/logo/logo.png'
+    const logo = 'https://i.ibb.co/k6k4xj0/logo.png'
 
     const categoriesPerPage = 15;
     const categoryGroups: string[][] = [];
