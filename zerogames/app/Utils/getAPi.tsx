@@ -1,4 +1,4 @@
-const api : string = 'https://zerogames-server.onrender.com'
+const api : string = 'https://zerogames.loca.lt'
 
 
 
