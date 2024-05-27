@@ -73,8 +73,10 @@ interface gamesKeywords {
 
 interface SearchType {
     getSearchGames: (keyword : string, page: number | undefined) => void;
+    getSearchGamesNav: (keyword : string, page: number | undefined) => void;
 
     games: GameProps[] | undefined;
+    navGames: GameProps[] | undefined;
 
     page: number;
     setPage: Dispatch<SetStateAction<number>>;
@@ -108,6 +110,7 @@ export const SearchProvider: React.FC<{ children: ReactNode }> = ({ children }) 
     const { api } = useApi()
 
     const [games, setGames] = useState<Array<GameProps>>()
+    const [navGames, setNavGames] = useState<Array<GameProps>>()
     const [page, setPage] = useState<number>(1)
     const [totalPages, setTotalPages] = useState<number>(10)
 
@@ -144,6 +147,34 @@ export const SearchProvider: React.FC<{ children: ReactNode }> = ({ children }) 
         }
     };
 
+    const getSearchGamesNav = async (keyword: string, page: number | undefined) => {
+
+        if (page === undefined) {
+            page = 1
+        }
+
+        try {
+            const response = await fetch(api + '/getSearchGames', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ keyword, page })
+            });
+
+            if (!response.ok) {
+                throw new Error('Failed to fetch data');
+            }
+
+            const data = await response.json();
+            //console.log(data)
+            setNavGames(data.games)
+
+        } catch (error) {
+            //console.error('Error fetching data:', error.message);
+        }
+    };
+
 
 
 
@@ -154,6 +185,10 @@ export const SearchProvider: React.FC<{ children: ReactNode }> = ({ children }) 
         setPage,
         totalPages,
         setTotalPages,
+
+
+        getSearchGamesNav,
+        navGames,
 
         searchValue,
         setSearchValue,

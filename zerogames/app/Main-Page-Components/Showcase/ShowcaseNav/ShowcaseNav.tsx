@@ -18,7 +18,7 @@ export default function ShowcaseNav() {
 
   const router = useRouter()
 
-  const { games, getSearchGames, isSearching, setSearching, setSearchValue, setFocused } = useSearch()
+  const { games, navGames, getSearchGames, getSearchGamesNav, isSearching, setSearching, setSearchValue, setFocused } = useSearch()
 
   const disableOnSearch = () => {
     setTimeout(() => {
@@ -50,7 +50,7 @@ export default function ShowcaseNav() {
             }
           }}
           onInput={(e) => {
-            getSearchGames(e.currentTarget.value, 1);
+            getSearchGamesNav(e.currentTarget.value, 1);
             setSearchValue(e.currentTarget.value)
             if (e.currentTarget.value !== '') {
               setSearching(true)
@@ -73,7 +73,7 @@ export default function ShowcaseNav() {
         {isSearching &&
           <div className={styles.searchgames}>
 
-            {games?.map((game, index) => (
+            {navGames?.map((game, index) => (
               <React.Fragment key={index}>
                 <div onClick={() => {router.push('/game/' + game.General.Title)}} className={styles.game}>
                   <img alt='Showcase Image' src={game.General.imgSrc}></img>
