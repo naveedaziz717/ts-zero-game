@@ -102,7 +102,8 @@ export const MainProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
             const response = await fetch(api + '/getShowcase', {
                 method: 'GET',
                 headers: {
-                    'Content-Type': 'application/json'
+                    'Content-Type': 'application/json',
+                    'bypass-tunnel-reminder': 'anyvalue',
                 },
             });
 

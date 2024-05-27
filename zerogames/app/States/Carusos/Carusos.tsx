@@ -124,7 +124,8 @@ export const CarusosProvider: React.FC<{ children: ReactNode }> = ({ children })
             const response = await fetch(api + '/getCarusoGames', {
                 method: 'GET',
                 headers: {
-                    'Content-Type': 'application/json'
+                    'Content-Type': 'application/json',
+                    'bypass-tunnel-reminder': 'anyvalue',
                 },
             });
 
@@ -146,7 +147,8 @@ export const CarusosProvider: React.FC<{ children: ReactNode }> = ({ children })
             const response = await fetch(api + '/getSpecialCarusoGames', {
                 method: 'GET',
                 headers: {
-                    'Content-Type': 'application/json'
+                    'Content-Type': 'application/json',
+                    'bypass-tunnel-reminder': 'anyvalue',
                 },
             });
 
@@ -173,7 +175,8 @@ export const CarusosProvider: React.FC<{ children: ReactNode }> = ({ children })
             const response = await fetch(api + '/getSpecialCarusoGamesFlat', {
                 method: 'GET',
                 headers: {
-                    'Content-Type': 'application/json'
+                    'Content-Type': 'application/json',
+                    'bypass-tunnel-reminder': 'anyvalue',
                 },
             });
 

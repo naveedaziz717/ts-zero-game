@@ -105,7 +105,8 @@ export const MainGamesProvider: React.FC<{ children: ReactNode }> = ({ children 
             const response = await fetch(api + '/getMainGames', {
                 method: 'POST',
                 headers: {
-                    'Content-Type': 'application/json'
+                    'Content-Type': 'application/json',
+                    'bypass-tunnel-reminder': 'anyvalue',
                 },
                 body: JSON.stringify({ page })
             });

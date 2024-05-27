@@ -85,7 +85,8 @@ interface theGames {
       const response = await fetch(api + '/getCategoryGames', {
         method: 'POST',
         headers: {
-          'Content-Type': 'application/json'
+          'Content-Type': 'application/json',
+          'bypass-tunnel-reminder': 'anyvalue',
         },
         body: JSON.stringify({ page, category })
       });
