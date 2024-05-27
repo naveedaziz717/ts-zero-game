@@ -7,7 +7,7 @@ export default function Footer() {
   return (
     <div className={styles.footer}>
       <div className={styles.main}>
-        <Link className='link' href='/'><img src='/images/Logo/logo.png'></img></Link>
+        <Link className='link' href='/'><img src='https://i.ibb.co/k6k4xj0/logo.png'></img></Link>
         <p>© 2024 ZeroGames Corporation. All rights reserved. All trademarks are property of their respective owners in the US and other countries.
         </p>
       </div>
