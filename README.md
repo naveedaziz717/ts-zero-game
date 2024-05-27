@@ -1,7 +1,7 @@
 # ZeroGames deployment & general info documentation
 Public link for the app: [ZeroGames](https://chance-now.vercel.app/)
 
-Project documentation: [Project documentation](https://github.com/unknownbulgarian/chance/tree/main/chance#readme)
+Project documentation: [Project documentation](https://github.com/unknownbulgarian/ZeroGames/tree/main/zerogames#readme)
 
 ## Important
 
